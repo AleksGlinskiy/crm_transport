@@ -1,0 +1,19 @@
+{
+  "name": "crm_transport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksGlinskiy/crm_transport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleksGlinskiy/crm_transport/issues"
+  },
+  "homepage": "https://github.com/AleksGlinskiy/crm_transport#readme"
+}
