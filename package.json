@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --env port=3000",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/AleksGlinskiy/crm_transport/issues"
   },
-  "homepage": "https://github.com/AleksGlinskiy/crm_transport#readme"
+  "homepage": "https://github.com/AleksGlinskiy/crm_transport#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
+    "html-webpack-plugin": "^5.5.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
 }
