@@ -1,1 +1,3 @@
-console.log(1);
+function start() {
+    console.log(1);
+}
