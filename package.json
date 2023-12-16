@@ -8,7 +8,6 @@
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AleksGlinskiy/crm_transport.git"
