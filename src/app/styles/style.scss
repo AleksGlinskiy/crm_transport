@@ -1,0 +1,21 @@
+@import 'reset';
+
+:root {
+    // fonts
+    --font-size: 15px;
+    --font-family: 'Open Sans', sans-serif;
+
+    // colors
+    --font-color: #1d1d1d;
+    --primary-color: #428dfd;
+    --secondary-color: #2e2e2e;
+
+    --success-color: #44c98f;
+    --error-color: #cb6998;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--font-color);
+}
