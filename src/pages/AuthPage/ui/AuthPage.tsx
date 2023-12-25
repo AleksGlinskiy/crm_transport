@@ -1,18 +1,8 @@
-import {SyntheticEvent} from "react";
-
 import bg_image from '../assets/bg.jpg';
 import cls from './AuthPage.module.scss';
 import {LoginForm} from "features/AuthByUsername";
-import {DashboardPage} from "pages/DashboardPage/DashboardPage";
-import {Route, Routes} from "react-router-dom";
 
 export function AuthPage() {
-    const authForm = (event: SyntheticEvent) => {
-        event.preventDefault();
-
-        alert('submit');
-    }
-
     return (
         <div className={cls.AuthPage}>
             <div className={cls.AuthPage__content}>
