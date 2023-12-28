@@ -2,7 +2,7 @@ import bg_image from '../assets/bg.jpg';
 import cls from './AuthPage.module.scss';
 import {LoginForm} from "features/AuthByUsername";
 
-export function AuthPage() {
+export default function AuthPage() {
     return (
         <div className={cls.AuthPage}>
             <div className={cls.AuthPage__content}>
