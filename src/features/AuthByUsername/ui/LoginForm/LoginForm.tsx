@@ -1,16 +1,21 @@
-import {Input} from "shared/ui/Input/Input";
-import {Button} from "shared/ui/Button/Button";
-import {useDispatch, useSelector} from "react-redux";
-import {loginActions} from "../../model/slice/loginSlice";
-import {SyntheticEvent, useCallback} from "react";
-import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
-import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
-import {useNavigate} from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { type SyntheticEvent, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { loginActions } from '../../model/slice/loginSlice';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 
 export function LoginForm() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
+    const loading = useSelector(getLoginLoading);
 
     const navigate = useNavigate();
 
@@ -22,11 +27,19 @@ export function LoginForm() {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginSubmit = useCallback((event: SyntheticEvent) => {
+    const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
         event.preventDefault();
 
-        navigate('/');
-    }, []);
+        const res = await dispatch(loginByUsername({ username, password }));
+
+        if (res.meta.requestStatus === 'fulfilled') {
+            navigate(RoutePath.dashboard);
+        }
+    }, [dispatch, username, password, navigate]);
+
+    if (loading) {
+        return <div>Загрузка...</div>;
+    }
 
     return (
         <form action="/" onSubmit={onLoginSubmit}>
@@ -42,7 +55,7 @@ export function LoginForm() {
                 onChange={onChangePassword}
                 value={password}
             />
-            <Button>Войти</Button>
+            <Button type="submit">Войти</Button>
         </form>
-    )
+    );
 }

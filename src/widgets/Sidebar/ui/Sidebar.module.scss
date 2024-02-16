@@ -1,0 +1,19 @@
+.Sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 36px 12px;
+
+    &__top {
+
+    }
+
+    &__nav {
+
+    }
+
+    &__bottom {
+        margin-top: 20px;
+    }
+}

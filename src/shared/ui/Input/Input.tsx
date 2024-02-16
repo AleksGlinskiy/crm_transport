@@ -1,12 +1,12 @@
+import React, { type InputHTMLAttributes } from 'react';
 import cls from './Input.module.scss';
-import React, {InputHTMLAttributes} from "react";
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 interface InputProps extends HTMLInputProps {
-    className?: string;
-    value?: string;
-    onChange?: (value: string) => void;
+  className?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
 export function Input(props: InputProps) {
@@ -30,5 +30,5 @@ export function Input(props: InputProps) {
             onChange={onChangeHandler}
             {...otherProps}
         />
-    )
+    );
 }

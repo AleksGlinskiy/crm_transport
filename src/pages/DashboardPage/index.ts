@@ -1,1 +1,1 @@
-export {DashboardPageAsync as DashboardPage} from "./ui/DashboardPage.async";
+export { DashboardPageAsync as DashboardPage } from './ui/DashboardPage.async';

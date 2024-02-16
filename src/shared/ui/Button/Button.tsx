@@ -1,13 +1,22 @@
+import { ButtonHTMLAttributes, type ReactNode } from 'react';
 import cls from './Button.module.scss';
-import {ReactNode} from "react";
 
-interface PropsButton {
-    children: ReactNode;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
 }
 
-export function Button(props: PropsButton) {
-    const {children} = props;
+export function Button(props: ButtonProps) {
+    const {
+        children,
+        ...otherProps
+    } = props;
     return (
-        <button className={cls.Button}>{children}</button>
-    )
+        <button
+            className={cls.Button}
+            type="button"
+            {...otherProps}
+        >
+            {children}
+        </button>
+    );
 }
