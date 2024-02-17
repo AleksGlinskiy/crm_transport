@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
-    "target": "es2017",
+    "target": "es2021",
     "jsx": "react-jsx",
     "allowJs": true,
     "strict": false,
