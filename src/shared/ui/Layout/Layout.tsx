@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import cls from './Layout.module.scss';
 
