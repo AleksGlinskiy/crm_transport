@@ -45,15 +45,19 @@ export function LoginForm() {
         <form action="/" onSubmit={onLoginSubmit}>
             <Input
                 type="text"
-                placeholder="Логин"
+                placeholder="Введите логин или Email"
+                label="Логин"
                 onChange={onChangeUsername}
                 value={username}
+                required
             />
             <Input
                 type="password"
-                placeholder="Пароль"
+                placeholder="Введите пароль"
+                label="Пароль"
                 onChange={onChangePassword}
                 value={password}
+                required
             />
             <Button type="submit">Войти</Button>
         </form>

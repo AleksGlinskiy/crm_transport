@@ -6,6 +6,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps {
   className?: string
   value?: string
+  label?: string
   onChange?: (value: string) => void
 }
 
@@ -13,8 +14,9 @@ export function Input(props: InputProps) {
     const {
         className,
         value,
-        type = 'text',
+        label,
         onChange,
+        required,
         ...otherProps
     } = props;
 
@@ -23,12 +25,20 @@ export function Input(props: InputProps) {
     };
 
     return (
-        <input
-            className={cls.Input}
-            type={type}
-            value={value}
-            onChange={onChangeHandler}
-            {...otherProps}
-        />
+        <label className={cls.Input}>
+            {label && (
+                <span className={cls.Input__label}>
+                    {label}
+                    {required && <span>*</span>}
+                </span>
+            )}
+            <input
+                className={cls.Input__tag}
+                value={value}
+                onChange={onChangeHandler}
+                required
+                {...otherProps}
+            />
+        </label>
     );
 }
