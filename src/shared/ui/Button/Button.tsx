@@ -2,8 +2,9 @@ import { ButtonHTMLAttributes, type ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Button.module.scss';
 
-//const ButtonVariants = 'primary' | 'outline' | 'process';
+// const ButtonVariants = 'primary' | 'outline' | 'process';
 
+// sds
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     className?: string;
