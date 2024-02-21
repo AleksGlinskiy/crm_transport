@@ -1,4 +1,4 @@
-@import "app/styles/mixins";
+@use "app/styles/_mixins.scss" as *;
 
 .AuthPage {
     display: flex;

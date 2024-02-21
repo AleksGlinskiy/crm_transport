@@ -1,3 +1,5 @@
+@use "app/styles/_mixins.scss" as *;
+
 .Input {
     display: block;
     width: 100%;
@@ -15,12 +17,19 @@
         display: block;
         width: 100%;
         border: 1px solid #DADBDC;
-        line-height: 56px;
-        height: 56px;
+        line-height: rem(56);
+        height: rem(56);
+        padding: 0 rem(30);
+        border-radius: rem(16);
         letter-spacing: 0.6px;
-        padding: 0 30px;
-        border-radius: 15px;
         transition: border-color 0.3s;
+
+        @include media-big-desktop {
+            line-height: big(56);
+            height: big(56);
+            padding: 0 big(30);
+            border-radius: big(16);
+        }
 
         &:focus,
         &:focus-visible {

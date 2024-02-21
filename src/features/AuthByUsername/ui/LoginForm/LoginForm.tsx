@@ -3,7 +3,7 @@ import { type SyntheticEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -62,6 +62,7 @@ export function LoginForm() {
             <Button
                 type="submit"
                 disabled={loading}
+                variant={ButtonVariants.OUTLINE}
                 className={cls.LoginForm__btn}
             >
                 {loading ? 'Загрузка...' : 'Войти'}
