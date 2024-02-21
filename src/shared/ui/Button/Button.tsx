@@ -4,7 +4,6 @@ import cls from './Button.module.scss';
 
 // const ButtonVariants = 'primary' | 'outline' | 'process';
 
-// sds
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     className?: string;
