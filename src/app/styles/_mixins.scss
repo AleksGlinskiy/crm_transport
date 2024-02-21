@@ -1,0 +1,45 @@
+@use "sass:math";
+
+@mixin media-big-desktop {
+    @media screen and (min-width: #{rem(2561)}) {
+        @content;
+    }
+}
+
+@mixin media-desktop {
+    @media screen and (max-width: #{rem(2100)}) {
+        @content;
+    }
+}
+
+@mixin media-laptop {
+    @media screen and (max-width: #{rem(1650)}) {
+        @content;
+    }
+}
+
+@mixin media-tablet {
+    @media screen and (max-width: #{rem(1128)}) {
+        @content;
+    }
+}
+
+@mixin media-mobile {
+    @media screen and (max-width: #{rem(720)}) {
+        @content;
+    }
+}
+
+@mixin media($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@function rem($pixels) {
+    @return #{math.div($pixels, 16)}rem;
+}
+
+@function big($pixels) {
+    @return #{math.div($pixels, 2560) * 100}vw;
+}

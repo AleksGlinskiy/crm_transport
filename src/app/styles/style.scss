@@ -1,18 +1,9 @@
-@import 'normalize';
+@import
+"mixins",
+"normalize",
+"fonts",
+"vars";
 
-:root {
-    // fonts
-    --font-size: 16px;
-    --font-family: 'Open Sans', sans-serif;
-
-    // colors
-    --font-color: #0e0d35;
-    --primary-color: #5755ff;
-    --secondary-color: #ff8f6b;
-    --success-color: #44c98f;
-    --error-color: #cb6998;
-    --bg-color: #f8f8f9;
-}
 
 html,
 body,
@@ -23,6 +14,11 @@ body,
 
 body {
     font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
     color: var(--font-color);
     height: 100%;
+
+    @include media-big-desktop {
+        font-size: big(16);
+    }
 }
