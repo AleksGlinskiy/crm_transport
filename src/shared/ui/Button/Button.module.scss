@@ -1,16 +1,26 @@
+@import "app/styles/mixins";
+
 .Button {
     background: var(--primary-color);
     color: #fff;
     border: 0;
-    line-height: 56px;
-    height: 56px;
-    padding: 0 30px;
-    cursor: pointer;
-    border-radius: 15px;
+    line-height: rem(56);
+    height: rem(56);
+    padding: 0 rem(30);
+    border-radius: rem(15);
+    font-size: rem(16);
     font-weight: 500;
-    font-size: 16px;
-
+    letter-spacing: 0.6px;
+    cursor: pointer;
     transition: background-color 0.3s;
+
+    @include media-big-desktop {
+        line-height: big(56);
+        height: big(56);
+        padding: 0 big(30);
+        border-radius: big(15);
+        font-size: big(16);
+    }
 
     &:hover {
         background-color: #7A78FF;
@@ -21,6 +31,6 @@
     }
 
     &:focus-visible {
-        outline: 3px solid rgba(122, 120, 255, 0.5);
+        outline: 3px solid rgb(122 120 255 / 50%);
     }
 }

@@ -11,6 +11,8 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 
+import cls from './LoginForm.module.scss';
+
 export function LoginForm() {
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
@@ -37,10 +39,6 @@ export function LoginForm() {
         }
     }, [dispatch, username, password, navigate]);
 
-    if (loading) {
-        return <div>Загрузка...</div>;
-    }
-
     return (
         <form action="/" onSubmit={onLoginSubmit}>
             <Input
@@ -50,6 +48,7 @@ export function LoginForm() {
                 onChange={onChangeUsername}
                 value={username}
                 required
+                disabled={loading}
             />
             <Input
                 type="password"
@@ -58,8 +57,15 @@ export function LoginForm() {
                 onChange={onChangePassword}
                 value={password}
                 required
+                disabled={loading}
             />
-            <Button type="submit">Войти</Button>
+            <Button
+                type="submit"
+                disabled={loading}
+                className={cls.LoginForm__btn}
+            >
+                {loading ? 'Загрузка...' : 'Войти'}
+            </Button>
         </form>
     );
 }

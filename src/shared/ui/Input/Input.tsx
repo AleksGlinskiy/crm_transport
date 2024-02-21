@@ -15,8 +15,8 @@ export function Input(props: InputProps) {
         className,
         value,
         label,
-        onChange,
         required,
+        onChange,
         ...otherProps
     } = props;
 

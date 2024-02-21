@@ -7,7 +7,7 @@
         margin-bottom: 5px;
 
         span {
-            color: #FF5555;
+            color: #F55;
         }
     }
 
@@ -17,9 +17,9 @@
         border: 1px solid #DADBDC;
         line-height: 56px;
         height: 56px;
+        letter-spacing: 0.6px;
         padding: 0 30px;
         border-radius: 15px;
-
         transition: border-color 0.3s;
 
         &:focus,

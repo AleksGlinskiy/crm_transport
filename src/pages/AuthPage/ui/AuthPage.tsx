@@ -1,4 +1,4 @@
-import bgImage from '@/shared/assets/bg_2.jpg';
+import bgImage from '@/shared/assets/images/bg_2.jpg';
 import { LoginForm, loginReducer } from '@/features/AuthByUsername';
 import useReducerManager from '@/shared/hooks/useReducerManager';
 import cls from './AuthPage.module.scss';
@@ -10,11 +10,7 @@ export default function AuthPage() {
         <div className={cls.AuthPage}>
             <div className={cls.AuthPage__content}>
                 <div className={cls.AuthPage__content_wrap}>
-                    <h1>
-                        Добро пожаловать!
-                        <br />
-                        В TManager
-                    </h1>
+                    <h1>Добро пожаловать! В&nbsp;TManager</h1>
                     <p>
                         У вас нет аккаунта?
                         <a href="/">Зарегистрироваться</a>

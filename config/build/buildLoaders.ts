@@ -1,8 +1,9 @@
 import type webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
 import { type BuildOptions } from './types/config';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -24,7 +25,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     },
                 },
             },
-            'sass-loader',
+            {
+                loader: 'sass-loader',
+            },
         ],
     };
 
@@ -42,10 +45,16 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
+    const fontLoader = {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+    };
+
     return [
         typescriptLoader,
         cssLoader,
         fileLoader,
         svgLoader,
+        fontLoader,
     ];
 }

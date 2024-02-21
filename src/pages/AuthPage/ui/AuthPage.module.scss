@@ -1,3 +1,5 @@
+@import "app/styles/mixins";
+
 .AuthPage {
     display: flex;
     width: 100%;
@@ -12,15 +14,24 @@
         padding: 60px;
 
         &_wrap {
-            max-width: 440px;
+            max-width: rem(460);
             width: 100%;
+
+            @include media-big-desktop {
+                max-width: big(460);
+            }
         }
 
         h1 {
-            font-size: 36px;
-            font-weight: 600;
+            font-size: rem(48);
+            font-weight: 700;
             margin-top: 0;
+            letter-spacing: normal;
             margin-bottom: 15px;
+
+            @include media-big-desktop {
+                font-size: big(48);
+            }
         }
 
         a {
@@ -35,11 +46,6 @@
             input {
                 width: 100%;
                 margin-bottom: 20px;
-            }
-
-            button {
-                width: 100%;
-                margin-top: 20px;
             }
         }
     }
