@@ -1,8 +1,6 @@
 @import "app/styles/mixins";
 
 .Button {
-    background: var(--primary-color);
-    color: #fff;
     border: 0;
     line-height: rem(56);
     height: rem(56);
@@ -32,5 +30,21 @@
 
     &:focus-visible {
         outline: 3px solid rgb(122 120 255 / 50%);
+    }
+}
+
+.primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
     }
 }
