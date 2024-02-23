@@ -32,7 +32,7 @@ export function Button(props: ButtonProps) {
             type="button"
             {...otherProps}
         >
-            {children}
+            <span>{children}</span>
         </button>
     );
 }

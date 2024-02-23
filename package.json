@@ -12,7 +12,8 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix"
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -42,14 +43,14 @@
     "eslint-plugin-react": "^7.33.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.4",
+    "husky": "^9.0.11",
     "json-server": "^0.17.4",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
-    "stylelint": "^15.2.1",
-    "stylelint-scss": "^4.6.0",
-    "stylelint-config-standard": "^30.0.1",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard-scss": "^3.0.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",

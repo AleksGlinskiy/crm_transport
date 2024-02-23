@@ -1,50 +1,56 @@
 @use "app/styles/_mixins.scss" as *;
 
 .Button {
-    border: 0;
-    line-height: rem(56);
     height: rem(56);
     padding: 0 rem(30);
-    border-radius: rem(16);
     font-size: rem(16);
     font-weight: 500;
+    line-height: rem(56);
     letter-spacing: 0.6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border: 0;
+    border-radius: rem(16);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 
     @include media-big-desktop {
-        line-height: big(56);
         height: big(56);
         padding: 0 big(30);
-        border-radius: big(16);
         font-size: big(16);
+        line-height: big(56);
+        border-radius: big(16);
     }
+}
+
+.primary {
+    color: #fff;
+    background-color: var(--primary-color);
 
     &:hover {
-        background-color: #7A78FF;
+        background-color: #7a78ff;
     }
 
     &:active {
-        background-color: #2826C1;
+        background-color: #2826c1;
     }
 
     &:focus-visible {
         outline: 3px solid rgb(122 120 255 / 50%);
     }
-}
 
-.primary {
-    background: var(--primary-color);
-    color: #fff;
+    &:disabled {
+        color: #7c7f90;
+        cursor: default;
+        background-color: #dddedf;
+    }
 }
 
 .outline {
+    color: var(--primary-color);
     background-color: transparent;
     border: 2px solid var(--primary-color);
-    color: var(--primary-color);
 
     &:hover {
-        background-color: var(--primary-color);
         color: #fff;
+        background-color: var(--primary-color);
     }
 }

@@ -3,13 +3,15 @@ import { type SyntheticEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button/Button';
+import { Message, MessageVariants } from '@/shared/ui/Message/Message';
 import { Input } from '@/shared/ui/Input/Input';
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { getLoginError } from '../../model/selectors/setLoginError/getLoginError';
 
 import cls from './LoginForm.module.scss';
 
@@ -18,6 +20,7 @@ export function LoginForm() {
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const loading = useSelector(getLoginLoading);
+    const error = useSelector(getLoginError);
 
     const navigate = useNavigate();
 
@@ -32,6 +35,7 @@ export function LoginForm() {
     const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
         event.preventDefault();
 
+        dispatch(loginActions.setError(''));
         const res = await dispatch(loginByUsername({ username, password }));
 
         if (res.meta.requestStatus === 'fulfilled') {
@@ -41,6 +45,7 @@ export function LoginForm() {
 
     return (
         <form action="/" onSubmit={onLoginSubmit}>
+            {error && <Message variant={MessageVariants.ERROR} className={cls.LoginForm__error}>{error}</Message>}
             <Input
                 type="text"
                 placeholder="Введите логин или Email"
@@ -59,14 +64,14 @@ export function LoginForm() {
                 required
                 disabled={loading}
             />
-            <Button
-                type="submit"
-                disabled={loading}
-                variant={ButtonVariants.OUTLINE}
-                className={cls.LoginForm__btn}
-            >
-                {loading ? 'Загрузка...' : 'Войти'}
-            </Button>
+
+            {loading
+                ? (
+                    <Button className={cls.LoginForm__btn}>
+                        Загрузка...
+                    </Button>
+                )
+                : (<Button type="submit" className={cls.LoginForm__btn}>Войти</Button>)}
         </form>
     );
 }

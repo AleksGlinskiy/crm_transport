@@ -36,7 +36,7 @@ export function Input(props: InputProps) {
                 className={cls.Input__tag}
                 value={value}
                 onChange={onChangeHandler}
-                required
+                required={required}
                 {...otherProps}
             />
         </label>

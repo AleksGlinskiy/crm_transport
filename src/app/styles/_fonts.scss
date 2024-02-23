@@ -1,32 +1,32 @@
 @font-face {
     font-family: Aeonik;
+    font-style: normal;
+    font-weight: 400;
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.woff2") format("woff2");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.woff") format("woff");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.ttf") format("ttf");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.otf") format("otf");
-    font-weight: 400;
-    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: Aeonik;
+    font-style: normal;
+    font-weight: 500;
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.woff2") format("woff2");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.woff") format("woff");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.ttf") format("ttf");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.otf") format("otf");
-    font-weight: 500;
-    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: Aeonik;
+    font-style: normal;
+    font-weight: 700;
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.woff2") format("woff2");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.woff") format("woff");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.ttf") format("ttf");
     src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.otf") format("otf");
-    font-weight: 700;
-    font-style: normal;
     font-display: swap;
 }

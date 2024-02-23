@@ -18,6 +18,9 @@ const loginSlice = createSlice({
         setPassword: (state: LoginSchema, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
+        setError: (state: LoginSchema, action: PayloadAction<string>) => {
+            state.error = action.payload;
+        },
     },
     extraReducers: (builder: ActionReducerMapBuilder<LoginSchema>) => {
         builder
@@ -29,7 +32,7 @@ const loginSlice = createSlice({
             })
             .addCase(loginByUsername.rejected, (state) => {
                 state.isLoading = false;
-                state.error = 'Ошибка данных!';
+                state.error = 'Неверный логин или пароль';
             });
     },
 });

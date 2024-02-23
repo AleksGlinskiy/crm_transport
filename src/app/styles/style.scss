@@ -1,9 +1,4 @@
-@import
-"mixins",
-"normalize",
-"fonts",
-"vars";
-
+@import "mixins", "normalize", "fonts", "vars";
 
 html,
 body,
@@ -13,10 +8,10 @@ body,
 }
 
 body {
-    font-family: var(--font-family);
-    letter-spacing: var(--letter-spacing);
-    color: var(--font-color);
     height: 100%;
+    font-family: var(--font-family);
+    color: var(--font-color);
+    letter-spacing: var(--letter-spacing);
 
     @include media-big-desktop {
         font-size: big(16);

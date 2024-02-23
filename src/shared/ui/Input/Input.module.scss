@@ -9,36 +9,36 @@
         margin-bottom: 5px;
 
         span {
-            color: #F55;
+            color: #f55;
         }
     }
 
     &__tag {
         display: block;
         width: 100%;
-        border: 1px solid #DADBDC;
-        line-height: rem(56);
         height: rem(56);
         padding: 0 rem(30);
-        border-radius: rem(16);
+        line-height: rem(56);
         letter-spacing: 0.6px;
+        border: 1px solid #dadbdc;
+        border-radius: rem(16);
         transition: border-color 0.3s;
 
         @include media-big-desktop {
-            line-height: big(56);
             height: big(56);
             padding: 0 big(30);
+            line-height: big(56);
             border-radius: big(16);
         }
 
         &:focus,
         &:focus-visible {
-            outline: none;
             border-color: var(--primary-color);
+            outline: none;
         }
 
         &::placeholder {
-            color: #A4A9B1;
+            color: #a4a9b1;
         }
     }
 }

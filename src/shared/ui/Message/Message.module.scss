@@ -6,11 +6,11 @@
 }
 
 .success {
-    background-color: rgba(143, 230, 107, 0.75);
-    color: rgb(52, 153, 0);
+    color: rgb(52 153 0);
+    background-color: rgb(143 230 107 / 75%);
 }
 
 .error {
-    background-color: rgba(255, 0, 0, 0.08);
     color: red;
+    background-color: rgb(255 0 0 / 8%);
 }

@@ -27,6 +27,9 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
             },
             {
                 loader: 'sass-loader',
+                // options: {
+                //     additionalData: '@use "app/styles/_mixins.scss" as *;',
+                // },
             },
         ],
     };
