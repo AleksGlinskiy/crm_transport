@@ -13,6 +13,7 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { getLoginError } from '../../model/selectors/setLoginError/getLoginError';
 
+import IconLoader from '@/shared/assets/icons/loading.svg';
 import cls from './LoginForm.module.scss';
 
 export function LoginForm() {
@@ -68,7 +69,8 @@ export function LoginForm() {
             {loading
                 ? (
                     <Button className={cls.LoginForm__btn}>
-                        Загрузка...
+                        <IconLoader width={20} height={20} fill="#fff" />
+                        <span>Загрузка...</span>
                     </Button>
                 )
                 : (<Button type="submit" className={cls.LoginForm__btn}>Войти</Button>)}
