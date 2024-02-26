@@ -1,6 +1,9 @@
 @use "app/styles/_mixins.scss" as *;
 
 .Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: rem(56);
     padding: 0 rem(30);
     font-size: rem(16);
@@ -52,5 +55,32 @@
     &:hover {
         color: #fff;
         background-color: var(--primary-color);
+    }
+}
+
+.process {
+    svg {
+        margin-right: rem(4);
+    }
+
+    color: #fff;
+    background-color: var(--primary-color);
+
+    &:hover {
+        background-color: #7a78ff;
+    }
+
+    &:active {
+        background-color: #2826c1;
+    }
+
+    &:focus-visible {
+        outline: 3px solid rgb(122 120 255 / 50%);
+    }
+
+    &:disabled {
+        color: #7c7f90;
+        cursor: default;
+        background-color: #dddedf;
     }
 }

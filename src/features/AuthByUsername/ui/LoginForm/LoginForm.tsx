@@ -3,7 +3,7 @@ import { type SyntheticEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';
 import { Input } from '@/shared/ui/Input/Input';
 import { loginActions } from '../../model/slice/loginSlice';
@@ -13,7 +13,6 @@ import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLogi
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { getLoginError } from '../../model/selectors/setLoginError/getLoginError';
 
-import IconLoader from '@/shared/assets/icons/loading.svg';
 import cls from './LoginForm.module.scss';
 
 export function LoginForm() {
@@ -67,12 +66,7 @@ export function LoginForm() {
             />
 
             {loading
-                ? (
-                    <Button className={cls.LoginForm__btn}>
-                        <IconLoader width={20} height={20} fill="#fff" />
-                        <span>Загрузка...</span>
-                    </Button>
-                )
+                ? (<Button className={cls.LoginForm__btn} variant={ButtonVariants.PROCESS}>Загрузка...</Button>)
                 : (<Button type="submit" className={cls.LoginForm__btn}>Войти</Button>)}
         </form>
     );

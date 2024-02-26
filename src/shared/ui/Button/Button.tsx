@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, type ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Button.module.scss';
+import IconLoader from '@/shared/assets/icons/loading.svg';
 
 export enum ButtonVariants {
     PRIMARY = 'primary',
@@ -32,6 +33,7 @@ export function Button(props: ButtonProps) {
             type="button"
             {...otherProps}
         >
+            {variant === ButtonVariants.PROCESS && <IconLoader width={19} height={19} fill="#fff" />}
             <span>{children}</span>
         </button>
     );
