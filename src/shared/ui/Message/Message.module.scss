@@ -1,8 +1,15 @@
+@use "app/styles/_mixins.scss" as *;
+
 .Message {
     display: inline-flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 10px;
+    padding: rem(10);
+    font-size: rem(15);
+    border-radius: rem(10);
+
+    svg {
+        margin-right: rem(8);
+    }
 }
 
 .success {
@@ -11,6 +18,6 @@
 }
 
 .error {
-    color: red;
-    background-color: rgb(255 0 0 / 8%);
+    color: var(--error-color);
+    background-color: #fee;
 }

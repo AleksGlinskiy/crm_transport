@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Message.module.scss';
+import IconInfo from '@/shared/assets/icons/info-circle.svg';
 
 export enum MessageVariants {
     SUCCESS = 'success',
@@ -31,6 +32,7 @@ export function Message(props: MessageProps) {
             className={classNames(cls.Message, mods, className)}
             {...otherProps}
         >
+            <IconInfo width={15} height={15} viewBox="0 0 20 20" />
             <span>{children}</span>
         </div>
     );
