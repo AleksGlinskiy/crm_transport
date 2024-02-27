@@ -11,7 +11,7 @@ export default function AuthPage() {
             <div className={cls.AuthPage__content}>
                 <div className={cls.AuthPage__content_wrap}>
                     <h1>Добро пожаловать! В&nbsp;TManager</h1>
-                    <p>
+                    <p className={cls.AuthPage__content_desc}>
                         У вас нет аккаунта?
                         <a href="/">Зарегистрироваться</a>
                     </p>
