@@ -1,32 +1,44 @@
 @font-face {
-    font-family: Aeonik;
+    font-family: Gilroy;
+    src: url("/src/shared/assets/fonts/Gilroy-Regular.eot");
+    src:
+        local("Gilroy Regular"),
+        local("Gilroy-Regular"),
+        url("/src/shared/assets/fonts/Gilroy-Regular.eot?#iefix") format("embedded-opentype"),
+        url("/src/shared/assets/fonts/Gilroy-Regular.woff2") format("woff2"),
+        url("/src/shared/assets/fonts/Gilroy-Regular.woff") format("woff"),
+        url("/src/shared/assets/fonts/Gilroy-Regular.ttf") format("truetype");
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.woff2") format("woff2");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.woff") format("woff");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.ttf") format("ttf");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Regular.otf") format("otf");
     font-display: swap;
 }
 
 @font-face {
-    font-family: Aeonik;
-    font-style: normal;
+    font-family: Gilroy;
+    src: url("/src/shared/assets/fonts/Gilroy-Medium.eot");
+    src:
+        local("Gilroy Medium"),
+        local("Gilroy-Medium"),
+        url("/src/shared/assets/fonts/Gilroy-Medium.eot?#iefix") format("embedded-opentype"),
+        url("/src/shared/assets/fonts/Gilroy-Medium.woff2") format("woff2"),
+        url("/src/shared/assets/fonts/Gilroy-Medium.woff") format("woff"),
+        url("/src/shared/assets/fonts/Gilroy-Medium.ttf") format("truetype");
     font-weight: 500;
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.woff2") format("woff2");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.woff") format("woff");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.ttf") format("ttf");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Medium.otf") format("otf");
+    font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: Aeonik;
+    font-family: Gilroy;
+    src: url("/src/shared/assets/fonts/Gilroy-Bold.eot");
+    src:
+        local("Gilroy Bold"),
+        local("Gilroy-Bold"),
+        url("/src/shared/assets/fonts/Gilroy-Bold.eot?#iefix") format("embedded-opentype"),
+        url("/src/shared/assets/fonts/Gilroy-Bold.woff2") format("woff2"),
+        url("/src/shared/assets/fonts/Gilroy-Bold.woff") format("woff"),
+        url("/src/shared/assets/fonts/Gilroy-Bold.ttf") format("truetype");
+    font-weight: bold;
     font-style: normal;
-    font-weight: 700;
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.woff2") format("woff2");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.woff") format("woff");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.ttf") format("ttf");
-    src: url("/src/shared/assets/fonts/Aeonik_Pro_Bold.otf") format("otf");
     font-display: swap;
 }

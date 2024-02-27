@@ -1,15 +1,14 @@
 :root {
     // fonts
     --font-size: rem(16);
-    --font-family: "Aeonik", sans-serif;
-    --letter-spacing: 0.6px;
+    --font-family: "Gilroy", sans-serif;
 
     // colors
     --font-color: #0e0d35;
     --primary-color: #5755ff;
     --secondary-color: #ff8f6b;
     --success-color: #44c98f;
-    --error-color: #cb6998;
+    --error-color: #f55;
     --grey-color: #f8f8f9;
 
     @include media-big-desktop {

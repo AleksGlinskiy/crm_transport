@@ -11,7 +11,7 @@ body {
     height: 100%;
     font-family: var(--font-family);
     color: var(--font-color);
-    letter-spacing: var(--letter-spacing);
+    font-weight: 500;
 
     @include media-big-desktop {
         font-size: big(16);
