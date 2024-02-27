@@ -9,7 +9,6 @@
     font-size: rem(16);
     font-weight: 500;
     line-height: rem(56);
-    letter-spacing: 0.6px;
     cursor: pointer;
     border: 0;
     border-radius: rem(16);
@@ -59,12 +58,13 @@
 }
 
 .process {
-    svg {
-        margin-right: rem(4);
-    }
-
     color: #fff;
     background-color: var(--primary-color);
+
+    svg {
+        margin-right: rem(4);
+        animation: rotation 2s infinite linear;
+    }
 
     &:hover {
         background-color: #7a78ff;
@@ -82,5 +82,15 @@
         color: #7c7f90;
         cursor: default;
         background-color: #dddedf;
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
     }
 }
