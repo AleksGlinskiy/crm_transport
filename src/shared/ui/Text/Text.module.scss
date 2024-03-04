@@ -1,3 +1,70 @@
+@use "app/styles/_mixins.scss" as *;
+
 .Text {
-    font-size: 16px;
+    font-size: var(--font-size);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+.style {
+    &_h1 {
+        font-size: rem(48);
+        font-weight: 700;
+        letter-spacing: normal;
+
+        @include media-big-desktop {
+            font-size: big(48);
+        }
+    }
+
+    &_h2 {
+        font-size: rem(32);
+        font-weight: 700;
+        letter-spacing: normal;
+
+        @include media-big-desktop {
+            font-size: big(32);
+        }
+    }
+
+    &_h3,
+    &_h4 {
+        font-size: rem(24);
+        font-weight: 700;
+        letter-spacing: normal;
+
+        @include media-big-desktop {
+            font-size: big(24);
+        }
+    }
+
+    &_small {
+        font-size: rem(12);
+        font-weight: 500;
+        letter-spacing: normal;
+
+        @include media-big-desktop {
+            font-size: big(12);
+        }
+    }
+
+    &_body {
+        font-size: var(--font-size);
+        font-weight: 500;
+    }
+}
+
+.align {
+    &_left {
+        text-align: left;
+    }
+
+    &_right {
+        text-align: right;
+    }
+
+    &_center {
+        text-align: center;
+    }
 }

@@ -1,4 +1,5 @@
 import React, { type InputHTMLAttributes } from 'react';
+import classNames from 'classnames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -33,7 +34,7 @@ export function Input(props: InputProps) {
                 </span>
             )}
             <input
-                className={cls.Input__tag}
+                className={classNames(cls.Input__tag, className)}
                 value={value}
                 onChange={onChangeHandler}
                 required={required}

@@ -22,18 +22,6 @@
             }
         }
 
-        h1 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: rem(48);
-            font-weight: 700;
-            letter-spacing: normal;
-
-            @include media-big-desktop {
-                font-size: big(48);
-            }
-        }
-
         a {
             font-weight: 600;
             color: var(--primary-color);
