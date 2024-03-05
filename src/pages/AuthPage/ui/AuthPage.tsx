@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
 import { LoginForm, loginReducer } from '@/features/AuthByUsername';
 import useReducerManager from '@/shared/hooks/useReducerManager';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 export default function AuthPage() {
     useReducerManager('loginForm', loginReducer);
@@ -12,10 +14,16 @@ export default function AuthPage() {
         <div className={cls.AuthPage}>
             <div className={cls.AuthPage__content}>
                 <div className={cls.AuthPage__content_wrap}>
-                    <Text tag={TextTag.H1} style={TextStyle.H1}>Добро пожаловать! В&nbsp;TManager</Text>
+                    <Text
+                        className={cls.AuthPage__content_title}
+                        tag={TextTag.H1}
+                        style={TextStyle.H1}
+                    >
+                        Добро пожаловать! В&nbsp;TManager
+                    </Text>
                     <Text className={cls.AuthPage__content_desc}>
                         У вас нет аккаунта?
-                        <a href="/">Зарегистрироваться</a>
+                        <Link to={RoutePath.registration}>Зарегистрироваться</Link>
                     </Text>
 
                     <LoginForm />
