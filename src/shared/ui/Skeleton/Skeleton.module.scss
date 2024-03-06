@@ -1,0 +1,34 @@
+.Skeleton {
+    position: relative;
+    height: 100%;
+    border-radius: 0;
+    background: rgb(130 130 130 / 20%);
+    background:
+        -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(8%, rgb(130 130 130 / 20%)),
+            color-stop(18%, rgb(130 130 130 / 30%)),
+            color-stop(33%, rgb(130 130 130 / 20%))
+        );
+    background:
+        linear-gradient(
+            to right,
+            rgb(130 130 130 / 20%) 8%,
+            rgb(130 130 130 / 30%) 18%,
+            rgb(130 130 130 / 20%) 33%
+        );
+    background-size: 50%;
+    animation: wave-squares 2s infinite ease-out;
+}
+
+@keyframes wave-squares {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}
