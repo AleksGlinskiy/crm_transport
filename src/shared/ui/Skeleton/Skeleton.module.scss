@@ -1,34 +1,28 @@
 .Skeleton {
     position: relative;
-    height: 100%;
-    border-radius: 0;
-    background: rgb(130 130 130 / 20%);
-    background:
-        -webkit-gradient(
-            linear,
-            left top,
-            right top,
-            color-stop(8%, rgb(130 130 130 / 20%)),
-            color-stop(18%, rgb(130 130 130 / 30%)),
-            color-stop(33%, rgb(130 130 130 / 20%))
-        );
-    background:
-        linear-gradient(
-            to right,
-            rgb(130 130 130 / 20%) 8%,
-            rgb(130 130 130 / 30%) 18%,
-            rgb(130 130 130 / 20%) 33%
-        );
-    background-size: 50%;
-    animation: wave-squares 2s infinite ease-out;
+    overflow: hidden;
+    background-color: #f9f9f9;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -50%;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        background: linear-gradient(to right, transparent 0%, #e8e8e8 50%, transparent 100%);
+        animation: load 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        animation-iteration-count: infinite;
+    }
 }
 
-@keyframes wave-squares {
-    0% {
-        background-position: -100% 0;
+@keyframes load {
+    from {
+        left: -50%;
     }
 
-    100% {
-        background-position: 100% 0;
+    to {
+        left: 100%;
     }
 }
