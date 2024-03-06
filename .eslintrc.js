@@ -55,7 +55,6 @@ module.exports = {
         {
             files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off',
                 'max-len': 'off',
             },
         },

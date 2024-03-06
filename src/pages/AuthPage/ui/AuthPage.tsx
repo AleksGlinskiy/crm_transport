@@ -6,6 +6,7 @@ import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Image } from '@/shared/ui/Image/Image';
 
 export default function AuthPage() {
     useReducerManager('loginForm', loginReducer);
@@ -29,11 +30,8 @@ export default function AuthPage() {
                     <LoginForm />
                 </div>
             </div>
-            <figure className={cls.AuthPage__bg}>
-                <picture className={cls.AuthPage__pic}>
-                    <img src={bgImage} alt="Auth" className={cls.AuthPage__img} />
-                </picture>
-            </figure>
+
+            <Image src={bgImage} className={cls.AuthPage__bg} />
         </div>
     );
 }
