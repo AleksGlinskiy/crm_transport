@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import classNames from 'classnames';
 import { useLayoutEffect, useState } from 'react';
 import cls from './Image.module.scss';
@@ -17,7 +16,6 @@ export function Image(props: ImageProps) {
         className,
         src,
         alt = 'image',
-        ...otherProps
     } = props;
 
     useLayoutEffect(() => {
@@ -27,6 +25,8 @@ export function Image(props: ImageProps) {
         imgNew.onload = function () {
             setImg(src);
         };
+
+        // eslint-disable-next-line
     }, []);
 
     if (!img) {
