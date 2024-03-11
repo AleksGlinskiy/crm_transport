@@ -13,8 +13,10 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { getLoginError } from '../../model/selectors/setLoginError/getLoginError';
+import { getLoginValidateErrors } from '../../model/selectors/getLoginValidateErrors/getLoginValidateErrors';
 
 import cls from './LoginForm.module.scss';
+import { ValidateLoginFormErrors } from '@/features/AuthByUsername/model/types/LoginSchema';
 
 interface LoginFormProps {
     className?: string;
@@ -28,15 +30,18 @@ export function LoginForm(props: LoginFormProps) {
     const password = useSelector(getLoginPassword);
     const loading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
+    const validateErrors = useSelector(getLoginValidateErrors);
 
     const navigate = useNavigate();
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
+        dispatch(loginActions.setValidateError([]));
     }, [dispatch]);
 
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
+        dispatch(loginActions.setValidateError([]));
     }, [dispatch]);
 
     const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
@@ -55,12 +60,17 @@ export function LoginForm(props: LoginFormProps) {
             {error && <Message variant={MessageVariants.ERROR} className={cls.LoginForm__error}>{error}</Message>}
             <Input
                 type="text"
-                placeholder="Введите логин или Email"
-                label="Логин"
+                placeholder="Введите Email"
+                label="Email"
                 onChange={onChangeUsername}
                 value={username}
                 disabled={loading}
                 className={cls.LoginForm__input}
+                error={validateErrors.includes(ValidateLoginFormErrors.INCORRECT_EMAIL)}
+                errorMessage={
+                    validateErrors.includes(ValidateLoginFormErrors.INCORRECT_EMAIL)
+                    && 'Некорректный адрес электронной почты'
+                }
             />
             <Input
                 type="password"
@@ -70,6 +80,11 @@ export function LoginForm(props: LoginFormProps) {
                 value={password}
                 disabled={loading}
                 className={cls.LoginForm__input}
+                error={validateErrors.includes(ValidateLoginFormErrors.INCORRECT_PASSWORD)}
+                errorMessage={
+                    validateErrors.includes(ValidateLoginFormErrors.INCORRECT_PASSWORD)
+                    && 'Минимальный пароль 8 симвалов'
+                }
             />
 
             {loading

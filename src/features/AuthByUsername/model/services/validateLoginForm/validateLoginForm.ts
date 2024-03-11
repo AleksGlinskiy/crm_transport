@@ -13,5 +13,9 @@ export const validateLoginForm = (loginData: LoginByUsernameProps) => {
         errors.push(ValidateLoginFormErrors.INCORRECT_EMAIL);
     }
 
+    if (password.length < 8) {
+        errors.push(ValidateLoginFormErrors.INCORRECT_PASSWORD);
+    }
+
     return errors;
 };
