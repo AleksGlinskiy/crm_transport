@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { type SyntheticEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
@@ -15,7 +16,13 @@ import { getLoginError } from '../../model/selectors/setLoginError/getLoginError
 
 import cls from './LoginForm.module.scss';
 
-export function LoginForm() {
+interface LoginFormProps {
+    className?: string;
+}
+
+export function LoginForm(props: LoginFormProps) {
+    const { className } = props;
+
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -44,7 +51,7 @@ export function LoginForm() {
     }, [dispatch, username, password, navigate]);
 
     return (
-        <form action="/" onSubmit={onLoginSubmit}>
+        <form className={classNames(cls.LoginForm, className)} action="/" onSubmit={onLoginSubmit}>
             {error && <Message variant={MessageVariants.ERROR} className={cls.LoginForm__error}>{error}</Message>}
             <Input
                 type="text"
@@ -54,6 +61,9 @@ export function LoginForm() {
                 value={username}
                 required
                 disabled={loading}
+                error
+                errorMessage="Поле не должно быть пустым"
+                className={cls.LoginForm__input}
             />
             <Input
                 type="password"
@@ -63,6 +73,7 @@ export function LoginForm() {
                 value={password}
                 required
                 disabled={loading}
+                className={cls.LoginForm__input}
             />
 
             {loading

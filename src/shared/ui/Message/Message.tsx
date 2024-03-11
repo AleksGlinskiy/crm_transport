@@ -32,7 +32,7 @@ export function Message(props: MessageProps) {
             className={classNames(cls.Message, mods, className)}
             {...otherProps}
         >
-            <IconInfo width={15} height={15} viewBox="0 0 20 20" />
+            <IconInfo width={15} height={15} />
             <span>{children}</span>
         </div>
     );

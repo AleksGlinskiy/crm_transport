@@ -5,10 +5,12 @@ import cls from './Input.module.scss';
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 interface InputProps extends HTMLInputProps {
-  className?: string
-  value?: string
-  label?: string
-  onChange?: (value: string) => void
+    className?: string
+    value?: string
+    label?: string
+    error?: boolean
+    errorMessage?: string
+    onChange?: (value: string) => void
 }
 
 export function Input(props: InputProps) {
@@ -18,6 +20,8 @@ export function Input(props: InputProps) {
         label,
         required,
         onChange,
+        error,
+        errorMessage,
         ...otherProps
     } = props;
 
@@ -26,7 +30,7 @@ export function Input(props: InputProps) {
     };
 
     return (
-        <label className={cls.Input}>
+        <label className={classNames(cls.Input, { [cls.Input_error]: error }, className)}>
             {label && (
                 <span className={cls.Input__label}>
                     {label}
@@ -34,12 +38,17 @@ export function Input(props: InputProps) {
                 </span>
             )}
             <input
-                className={classNames(cls.Input__tag, className)}
+                className={cls.Input__tag}
                 value={value}
                 onChange={onChangeHandler}
                 required={required}
                 {...otherProps}
             />
+            {errorMessage && (
+                <span className={cls.Input__message}>
+                    {errorMessage}
+                </span>
+            )}
         </label>
     );
 }

@@ -21,15 +21,6 @@
                 max-width: big(460);
             }
         }
-
-        form {
-            margin-top: 30px;
-
-            input {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
     }
 
     &__content_title {
@@ -43,6 +34,10 @@
             color: var(--primary-color);
             text-decoration: none;
         }
+    }
+
+    &__form {
+        margin-top: 30px;
     }
 
     &__bg {

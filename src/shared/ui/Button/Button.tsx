@@ -33,7 +33,7 @@ export function Button(props: ButtonProps) {
             type="button"
             {...otherProps}
         >
-            {variant === ButtonVariants.PROCESS && <IconLoader width={19} height={19} fill="#fff" />}
+            {variant === ButtonVariants.PROCESS && <IconLoader width={19} height={19} />}
             <span>{children}</span>
         </button>
     );

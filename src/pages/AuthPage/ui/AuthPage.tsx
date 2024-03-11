@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 import { LoginForm, loginReducer } from '@/features/AuthByUsername';
 import useReducerManager from '@/shared/hooks/useReducerManager';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
@@ -8,7 +7,6 @@ import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Image } from '@/shared/ui/Image/Image';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export default function AuthPage() {
     useReducerManager('loginForm', loginReducer);
@@ -29,7 +27,7 @@ export default function AuthPage() {
                         <Link to={RoutePath.registration}>Зарегистрироваться</Link>
                     </Text>
 
-                    <LoginForm />
+                    <LoginForm className={cls.AuthPage__form} />
                 </div>
             </div>
 
