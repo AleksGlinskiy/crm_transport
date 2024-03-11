@@ -4,8 +4,11 @@ import cls from './RegistrationPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { LoginForm } from '@/features/AuthByUsername';
 import bgImage from '@/shared/assets/images/bg_2.jpg';
+import useTitle from '@/shared/hooks/useTitle';
 
 export default function RegistrationPage() {
+    useTitle('Регистрация');
+
     return (
         <div className={cls.RegistrationPage}>
             <div className={cls.RegistrationPage__content}>

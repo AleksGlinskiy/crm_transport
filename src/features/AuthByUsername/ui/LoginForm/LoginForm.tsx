@@ -62,6 +62,7 @@ export function LoginForm(props: LoginFormProps) {
                 required
                 disabled={loading}
                 className={cls.LoginForm__input}
+                error
             />
             <Input
                 type="password"

@@ -7,8 +7,10 @@ import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Image } from '@/shared/ui/Image/Image';
+import useTitle from '@/shared/hooks/useTitle';
 
 export default function AuthPage() {
+    useTitle('Авторизация');
     useReducerManager('loginForm', loginReducer);
 
     return (
