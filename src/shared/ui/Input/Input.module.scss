@@ -1,6 +1,7 @@
 @use "app/styles/_mixins.scss" as *;
 
 .Input {
+    position: relative;
     display: block;
     width: 100%;
 
@@ -13,6 +14,10 @@
         }
     }
 
+    &__wrapTag {
+        position: relative;
+    }
+
     &__tag {
         display: block;
         width: 100%;
@@ -22,6 +27,7 @@
         font-weight: 500;
         border: 1px solid #dadbdc;
         border-radius: rem(16);
+        text-overflow: ellipsis;
         transition: border-color 0.3s;
 
         @include media-big-desktop {
@@ -49,10 +55,29 @@
         font-size: 14px;
     }
 
+    &__btnClear {
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        width: 20px;
+        height: 20px;
+        border: 0;
+        border-radius: 50%;
+        padding: 0;
+        color: #fff;
+        background-color: var(--error-color);
+        cursor: pointer;
+    }
+
     &_error {
         .Input {
             &__tag {
                 border-color: var(--error-color);
+                padding-right: 40px;
             }
         }
     }

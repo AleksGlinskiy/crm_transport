@@ -61,8 +61,6 @@ export function LoginForm(props: LoginFormProps) {
                 value={username}
                 required
                 disabled={loading}
-                error
-                errorMessage="Поле не должно быть пустым"
                 className={cls.LoginForm__input}
             />
             <Input
