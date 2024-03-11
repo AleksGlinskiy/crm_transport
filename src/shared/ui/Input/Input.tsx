@@ -26,16 +26,12 @@ export function Input(props: InputProps) {
         ...otherProps
     } = props;
 
-    const [val, setVal] = useState(value);
-
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-        setVal(e.target.value);
     };
 
     const onClearHandler = () => {
         onChange?.('');
-        setVal('');
     };
 
     return (
@@ -49,7 +45,7 @@ export function Input(props: InputProps) {
             <span className={cls.Input__wrapTag}>
                 <input
                     className={cls.Input__tag}
-                    value={val}
+                    value={value}
                     onChange={onChangeHandler}
                     required={required}
                     {...otherProps}
