@@ -59,10 +59,8 @@ export function LoginForm(props: LoginFormProps) {
                 label="Логин"
                 onChange={onChangeUsername}
                 value={username}
-                required
                 disabled={loading}
                 className={cls.LoginForm__input}
-                error
             />
             <Input
                 type="password"
@@ -70,7 +68,6 @@ export function LoginForm(props: LoginFormProps) {
                 label="Пароль"
                 onChange={onChangePassword}
                 value={password}
-                required
                 disabled={loading}
                 className={cls.LoginForm__input}
             />

@@ -1,11 +1,12 @@
 import { ActionReducerMapBuilder, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
-import { type LoginSchema } from '../types/LoginSchema';
+import { type LoginSchema, ValidateLoginFormErrors } from '../types/LoginSchema';
 
 const initialState: LoginSchema = {
     isLoading: false,
     username: '',
     password: '',
+    validateError: [],
 };
 
 const loginSlice = createSlice({
@@ -21,18 +22,23 @@ const loginSlice = createSlice({
         setError: (state: LoginSchema, action: PayloadAction<string>) => {
             state.error = action.payload;
         },
+        setValidateError: (state: LoginSchema, action: PayloadAction<ValidateLoginFormErrors[]>) => {
+            state.validateError = action.payload;
+        },
     },
     extraReducers: (builder: ActionReducerMapBuilder<LoginSchema>) => {
         builder
             .addCase(loginByUsername.pending, (state) => {
                 state.isLoading = true;
+                state.validateError = [];
             })
             .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false;
             })
-            .addCase(loginByUsername.rejected, (state) => {
+            .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = 'Неверный логин или пароль';
+                state.validateError = action.payload;
             });
     },
 });
