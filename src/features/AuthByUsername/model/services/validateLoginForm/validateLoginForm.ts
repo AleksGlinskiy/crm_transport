@@ -1,4 +1,4 @@
-import { ValidateLoginFormErrors } from '@/features/AuthByUsername/model/types/LoginSchema';
+import { LoginFormErrors } from '@/features/AuthByUsername/model/types/LoginSchema';
 
 interface LoginByUsernameProps {
     username: string;
@@ -10,11 +10,11 @@ export const validateLoginForm = (loginData: LoginByUsernameProps) => {
     const errors = [];
 
     if (username.length <= 3) {
-        errors.push(ValidateLoginFormErrors.INCORRECT_EMAIL);
+        errors.push(LoginFormErrors.INCORRECT_EMAIL);
     }
 
     if (password.length < 8) {
-        errors.push(ValidateLoginFormErrors.INCORRECT_PASSWORD);
+        errors.push(LoginFormErrors.INCORRECT_PASSWORD);
     }
 
     return errors;

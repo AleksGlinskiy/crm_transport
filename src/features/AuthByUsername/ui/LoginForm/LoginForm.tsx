@@ -12,11 +12,10 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
-import { getLoginError } from '../../model/selectors/setLoginError/getLoginError';
-import { getLoginValidateErrors } from '../../model/selectors/getLoginValidateErrors/getLoginValidateErrors';
+import { getLoginErrors } from '../../model/selectors/setLoginErrors/getLoginErrors';
 
 import cls from './LoginForm.module.scss';
-import { ValidateLoginFormErrors } from '@/features/AuthByUsername/model/types/LoginSchema';
+import { LoginFormErrors } from '../../model/types/LoginSchema';
 
 interface LoginFormProps {
     className?: string;
@@ -29,25 +28,24 @@ export function LoginForm(props: LoginFormProps) {
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const loading = useSelector(getLoginLoading);
-    const error = useSelector(getLoginError);
-    const validateErrors = useSelector(getLoginValidateErrors);
+    const errors = useSelector(getLoginErrors);
 
     const navigate = useNavigate();
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
-        dispatch(loginActions.setValidateError([]));
+        dispatch(loginActions.setErrors([]));
     }, [dispatch]);
 
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
-        dispatch(loginActions.setValidateError([]));
+        dispatch(loginActions.setErrors([]));
     }, [dispatch]);
 
     const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
         event.preventDefault();
 
-        dispatch(loginActions.setError(''));
+        dispatch(loginActions.setErrors([]));
         const res = await dispatch(loginByUsername({ username, password }));
 
         if (res.meta.requestStatus === 'fulfilled') {
@@ -57,7 +55,16 @@ export function LoginForm(props: LoginFormProps) {
 
     return (
         <form className={classNames(cls.LoginForm, className)} action="/" onSubmit={onLoginSubmit}>
-            {error && <Message variant={MessageVariants.ERROR} className={cls.LoginForm__error}>{error}</Message>}
+            {errors.includes(LoginFormErrors.INCORRECT_DATA)
+                && (
+                    <Message
+                        variant={MessageVariants.ERROR}
+                        className={cls.LoginForm__error}
+                    >
+                        Неправильный логин или пароль
+                    </Message>
+                )}
+
             <Input
                 type="text"
                 placeholder="Введите Email"
@@ -66,9 +73,9 @@ export function LoginForm(props: LoginFormProps) {
                 value={username}
                 disabled={loading}
                 className={cls.LoginForm__input}
-                error={validateErrors.includes(ValidateLoginFormErrors.INCORRECT_EMAIL)}
+                error={errors.includes(LoginFormErrors.INCORRECT_EMAIL)}
                 errorMessage={
-                    validateErrors.includes(ValidateLoginFormErrors.INCORRECT_EMAIL)
+                    errors.includes(LoginFormErrors.INCORRECT_EMAIL)
                     && 'Некорректный адрес электронной почты'
                 }
             />
@@ -80,9 +87,9 @@ export function LoginForm(props: LoginFormProps) {
                 value={password}
                 disabled={loading}
                 className={cls.LoginForm__input}
-                error={validateErrors.includes(ValidateLoginFormErrors.INCORRECT_PASSWORD)}
+                error={errors.includes(LoginFormErrors.INCORRECT_PASSWORD)}
                 errorMessage={
-                    validateErrors.includes(ValidateLoginFormErrors.INCORRECT_PASSWORD)
+                    errors.includes(LoginFormErrors.INCORRECT_PASSWORD)
                     && 'Минимальный пароль 8 симвалов'
                 }
             />

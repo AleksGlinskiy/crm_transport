@@ -1,12 +1,12 @@
 import { ActionReducerMapBuilder, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
-import { type LoginSchema, ValidateLoginFormErrors } from '../types/LoginSchema';
+import { LoginFormErrors, type LoginSchema } from '../types/LoginSchema';
 
 const initialState: LoginSchema = {
     isLoading: false,
     username: '',
     password: '',
-    validateError: [],
+    errors: [],
 };
 
 const loginSlice = createSlice({
@@ -19,26 +19,22 @@ const loginSlice = createSlice({
         setPassword: (state: LoginSchema, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
-        setError: (state: LoginSchema, action: PayloadAction<string>) => {
-            state.error = action.payload;
-        },
-        setValidateError: (state: LoginSchema, action: PayloadAction<ValidateLoginFormErrors[]>) => {
-            state.validateError = action.payload;
+        setErrors: (state: LoginSchema, action: PayloadAction<LoginFormErrors[]>) => {
+            state.errors = action.payload;
         },
     },
     extraReducers: (builder: ActionReducerMapBuilder<LoginSchema>) => {
         builder
             .addCase(loginByUsername.pending, (state) => {
                 state.isLoading = true;
-                state.validateError = [];
+                state.errors = [];
             })
             .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = 'Неверный логин или пароль';
-                state.validateError = action.payload;
+                state.errors = action.payload;
             });
     },
 });
