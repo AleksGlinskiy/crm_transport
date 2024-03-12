@@ -34,13 +34,13 @@ export function LoginForm(props: LoginFormProps) {
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
-        dispatch(loginActions.setErrors([]));
-    }, [dispatch]);
+        dispatch(loginActions.setErrors(errors.filter((item) => item !== LoginFormErrors.INCORRECT_EMAIL)));
+    }, [dispatch, errors]);
 
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
-        dispatch(loginActions.setErrors([]));
-    }, [dispatch]);
+        dispatch(loginActions.setErrors(errors.filter((item) => item !== LoginFormErrors.INCORRECT_PASSWORD)));
+    }, [dispatch, errors]);
 
     const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
         event.preventDefault();
@@ -67,8 +67,8 @@ export function LoginForm(props: LoginFormProps) {
 
             <Input
                 type="text"
-                placeholder="Введите Email"
-                label="Email"
+                placeholder="Введите Логин или Email"
+                label="Логин"
                 onChange={onChangeUsername}
                 value={username}
                 disabled={loading}
