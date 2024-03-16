@@ -7,8 +7,22 @@
     font-size: rem(15);
     border-radius: rem(10);
 
+    @include media-big-desktop {
+        padding: big(10);
+        font-size: big(15);
+        border-radius: big(10);
+    }
+
+    @include media-mobile {
+        font-size: rem(14);
+    }
+
     svg {
         margin-right: rem(8);
+
+        @include media-big-desktop {
+            margin-right: big(8);
+        }
     }
 }
 

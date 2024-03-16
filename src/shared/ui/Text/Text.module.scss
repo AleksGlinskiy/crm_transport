@@ -16,6 +16,14 @@
         @include media-big-desktop {
             font-size: big(48);
         }
+
+        @include media-tablet {
+            font-size: rem(32);
+        }
+
+        @include media-mobile {
+            font-size: rem(28);
+        }
     }
 
     &_h2 {

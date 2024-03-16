@@ -76,7 +76,7 @@ export function LoginForm(props: LoginFormProps) {
                 error={errors.includes(LoginFormErrors.INCORRECT_EMAIL)}
                 errorMessage={
                     errors.includes(LoginFormErrors.INCORRECT_EMAIL)
-                    && 'Некорректный адрес электронной почты'
+                    && 'Некорректный Логин или Email'
                 }
             />
             <Input

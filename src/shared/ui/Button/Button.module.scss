@@ -21,6 +21,14 @@
         line-height: big(56);
         border-radius: big(16);
     }
+
+    @include media-mobile {
+        height: rem(44);
+        padding: 0 rem(20);
+        font-size: rem(15);
+        line-height: rem(44);
+        border-radius: rem(12);
+    }
 }
 
 .primary {
@@ -62,8 +70,21 @@
     background-color: var(--primary-color);
 
     svg {
+        width: rem(19);
+        height: rem(19);
         margin-right: rem(4);
         animation: rotation 2s infinite linear;
+
+        @include media-big-desktop {
+            width: big(19);
+            height: big(19);
+            margin-right: big(4);
+        }
+
+        @include media-mobile {
+            width: rem(15);
+            height: rem(15);
+        }
     }
 
     &:hover {

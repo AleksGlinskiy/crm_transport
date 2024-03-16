@@ -1,15 +1,41 @@
+@use "app/styles/_mixins.scss" as *;
+
 .LoginForm {
     &__input {
-        margin-bottom: 20px;
+        margin-bottom: rem(20);
+
+        @include media-big-desktop {
+            margin-bottom: big(20);
+        }
+
+        @include media-mobile {
+            margin-bottom: rem(15);
+        }
     }
 
     &__btn {
         width: 100%;
-        margin-top: 20px;
+        margin-top: rem(20);
+
+        @include media-big-desktop {
+            margin-top: big(20);
+        }
+
+        @include media-mobile {
+            margin-top: rem(15);
+        }
     }
 
     &__error {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: rem(20);
+
+        @include media-big-desktop {
+            margin-bottom: big(20);
+        }
+
+        @include media-mobile {
+            margin-bottom: rem(15);
+        }
     }
 }
