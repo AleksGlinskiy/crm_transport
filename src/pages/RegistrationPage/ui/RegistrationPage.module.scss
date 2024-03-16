@@ -4,6 +4,15 @@
     display: flex;
     width: 100%;
     height: 100vh;
+    min-height: rem(700);
+
+    @include media-big-desktop {
+        min-height: big(700);
+    }
+
+    @include media-tablet {
+        flex-direction: column;
+    }
 
     &__content {
         display: flex;
@@ -13,6 +22,18 @@
         width: 50%;
         padding: rem(60);
 
+        @include media-big-desktop {
+            padding: big(60);
+        }
+
+        @include media-tablet {
+            width: 100%;
+        }
+
+        @include media-mobile {
+            padding: rem(60) rem(25);
+        }
+
         &_wrap {
             width: 100%;
             max-width: rem(460);
@@ -21,44 +42,43 @@
                 max-width: big(460);
             }
         }
-
-        form {
-            margin-top: 30px;
-
-            input {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
     }
 
     &__content_title {
         margin-bottom: rem(15);
+
+        @include media-big-desktop {
+            margin-bottom: big(15);
+        }
     }
 
     &__content_desc {
         a {
-            margin-left: 5px;
+            margin-left: rem(5);
             font-weight: 600;
             color: var(--primary-color);
             text-decoration: none;
+
+            @include media-big-desktop {
+                margin-left: big(5);
+            }
+        }
+    }
+
+    &__form {
+        margin-top: rem(30);
+
+        @include media-big-desktop {
+            margin-top: big(30);
         }
     }
 
     &__bg {
         width: 50%;
-        font-size: 0;
-        line-height: 1;
-    }
 
-    &__pic {
-        width: 100%;
-        height: 100%;
-    }
-
-    &__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        @include media-tablet {
+            width: 100%;
+            height: rem(280);
+        }
     }
 }

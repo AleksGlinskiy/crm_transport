@@ -5,6 +5,8 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { LoginForm } from '@/features/AuthByUsername';
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import useTitle from '@/shared/hooks/useTitle';
+import { RegistrationForm } from '@/features/Registration';
+import { Image } from '@/shared/ui/Image/Image';
 
 export default function RegistrationPage() {
     useTitle('Регистрация');
@@ -18,21 +20,19 @@ export default function RegistrationPage() {
                         tag={TextTag.H1}
                         style={TextStyle.H1}
                     >
-                        Добро пожаловать! В&nbsp;TManager
+                        Регистрация В&nbsp;TManager
                     </Text>
+
                     <Text className={cls.RegistrationPage__content_desc}>
                         Есть аккаунта?
                         <Link to={RoutePath.login}>Войти</Link>
                     </Text>
 
-                    <LoginForm />
+                    <RegistrationForm className={cls.RegistrationPage__form} />
                 </div>
             </div>
-            <figure className={cls.RegistrationPage__bg}>
-                <picture className={cls.RegistrationPage__pic}>
-                    <img src={bgImage} alt="Auth" className={cls.RegistrationPage__img} />
-                </picture>
-            </figure>
+
+            <Image src={bgImage} className={cls.RegistrationPage__bg} />
         </div>
     );
 }

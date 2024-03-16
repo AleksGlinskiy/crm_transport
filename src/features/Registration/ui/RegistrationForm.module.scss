@@ -1,0 +1,41 @@
+@use "app/styles/_mixins.scss" as *;
+
+.RegistrationForm {
+    &__input {
+        margin-bottom: rem(20);
+
+        @include media-big-desktop {
+            margin-bottom: big(20);
+        }
+
+        @include media-mobile {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__btn {
+        width: 100%;
+        margin-top: rem(20);
+
+        @include media-big-desktop {
+            margin-top: big(20);
+        }
+
+        @include media-mobile {
+            margin-top: rem(15);
+        }
+    }
+
+    &__error {
+        width: 100%;
+        margin-bottom: rem(20);
+
+        @include media-big-desktop {
+            margin-bottom: big(20);
+        }
+
+        @include media-mobile {
+            margin-bottom: rem(15);
+        }
+    }
+}
