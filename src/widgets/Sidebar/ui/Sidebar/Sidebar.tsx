@@ -6,6 +6,8 @@ import { userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
 import { Logo } from '@/shared/ui/Logo/Logo';
+import { SidebarItem } from '@/widgets/Sidebar';
+import { SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
 
 interface SidebarProps {
     className?: string;
@@ -19,6 +21,35 @@ export function Sidebar(props: SidebarProps) {
         dispatch(userActions.logoutAuthData());
     };
 
+    const menuItemList: SidebarMenuScheme[] = [
+        {
+            name: 'Маршруты',
+            list: [
+                {
+                    name: 'Добавить',
+                    path: RoutePath.dashboard,
+                },
+                {
+                    name: 'Добавить маршрут',
+                    path: RoutePath.dashboard,
+                },
+            ],
+        },
+        {
+            name: 'Расписание',
+            list: [
+                {
+                    name: 'Добавить',
+                    path: RoutePath.dashboard,
+                },
+                {
+                    name: 'Все',
+                    path: RoutePath.dashboard,
+                },
+            ],
+        },
+    ];
+
     return (
         <div className={classNames(cls.Sidebar, className)}>
             <div className={cls.Sidebar__top}>
@@ -28,8 +59,9 @@ export function Sidebar(props: SidebarProps) {
             </div>
 
             <div className={cls.Sidebar__nav}>
-                <Link to={RoutePath.dashboard}>dashboard</Link>
-                <Link to={RoutePath.about}>about</Link>
+                {menuItemList.map((item) => (
+                    <SidebarItem key={item.name} name={item.name} list={item.list} />
+                ))}
             </div>
 
             <div className={cls.Sidebar__bottom}>
