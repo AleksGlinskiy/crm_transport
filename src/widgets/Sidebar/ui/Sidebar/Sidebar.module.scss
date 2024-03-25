@@ -5,6 +5,20 @@
     padding: 36px 12px;
     background: #fff;
 
+    &__top {
+        display: flex;
+        padding: 0 12px;
+        margin-bottom: 36px;
+    }
+
+    &__logoLink {
+        font-size: 0;
+    }
+
+    &__nav {
+        flex: 1;
+    }
+
     &__bottom {
         margin-top: 20px;
     }

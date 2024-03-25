@@ -5,6 +5,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
+import { Logo } from '@/shared/ui/Logo/Logo';
 
 interface SidebarProps {
     className?: string;
@@ -21,7 +22,9 @@ export function Sidebar(props: SidebarProps) {
     return (
         <div className={classNames(cls.Sidebar, className)}>
             <div className={cls.Sidebar__top}>
-                logo
+                <Link to={RoutePath.dashboard} className={cls.Sidebar__logoLink}>
+                    <Logo />
+                </Link>
             </div>
 
             <div className={cls.Sidebar__nav}>

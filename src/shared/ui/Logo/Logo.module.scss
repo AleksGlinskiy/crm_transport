@@ -1,0 +1,11 @@
+.Logo {
+    fill: #000;
+
+    &__bg {
+        fill: var(--primary-color);
+
+        &_char {
+            fill: #fff;
+        }
+    }
+}
