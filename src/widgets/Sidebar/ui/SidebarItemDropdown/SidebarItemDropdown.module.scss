@@ -1,0 +1,48 @@
+.SidebarItemDropdown {
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        cursor: pointer;
+        border-radius: 12px;
+        padding-right: 12px;
+        transition: background-color 0.5s, color 0.5s;
+
+        &_active {
+            background-color: #f4f3ff;
+            color: var(--primary-color);
+        }
+    }
+
+    &__arrow {
+        width: 18px;
+        height: auto;
+        margin-left: 8px;
+        transition: transform 0.5s;
+
+        path {
+            stroke-width: 2px;
+        }
+
+        &_active {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        padding-left: 45px;
+        padding-top: 0;
+    }
+
+    &__listItem {
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #7d8ca0;
+    }
+}
