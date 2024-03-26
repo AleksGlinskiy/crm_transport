@@ -8,6 +8,7 @@ import cls from './Sidebar.module.scss';
 import { Logo } from '@/shared/ui/Logo/Logo';
 import { SidebarItem } from '@/widgets/Sidebar';
 import { SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
+import { SidebarItemDropdown } from '@/widgets/Sidebar/ui/SidebarItemDropdown/SidebarItemDropdown';
 
 interface SidebarProps {
     className?: string;
@@ -23,30 +24,67 @@ export function Sidebar(props: SidebarProps) {
 
     const menuItemList: SidebarMenuScheme[] = [
         {
-            name: 'Маршруты',
+            name: 'Панель',
+            path: RoutePath.dashboard,
+        },
+        {
+            name: 'Маршрут',
             list: [
                 {
-                    name: 'Добавить',
+                    name: 'Направления',
                     path: RoutePath.dashboard,
                 },
                 {
-                    name: 'Добавить маршрут',
-                    path: RoutePath.dashboard,
+                    name: 'Расписание',
+                    path: RoutePath.about,
+                },
+                {
+                    name: 'Остановки',
+                    path: RoutePath.about,
                 },
             ],
         },
         {
-            name: 'Расписание',
+            name: 'Автопарк',
             list: [
                 {
-                    name: 'Добавить',
+                    name: 'Автомобили',
                     path: RoutePath.dashboard,
                 },
                 {
-                    name: 'Все',
-                    path: RoutePath.dashboard,
+                    name: 'База ТС',
+                    path: RoutePath.about,
+                },
+                {
+                    name: 'Мониторинг',
+                    path: RoutePath.about,
                 },
             ],
+        },
+        {
+            name: 'Персонал',
+            list: [
+                {
+                    name: 'Пользователи',
+                    path: RoutePath.dashboard,
+                },
+                {
+                    name: 'Водители',
+                    path: RoutePath.about,
+                },
+                {
+                    name: 'Роли',
+                    path: RoutePath.about,
+                },
+            ],
+        },
+        {
+            name: 'Рейсы',
+            path: RoutePath.dashboard,
+        },
+        {
+            name: 'Клиенты',
+            path: RoutePath.dashboard,
         },
     ];
 
@@ -59,9 +97,12 @@ export function Sidebar(props: SidebarProps) {
             </div>
 
             <div className={cls.Sidebar__nav}>
-                {menuItemList.map((item) => (
-                    <SidebarItem key={item.name} name={item.name} list={item.list} />
-                ))}
+                {menuItemList.map((item) => {
+                    if (item.path) {
+                        return <SidebarItem key={item.name} name={item.name} path={item.path} />;
+                    }
+                    return <SidebarItemDropdown key={item.name} name={item.name} list={item.list} />;
+                })}
             </div>
 
             <div className={cls.Sidebar__bottom}>

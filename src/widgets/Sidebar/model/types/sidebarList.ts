@@ -5,5 +5,6 @@ export interface SidebarMenuList {
 
 export interface SidebarMenuScheme {
     name: string;
+    path?: string;
     list?: SidebarMenuList[];
 }
