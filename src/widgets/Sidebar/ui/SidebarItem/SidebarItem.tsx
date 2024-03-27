@@ -22,9 +22,14 @@ export function SidebarItem(props: SidebarItemProps) {
         return (
             <NavLink
                 to={path}
-                className={classNames(cls.SidebarItem, {
-                    [cls.SidebarItem_active]: isActive,
-                }, className)}
+                className={({ isActive }) => (
+                    isActive
+                        ? classNames(
+                            cls.SidebarItem,
+                            cls.SidebarItem_current,
+                        )
+                        : cls.SidebarItem
+                )}
             >
                 <Icon className={cls.SidebarItem__icon} />
                 <span className={cls.SidebarItem__name}>{name}</span>

@@ -31,4 +31,8 @@
         background-color: #f4f3ff;
         color: var(--primary-color);
     }
+
+    &_current {
+        color: var(--primary-color);
+    }
 }
