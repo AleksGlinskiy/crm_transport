@@ -37,6 +37,7 @@
         padding: 12px;
         padding-left: 45px;
         padding-top: 0;
+        user-select: none;
     }
 
     &__listItem {
@@ -44,5 +45,9 @@
         margin-top: 15px;
         text-decoration: none;
         color: #7d8ca0;
+
+        &_active {
+            color: var(--primary-color);
+        }
     }
 }

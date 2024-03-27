@@ -1,11 +1,9 @@
 import classNames from 'classnames';
-import { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import cls from './SidebarItemDropdown.module.scss';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import IconArrow from '@/shared/assets/icons/arrow-down.svg';
-import Icon from '@/shared/assets/icons/routing.svg';
-import { SidebarMenuList, SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
+import { SidebarMenuList } from '@/widgets/Sidebar/model/types/sidebarList';
 import { SidebarItem } from '@/widgets/Sidebar';
 
 interface SidebarItemDropdownProps {
@@ -21,37 +19,44 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
         list,
     } = props;
 
-    const [isActive, setIsActive] = useState(false);
+    const [isActiveList, setIsActiveList] = useState(false);
 
     return (
         <div className={classNames(cls.SidebarItemDropdown, className)}>
             <div
                 className={classNames(cls.SidebarItemDropdown__top, {
-                    [cls.SidebarItemDropdown__top_active]: isActive,
+                    [cls.SidebarItemDropdown__top_active]: isActiveList,
                 })}
-                onClick={() => setIsActive(!isActive)}
+                onClick={() => setIsActiveList(!isActiveList)}
             >
-                <SidebarItem name={name} isActive={isActive} />
+                <SidebarItem name={name} isActive={isActiveList} />
 
                 {list && list.length && (
                     <IconArrow
                         className={classNames(cls.SidebarItemDropdown__arrow, {
-                            [cls.SidebarItemDropdown__arrow_active]: isActive,
+                            [cls.SidebarItemDropdown__arrow_active]: isActiveList,
                         })}
                     />
                 )}
             </div>
 
-            {isActive && (
+            {isActiveList && (
                 <div className={cls.SidebarItemDropdown__list}>
                     {list && list.length && list.map((item) => (
-                        <Link
+                        <NavLink
                             key={item.name}
                             to={item.path}
-                            className={cls.SidebarItemDropdown__listItem}
+                            className={({ isActive }) => (
+                                isActive
+                                    ? classNames(
+                                        cls.SidebarItemDropdown__listItem,
+                                        cls.SidebarItemDropdown__listItem_active,
+                                    )
+                                    : cls.SidebarItemDropdown__listItem
+                            )}
                         >
                             {item.name}
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
             )}

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cls from './SidebarItem.module.scss';
 import Icon from '@/shared/assets/icons/routing.svg';
 
@@ -20,7 +20,7 @@ export function SidebarItem(props: SidebarItemProps) {
 
     if (path) {
         return (
-            <Link
+            <NavLink
                 to={path}
                 className={classNames(cls.SidebarItem, {
                     [cls.SidebarItem_active]: isActive,
@@ -28,7 +28,7 @@ export function SidebarItem(props: SidebarItemProps) {
             >
                 <Icon className={cls.SidebarItem__icon} />
                 <span className={cls.SidebarItem__name}>{name}</span>
-            </Link>
+            </NavLink>
         );
     }
 
