@@ -22,7 +22,7 @@ export function Image(props: ImageProps) {
         const imgNew = document.createElement('img');
         imgNew.src = src;
 
-        imgNew.onload = function () {
+        imgNew.onload = () => {
             setImg(src);
         };
 

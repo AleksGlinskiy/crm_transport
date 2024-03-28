@@ -32,6 +32,7 @@ export const loginByUsername = createAsyncThunk<User,
 
                 return response.data;
             } catch (e) {
+                // eslint-disable-next-line no-console
                 console.error(e);
                 return thunkAPI.rejectWithValue([LoginFormErrors.INCORRECT_DATA]);
             }
