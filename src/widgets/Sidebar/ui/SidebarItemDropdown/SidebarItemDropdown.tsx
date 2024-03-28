@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cls from './SidebarItemDropdown.module.scss';
 import IconArrow from '@/shared/assets/icons/arrow-down.svg';
@@ -9,6 +9,7 @@ import { SidebarItem } from '@/widgets/Sidebar';
 interface SidebarItemDropdownProps {
     className?: string;
     name: string;
+    Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
     list?: SidebarMenuList[];
 }
 
@@ -16,6 +17,7 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
     const {
         className,
         name,
+        Icon,
         list,
     } = props;
 
@@ -29,7 +31,7 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
                 })}
                 onClick={() => setIsActiveList(!isActiveList)}
             >
-                <SidebarItem name={name} isActive={isActiveList} />
+                <SidebarItem Icon={Icon} name={name} isActive={isActiveList} />
 
                 {list && list.length && (
                     <IconArrow

@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
+import React, { ReactNode } from 'react';
 import cls from './SidebarItem.module.scss';
-import Icon from '@/shared/assets/icons/routing.svg';
 
 interface SidebarItemProps {
     className?: string;
     name: string;
+    Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
     path?: string;
     isActive?: boolean;
 }
@@ -14,6 +15,7 @@ export function SidebarItem(props: SidebarItemProps) {
     const {
         className,
         name,
+        Icon,
         path,
         isActive,
     } = props;

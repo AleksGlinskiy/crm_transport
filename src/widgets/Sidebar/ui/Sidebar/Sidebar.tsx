@@ -9,6 +9,12 @@ import { Logo } from '@/shared/ui/Logo/Logo';
 import { SidebarItem } from '@/widgets/Sidebar';
 import { SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
 import { SidebarItemDropdown } from '@/widgets/Sidebar/ui/SidebarItemDropdown/SidebarItemDropdown';
+import IconHome from '@/shared/assets/icons/element-equal.svg';
+import IconRouting from '@/shared/assets/icons/routing.svg';
+import IconCar from '@/shared/assets/icons/car.svg';
+import IconProfileUser from '@/shared/assets/icons/profile-user.svg';
+import IconCalendar from '@/shared/assets/icons/calendar-edit.svg';
+import IconPeople from '@/shared/assets/icons/people.svg';
 
 interface SidebarProps {
     className?: string;
@@ -25,10 +31,12 @@ export function Sidebar(props: SidebarProps) {
     const menuItemList: SidebarMenuScheme[] = [
         {
             name: 'Панель',
+            Icon: IconHome,
             path: RoutePath.dashboard,
         },
         {
             name: 'Маршрут',
+            Icon: IconRouting,
             list: [
                 {
                     name: 'Направления',
@@ -46,6 +54,7 @@ export function Sidebar(props: SidebarProps) {
         },
         {
             name: 'Автопарк',
+            Icon: IconCar,
             list: [
                 {
                     name: 'Автомобили',
@@ -63,6 +72,7 @@ export function Sidebar(props: SidebarProps) {
         },
         {
             name: 'Персонал',
+            Icon: IconProfileUser,
             list: [
                 {
                     name: 'Пользователи',
@@ -80,10 +90,12 @@ export function Sidebar(props: SidebarProps) {
         },
         {
             name: 'Рейсы',
+            Icon: IconCalendar,
             path: RoutePath.dashboard,
         },
         {
             name: 'Клиенты',
+            Icon: IconPeople,
             path: RoutePath.dashboard,
         },
     ];
@@ -99,9 +111,9 @@ export function Sidebar(props: SidebarProps) {
             <div className={cls.Sidebar__nav}>
                 {menuItemList.map((item) => {
                     if (item.path) {
-                        return <SidebarItem key={item.name} name={item.name} path={item.path} />;
+                        return <SidebarItem key={item.name} Icon={item.Icon} name={item.name} path={item.path} />;
                     }
-                    return <SidebarItemDropdown key={item.name} name={item.name} list={item.list} />;
+                    return <SidebarItemDropdown key={item.name} Icon={item.Icon} name={item.name} list={item.list} />;
                 })}
             </div>
 
