@@ -1,0 +1,30 @@
+.AvatarButton {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+
+    &__avatar {
+        width: 60px;
+        height: 60px;
+        background-color: #e9e9e9;
+        border-radius: 12px;
+    }
+
+    &__text {
+        margin-left: 20px;
+    }
+
+    &__name {
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+
+    &__role {
+        font-size: 14px;
+        color: #7c7f90;
+    }
+
+    &__btn {
+        margin-left: auto;
+    }
+}
