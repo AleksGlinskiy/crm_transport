@@ -19,6 +19,12 @@
         flex: 1;
     }
 
+    &__navBottom {
+        border-top: 1px solid #eee;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
     &__bottom {
         margin-top: 20px;
     }

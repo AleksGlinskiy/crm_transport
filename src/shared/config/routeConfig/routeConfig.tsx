@@ -6,10 +6,26 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { RegistrationPage } from '@/pages/RegistrationPage';
 
 export enum AppRoutes {
-  DASHBOARD = 'dashboard',
   LOGIN = 'login',
   REGISTRATION = 'registration',
+
+  DASHBOARD = 'dashboard',
   ABOUT = 'about',
+  SETTINGS = 'settings',
+
+  ROUTE = 'route',
+  TIMESHEET = 'timesheet',
+  STOPOVER = 'stopover',
+
+  CARS = 'cars',
+  CAR_MONITORING = 'car_monitoring',
+
+  USERS = 'users',
+  DRIVERS = 'drivers',
+  ROLES = 'roles',
+
+  CLIENTELE = 'clientele',
+
   NOT_FOUND = 'not_found',
 }
 
@@ -21,16 +37,26 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.DASHBOARD]: '/',
     [AppRoutes.LOGIN]: '/login',
     [AppRoutes.REGISTRATION]: '/registration',
+
     [AppRoutes.ABOUT]: '/about',
+    [AppRoutes.SETTINGS]: 'settings',
+
+    [AppRoutes.ROUTE]: '/route',
+    [AppRoutes.TIMESHEET]: '/timesheet',
+    [AppRoutes.STOPOVER]: '/stopover',
+
+    [AppRoutes.CARS]: '/cars',
+    [AppRoutes.CAR_MONITORING]: '/car_monitoring',
+
+    [AppRoutes.USERS]: '/users',
+    [AppRoutes.DRIVERS]: '/drivers',
+    [AppRoutes.ROLES]: '/roles',
+    [AppRoutes.CLIENTELE]: '/clientele',
 
     [AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
-    [AppRoutes.DASHBOARD]: {
-        path: RoutePath.dashboard,
-        element: <DashboardPage />,
-    },
     [AppRoutes.LOGIN]: {
         path: RoutePath.login,
         element: <AuthPage />,
@@ -41,8 +67,52 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         element: <RegistrationPage />,
         general: true,
     },
+    [AppRoutes.DASHBOARD]: {
+        path: RoutePath.dashboard,
+        element: <DashboardPage />,
+    },
     [AppRoutes.ABOUT]: {
         path: RoutePath.about,
+        element: <AboutPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: RoutePath.settings,
+        element: <DashboardPage />,
+    },
+    [AppRoutes.ROUTE]: {
+        path: RoutePath.route,
+        element: <AboutPage />,
+    },
+    [AppRoutes.TIMESHEET]: {
+        path: RoutePath.timesheet,
+        element: <AboutPage />,
+    },
+    [AppRoutes.STOPOVER]: {
+        path: RoutePath.stopover,
+        element: <AboutPage />,
+    },
+    [AppRoutes.CARS]: {
+        path: RoutePath.cars,
+        element: <AboutPage />,
+    },
+    [AppRoutes.CAR_MONITORING]: {
+        path: RoutePath.car_monitoring,
+        element: <AboutPage />,
+    },
+    [AppRoutes.USERS]: {
+        path: RoutePath.users,
+        element: <AboutPage />,
+    },
+    [AppRoutes.DRIVERS]: {
+        path: RoutePath.drivers,
+        element: <AboutPage />,
+    },
+    [AppRoutes.ROLES]: {
+        path: RoutePath.roles,
+        element: <AboutPage />,
+    },
+    [AppRoutes.CLIENTELE]: {
+        path: RoutePath.clientele,
         element: <AboutPage />,
     },
     [AppRoutes.NOT_FOUND]: {
