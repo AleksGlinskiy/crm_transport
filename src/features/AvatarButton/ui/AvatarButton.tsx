@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Button } from '@/shared/ui/Button/Button';
 import { getUserAuthData, userActions } from '@/entities/User';
 import IconInfo from '@/shared/assets/icons/info-circle.svg';
+import IconUser from '@/shared/assets/icons/user.svg';
 import cls from './AvatarButton.module.scss';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
@@ -22,6 +23,13 @@ export function AvatarButton(props: AvatarButtonProps) {
     };
 
     const fallback = <Skeleton className={cls.AvatarButton__avatar} />;
+    const errorFallback = (
+        <IconUser className={classNames(
+            cls.AvatarButton__avatar,
+            cls.AvatarButton__avatar_fallback,
+        )}
+        />
+    );
 
     if (!authData) {
         return null;
@@ -31,7 +39,7 @@ export function AvatarButton(props: AvatarButtonProps) {
         <div className={classNames(cls.AvatarButton, className)}>
             <AppImage
                 fallback={fallback}
-                errorFallback={fallback}
+                errorFallback={errorFallback}
                 className={cls.AvatarButton__avatar}
                 src="https://sea2.discourse-cdn.com/business7/user_avatar/forum.codewithmosh.com/adomovic/48/5754_2.png"
                 alt={authData.username}
