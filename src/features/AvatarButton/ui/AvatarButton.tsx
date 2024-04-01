@@ -5,6 +5,7 @@ import { getUserAuthData, userActions } from '@/entities/User';
 import IconInfo from '@/shared/assets/icons/info-circle.svg';
 import cls from './AvatarButton.module.scss';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface AvatarButtonProps {
     className?: string;
@@ -20,6 +21,8 @@ export function AvatarButton(props: AvatarButtonProps) {
         dispatch(userActions.logoutAuthData());
     };
 
+    const fallback = <Skeleton className={cls.AvatarButton__avatar} />;
+
     if (!authData) {
         return null;
     }
@@ -27,6 +30,8 @@ export function AvatarButton(props: AvatarButtonProps) {
     return (
         <div className={classNames(cls.AvatarButton, className)}>
             <AppImage
+                fallback={fallback}
+                errorFallback={fallback}
                 className={cls.AvatarButton__avatar}
                 src="https://sea2.discourse-cdn.com/business7/user_avatar/forum.codewithmosh.com/adomovic/48/5754_2.png"
                 alt={authData.username}
