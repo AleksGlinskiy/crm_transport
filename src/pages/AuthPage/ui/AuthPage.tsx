@@ -6,7 +6,7 @@ import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Image } from '@/shared/ui/Image/Image';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import useTitle from '@/shared/hooks/useTitle';
 
 export default function AuthPage() {
@@ -33,7 +33,7 @@ export default function AuthPage() {
                 </div>
             </div>
 
-            <Image src={bgImage} className={cls.AuthPage__bg} />
+            <AppImage src={bgImage} className={cls.AuthPage__bg} />
         </div>
     );
 }

@@ -5,7 +5,7 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import bgImage from '@/shared/assets/images/bg_3.jpg';
 import useTitle from '@/shared/hooks/useTitle';
 import { RegistrationForm } from '@/features/Registration';
-import { Image } from '@/shared/ui/Image/Image';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 
 export default function RegistrationPage() {
     useTitle('Регистрация');
@@ -31,7 +31,7 @@ export default function RegistrationPage() {
                 </div>
             </div>
 
-            <Image src={bgImage} className={cls.RegistrationPage__bg} />
+            <AppImage src={bgImage} className={cls.RegistrationPage__bg} />
         </div>
     );
 }

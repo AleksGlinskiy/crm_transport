@@ -4,7 +4,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { getUserAuthData, userActions } from '@/entities/User';
 import IconInfo from '@/shared/assets/icons/info-circle.svg';
 import cls from './AvatarButton.module.scss';
-import { Image } from '@/shared/ui/Image/Image';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 
 interface AvatarButtonProps {
     className?: string;
@@ -26,7 +26,11 @@ export function AvatarButton(props: AvatarButtonProps) {
 
     return (
         <div className={classNames(cls.AvatarButton, className)}>
-            <Image className={cls.AvatarButton__avatar} src="11" />
+            <AppImage
+                className={cls.AvatarButton__avatar}
+                src="https://sea2.discourse-cdn.com/business7/user_avatar/forum.codewithmosh.com/adomovic/48/5754_2.png"
+                alt={authData.username}
+            />
             <div className={cls.AvatarButton__text}>
                 <div className={cls.AvatarButton__name}>{authData.username}</div>
                 <div className={cls.AvatarButton__role}>admin</div>
