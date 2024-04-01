@@ -109,7 +109,7 @@ export function Sidebar(props: SidebarProps) {
             </div>
 
             <div className={cls.Sidebar__navBottom}>
-                <SidebarItem Icon={IconInfo} name="Поддержка" path={RoutePath.settings} />
+                <SidebarItem Icon={IconInfo} name="Поддержка" path={RoutePath.support} />
                 <SidebarItem Icon={IconSetting} name="Настройки" path={RoutePath.settings} />
             </div>
 

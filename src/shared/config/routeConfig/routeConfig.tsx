@@ -4,6 +4,8 @@ import { DashboardPage } from '@/pages/DashboardPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { RegistrationPage } from '@/pages/RegistrationPage';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { SupportPage } from '@/pages/SupportPage';
 
 export enum AppRoutes {
   LOGIN = 'login',
@@ -12,6 +14,7 @@ export enum AppRoutes {
   DASHBOARD = 'dashboard',
   ABOUT = 'about',
   SETTINGS = 'settings',
+  SUPPORT = 'support',
 
   ROUTE = 'route',
   TIMESHEET = 'timesheet',
@@ -40,6 +43,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.SETTINGS]: 'settings',
+    [AppRoutes.SUPPORT]: 'support',
 
     [AppRoutes.ROUTE]: '/route',
     [AppRoutes.TIMESHEET]: '/timesheet',
@@ -77,7 +81,11 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.SETTINGS]: {
         path: RoutePath.settings,
-        element: <DashboardPage />,
+        element: <SettingsPage />,
+    },
+    [AppRoutes.SUPPORT]: {
+        path: RoutePath.support,
+        element: <SupportPage />,
     },
     [AppRoutes.ROUTE]: {
         path: RoutePath.route,
