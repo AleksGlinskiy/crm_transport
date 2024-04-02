@@ -1,27 +1,24 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es2021",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "strict": false,
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-  ]
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es2021",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "strict": false,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }

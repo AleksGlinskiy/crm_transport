@@ -23,10 +23,11 @@ export function AvatarButton(props: AvatarButtonProps) {
 
     const fallback = <Skeleton className={cls.AvatarButton__avatar} />;
     const errorFallback = (
-        <IconUser className={classNames(
-            cls.AvatarButton__avatar,
-            cls.AvatarButton__avatar_fallback,
-        )}
+        <IconUser
+            className={classNames(
+                cls.AvatarButton__avatar,
+                cls.AvatarButton__avatar_fallback,
+            )}
         />
     );
 
@@ -44,11 +45,19 @@ export function AvatarButton(props: AvatarButtonProps) {
                 alt={authData.username}
             />
             <div className={cls.AvatarButton__text}>
-                <div className={cls.AvatarButton__name}>{authData.username}</div>
+                <div className={cls.AvatarButton__name}>
+                    {authData.username}
+                </div>
                 <div className={cls.AvatarButton__role}>admin</div>
             </div>
 
-            <button type="button" aria-label="logout" className={cls.AvatarButton__btn} onClick={() => handleLogout()}>
+            <button
+                type='button'
+                aria-label='logout'
+                className={cls.AvatarButton__btn}
+                onClick={() => handleLogout()}
+                title='Выйти'
+            >
                 <IconLogin />
             </button>
         </div>

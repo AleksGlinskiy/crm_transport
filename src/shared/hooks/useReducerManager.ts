@@ -4,7 +4,10 @@ import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { StateSchemaKey } from '@/app/providers/StoreProvider/config/StateSchema';
 
-export default function useReducerManager(name: StateSchemaKey, reducer: Reducer) {
+export default function useReducerManager(
+    name: StateSchemaKey,
+    reducer: Reducer,
+) {
     const store = useStore();
     const dispatch = useAppDispatch();
 
@@ -19,6 +22,6 @@ export default function useReducerManager(name: StateSchemaKey, reducer: Reducer
             dispatch({ type: `@DESTROY state ${name}` });
         };
 
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, []);
 }

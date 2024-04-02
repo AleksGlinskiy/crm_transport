@@ -3,7 +3,9 @@ import { UnknownAction } from 'redux';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { StateSchemaKey } from './StateSchema';
 
-export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>) {
+export function createReducerManager(
+    initialReducers: ReducersMapObject<StateSchema>,
+) {
     const reducers = { ...initialReducers };
     let combinedReducer = combineReducers(reducers);
     let keysToRemove: StateSchemaKey[] = [];

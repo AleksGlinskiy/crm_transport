@@ -1,4 +1,8 @@
-import { ActionReducerMapBuilder, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import {
+    ActionReducerMapBuilder,
+    createSlice,
+    type PayloadAction,
+} from '@reduxjs/toolkit';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 import { LoginFormErrors, type LoginSchema } from '../types/LoginSchema';
 
@@ -19,7 +23,10 @@ const loginSlice = createSlice({
         setPassword: (state: LoginSchema, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
-        setErrors: (state: LoginSchema, action: PayloadAction<LoginFormErrors[]>) => {
+        setErrors: (
+            state: LoginSchema,
+            action: PayloadAction<LoginFormErrors[]>,
+        ) => {
             state.errors = action.payload;
         },
     },

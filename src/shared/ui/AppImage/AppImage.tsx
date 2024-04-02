@@ -1,10 +1,13 @@
 import classNames from 'classnames';
 import {
-    ImgHTMLAttributes, ReactElement, useLayoutEffect, useState,
+    ImgHTMLAttributes,
+    ReactElement,
+    useLayoutEffect,
+    useState,
 } from 'react';
 import cls from './AppImage.module.scss';
 
-interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
+interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
     fallback?: ReactElement;
     errorFallback?: ReactElement;
@@ -50,7 +53,12 @@ export function AppImage(props: AppImageProps) {
     return (
         <figure className={classNames(cls.AppImage, className)}>
             <picture className={cls.AppImage__pic}>
-                <img src={src} alt={alt} className={cls.AppImage__img} {...otherProps} />
+                <img
+                    src={src}
+                    alt={alt}
+                    className={cls.AppImage__img}
+                    {...otherProps}
+                />
             </picture>
         </figure>
     );

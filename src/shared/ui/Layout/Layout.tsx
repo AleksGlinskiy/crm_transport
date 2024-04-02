@@ -14,13 +14,9 @@ export default function Layout(props: LayoutProps) {
             <Sidebar className={cls.Layout__sidebar} />
 
             <div className={cls.Layout__page}>
-                <div className={cls.Layout__content}>
-                    {children}
-                </div>
+                <div className={cls.Layout__content}>{children}</div>
 
-                <footer className={cls.Layout__footer}>
-                    Footer
-                </footer>
+                <footer className={cls.Layout__footer}>Footer</footer>
             </div>
         </div>
     );

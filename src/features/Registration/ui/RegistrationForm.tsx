@@ -16,30 +16,35 @@ export function RegistrationForm(props: RegistrationFormProps) {
     }, []);
 
     return (
-        <form className={classNames(cls.RegistrationForm, className)} action="/" onSubmit={onLoginSubmit}>
-
+        <form
+            className={classNames(cls.RegistrationForm, className)}
+            action='/'
+            onSubmit={onLoginSubmit}
+        >
             <Input
-                type="text"
-                placeholder="Введите Email"
-                label="Email"
+                type='text'
+                placeholder='Введите Email'
+                label='Email'
                 className={cls.RegistrationForm__input}
             />
 
             <Input
-                type="password"
-                placeholder="Введите Пароль"
-                label="Пароль"
+                type='password'
+                placeholder='Введите Пароль'
+                label='Пароль'
                 className={cls.RegistrationForm__input}
             />
 
             <Input
-                type="password"
-                placeholder="Повторите Пароль"
-                label="Подтвердить Пароль"
+                type='password'
+                placeholder='Повторите Пароль'
+                label='Подтвердить Пароль'
                 className={cls.RegistrationForm__input}
             />
 
-            <Button type="submit" className={cls.RegistrationForm__btn}>Зарегистрироваться</Button>
+            <Button type='submit' className={cls.RegistrationForm__btn}>
+                Зарегистрироваться
+            </Button>
         </form>
     );
 }

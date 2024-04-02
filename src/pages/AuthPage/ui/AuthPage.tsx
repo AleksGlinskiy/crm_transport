@@ -26,7 +26,9 @@ export default function AuthPage() {
                     </Text>
                     <Text className={cls.AuthPage__content_desc}>
                         У вас нет аккаунта?
-                        <Link to={RoutePath.registration}>Зарегистрироваться</Link>
+                        <Link to={RoutePath.registration}>
+                            Зарегистрироваться
+                        </Link>
                     </Text>
 
                     <LoginForm className={cls.AuthPage__form} />

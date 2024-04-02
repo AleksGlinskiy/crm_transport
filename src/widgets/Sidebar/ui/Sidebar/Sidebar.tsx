@@ -91,26 +91,49 @@ export function Sidebar(props: SidebarProps) {
     const { className } = props;
     const renderList = menuItemList.map((item) => {
         if (item.path) {
-            return <SidebarItem key={item.name} Icon={item.Icon} name={item.name} path={item.path} />;
+            return (
+                <SidebarItem
+                    key={item.name}
+                    Icon={item.Icon}
+                    name={item.name}
+                    path={item.path}
+                />
+            );
         }
-        return <SidebarItemDropdown key={item.name} Icon={item.Icon} name={item.name} list={item.list} />;
+        return (
+            <SidebarItemDropdown
+                key={item.name}
+                Icon={item.Icon}
+                name={item.name}
+                list={item.list}
+            />
+        );
     });
 
     return (
         <div className={classNames(cls.Sidebar, className)}>
             <div className={cls.Sidebar__top}>
-                <Link to={RoutePath.dashboard} className={cls.Sidebar__logoLink}>
+                <Link
+                    to={RoutePath.dashboard}
+                    className={cls.Sidebar__logoLink}
+                >
                     <Logo />
                 </Link>
             </div>
 
-            <div className={cls.Sidebar__nav}>
-                {renderList}
-            </div>
+            <div className={cls.Sidebar__nav}>{renderList}</div>
 
             <div className={cls.Sidebar__navBottom}>
-                <SidebarItem Icon={IconInfo} name="Поддержка" path={RoutePath.support} />
-                <SidebarItem Icon={IconSetting} name="Настройки" path={RoutePath.settings} />
+                <SidebarItem
+                    Icon={IconInfo}
+                    name='Поддержка'
+                    path={RoutePath.support}
+                />
+                <SidebarItem
+                    Icon={IconSetting}
+                    name='Настройки'
+                    path={RoutePath.settings}
+                />
             </div>
 
             <div className={cls.Sidebar__bottom}>

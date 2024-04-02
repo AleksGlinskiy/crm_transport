@@ -3,15 +3,18 @@ import classNames from 'classnames';
 import cls from './Input.module.scss';
 import IconClear from '@/shared/assets/icons/close.svg';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange'
+>;
 
 interface InputProps extends HTMLInputProps {
-    className?: string
-    value?: string
-    label?: string
-    error?: boolean
-    errorMessage?: string
-    onChange?: (value: string) => void
+    className?: string;
+    value?: string;
+    label?: string;
+    error?: boolean;
+    errorMessage?: string;
+    onChange?: (value: string) => void;
 }
 
 export function Input(props: InputProps) {
@@ -35,7 +38,13 @@ export function Input(props: InputProps) {
     };
 
     return (
-        <label className={classNames(cls.Input, { [cls.Input_error]: error }, className)}>
+        <label
+            className={classNames(
+                cls.Input,
+                { [cls.Input_error]: error },
+                className,
+            )}
+        >
             {label && (
                 <span className={cls.Input__label}>
                     {label}
@@ -54,8 +63,8 @@ export function Input(props: InputProps) {
                 {error && (
                     <button
                         className={cls.Input__btnClear}
-                        aria-label="Очистить"
-                        type="button"
+                        aria-label='Очистить'
+                        type='button'
                         onClick={onClearHandler}
                     >
                         <IconClear />
@@ -63,9 +72,7 @@ export function Input(props: InputProps) {
                 )}
             </span>
             {errorMessage && (
-                <span className={cls.Input__message}>
-                    {errorMessage}
-                </span>
+                <span className={cls.Input__message}>{errorMessage}</span>
             )}
         </label>
     );

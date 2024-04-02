@@ -30,10 +30,12 @@ export function Button(props: ButtonProps) {
     return (
         <button
             className={classNames(cls.Button, mods, className)}
-            type="button"
+            type='button'
             {...otherProps}
         >
-            {variant === ButtonVariants.PROCESS && <IconLoader width={19} height={19} />}
+            {variant === ButtonVariants.PROCESS && (
+                <IconLoader width={19} height={19} />
+            )}
             <span>{children}</span>
         </button>
     );

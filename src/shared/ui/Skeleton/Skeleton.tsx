@@ -8,13 +8,12 @@ interface SkeletonProps {
 }
 
 export function Skeleton(props: SkeletonProps) {
-    const {
-        className,
-        width,
-        height,
-    } = props;
+    const { className, width, height } = props;
 
     return (
-        <div className={classNames(cls.Skeleton, className)} style={{ width, height }} />
+        <div
+            className={classNames(cls.Skeleton, className)}
+            style={{ width, height }}
+        />
     );
 }

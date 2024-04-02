@@ -14,12 +14,7 @@ interface SidebarItemDropdownProps {
 }
 
 export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
-    const {
-        className,
-        name,
-        Icon,
-        list,
-    } = props;
+    const { className, name, Icon, list } = props;
 
     const [isActiveList, setIsActiveList] = useState(false);
 
@@ -36,7 +31,8 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
                 {list && list.length && (
                     <IconArrow
                         className={classNames(cls.SidebarItemDropdown__arrow, {
-                            [cls.SidebarItemDropdown__arrow_active]: isActiveList,
+                            [cls.SidebarItemDropdown__arrow_active]:
+                                isActiveList,
                         })}
                     />
                 )}
@@ -44,22 +40,24 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
 
             {isActiveList && (
                 <div className={cls.SidebarItemDropdown__list}>
-                    {list && list.length && list.map((item) => (
-                        <NavLink
-                            key={item.name}
-                            to={item.path}
-                            className={({ isActive }) => (
-                                isActive
-                                    ? classNames(
-                                        cls.SidebarItemDropdown__listItem,
-                                        cls.SidebarItemDropdown__listItem_active,
-                                    )
-                                    : cls.SidebarItemDropdown__listItem
-                            )}
-                        >
-                            {item.name}
-                        </NavLink>
-                    ))}
+                    {list &&
+                        list.length &&
+                        list.map((item) => (
+                            <NavLink
+                                key={item.name}
+                                to={item.path}
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? classNames(
+                                              cls.SidebarItemDropdown__listItem,
+                                              cls.SidebarItemDropdown__listItem_active,
+                                          )
+                                        : cls.SidebarItemDropdown__listItem
+                                }
+                            >
+                                {item.name}
+                            </NavLink>
+                        ))}
                 </div>
             )}
         </div>

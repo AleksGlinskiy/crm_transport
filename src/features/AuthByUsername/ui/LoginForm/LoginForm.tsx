@@ -32,71 +32,104 @@ export function LoginForm(props: LoginFormProps) {
 
     const navigate = useNavigate();
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-        dispatch(loginActions.setErrors(errors.filter((item) => item !== LoginFormErrors.INCORRECT_EMAIL)));
-    }, [dispatch, errors]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+            dispatch(
+                loginActions.setErrors(
+                    errors.filter(
+                        (item) => item !== LoginFormErrors.INCORRECT_EMAIL,
+                    ),
+                ),
+            );
+        },
+        [dispatch, errors],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-        dispatch(loginActions.setErrors(errors.filter((item) => item !== LoginFormErrors.INCORRECT_PASSWORD)));
-    }, [dispatch, errors]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+            dispatch(
+                loginActions.setErrors(
+                    errors.filter(
+                        (item) => item !== LoginFormErrors.INCORRECT_PASSWORD,
+                    ),
+                ),
+            );
+        },
+        [dispatch, errors],
+    );
 
-    const onLoginSubmit = useCallback(async (event: SyntheticEvent) => {
-        event.preventDefault();
+    const onLoginSubmit = useCallback(
+        async (event: SyntheticEvent) => {
+            event.preventDefault();
 
-        dispatch(loginActions.setErrors([]));
-        const res = await dispatch(loginByUsername({ username, password }));
+            dispatch(loginActions.setErrors([]));
+            const res = await dispatch(loginByUsername({ username, password }));
 
-        if (res.meta.requestStatus === 'fulfilled') {
-            navigate(RoutePath.dashboard);
-        }
-    }, [dispatch, username, password, navigate]);
+            if (res.meta.requestStatus === 'fulfilled') {
+                navigate(RoutePath.dashboard);
+            }
+        },
+        [dispatch, username, password, navigate],
+    );
 
     return (
-        <form className={classNames(cls.LoginForm, className)} action="/" onSubmit={onLoginSubmit}>
-            {errors.includes(LoginFormErrors.INCORRECT_DATA)
-                && (
-                    <Message
-                        variant={MessageVariants.ERROR}
-                        className={cls.LoginForm__error}
-                    >
-                        Неправильный логин или пароль
-                    </Message>
-                )}
+        <form
+            className={classNames(cls.LoginForm, className)}
+            action='/'
+            onSubmit={onLoginSubmit}
+        >
+            {errors.includes(LoginFormErrors.INCORRECT_DATA) && (
+                <Message
+                    variant={MessageVariants.ERROR}
+                    className={cls.LoginForm__error}
+                >
+                    Неправильный логин или пароль
+                </Message>
+            )}
 
             <Input
-                type="text"
-                placeholder="Введите Логин или Email"
-                label="Логин"
+                type='text'
+                placeholder='Введите Логин или Email'
+                label='Логин'
                 onChange={onChangeUsername}
                 value={username}
                 disabled={loading}
                 className={cls.LoginForm__input}
                 error={errors.includes(LoginFormErrors.INCORRECT_EMAIL)}
                 errorMessage={
-                    errors.includes(LoginFormErrors.INCORRECT_EMAIL)
-                    && 'Некорректный Логин или Email'
+                    errors.includes(LoginFormErrors.INCORRECT_EMAIL) &&
+                    'Некорректный Логин или Email'
                 }
             />
             <Input
-                type="password"
-                placeholder="Введите пароль"
-                label="Пароль"
+                type='password'
+                placeholder='Введите пароль'
+                label='Пароль'
                 onChange={onChangePassword}
                 value={password}
                 disabled={loading}
                 className={cls.LoginForm__input}
                 error={errors.includes(LoginFormErrors.INCORRECT_PASSWORD)}
                 errorMessage={
-                    errors.includes(LoginFormErrors.INCORRECT_PASSWORD)
-                    && 'Минимальный пароль 8 симвалов'
+                    errors.includes(LoginFormErrors.INCORRECT_PASSWORD) &&
+                    'Минимальный пароль 8 симвалов'
                 }
             />
 
-            {loading
-                ? (<Button className={cls.LoginForm__btn} variant={ButtonVariants.PROCESS}>Загрузка...</Button>)
-                : (<Button type="submit" className={cls.LoginForm__btn}>Войти</Button>)}
+            {loading ? (
+                <Button
+                    className={cls.LoginForm__btn}
+                    variant={ButtonVariants.PROCESS}
+                >
+                    Загрузка...
+                </Button>
+            ) : (
+                <Button type='submit' className={cls.LoginForm__btn}>
+                    Войти
+                </Button>
+            )}
         </form>
     );
 }

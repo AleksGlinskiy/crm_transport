@@ -8,33 +8,33 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { SupportPage } from '@/pages/SupportPage';
 
 export enum AppRoutes {
-  LOGIN = 'login',
-  REGISTRATION = 'registration',
+    LOGIN = 'login',
+    REGISTRATION = 'registration',
 
-  DASHBOARD = 'dashboard',
-  ABOUT = 'about',
-  SETTINGS = 'settings',
-  SUPPORT = 'support',
+    DASHBOARD = 'dashboard',
+    ABOUT = 'about',
+    SETTINGS = 'settings',
+    SUPPORT = 'support',
 
-  ROUTE = 'route',
-  TIMESHEET = 'timesheet',
-  STOPOVER = 'stopover',
+    ROUTE = 'route',
+    TIMESHEET = 'timesheet',
+    STOPOVER = 'stopover',
 
-  CARS = 'cars',
-  CAR_MONITORING = 'car_monitoring',
+    CARS = 'cars',
+    CAR_MONITORING = 'car_monitoring',
 
-  USERS = 'users',
-  DRIVERS = 'drivers',
-  ROLES = 'roles',
+    USERS = 'users',
+    DRIVERS = 'drivers',
+    ROLES = 'roles',
 
-  CLIENTELE = 'clientele',
+    CLIENTELE = 'clientele',
 
-  NOT_FOUND = 'not_found',
+    NOT_FOUND = 'not_found',
 }
 
 export type AppRouteProps = RouteProps & {
     general?: boolean;
-}
+};
 
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.DASHBOARD]: '/',

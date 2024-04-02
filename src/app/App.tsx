@@ -21,9 +21,5 @@ export default function App() {
         return content;
     }
 
-    return (
-        <Layout>
-            {content}
-        </Layout>
-    );
+    return <Layout>{content}</Layout>;
 }

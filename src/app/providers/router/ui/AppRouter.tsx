@@ -2,7 +2,11 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PageLoader from '@/shared/ui/PageLoader/PageLoader';
-import { AppRouteProps, routeConfig, RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import {
+    AppRouteProps,
+    routeConfig,
+    RoutePath,
+} from '@/shared/config/routeConfig/routeConfig';
 import { RequireAuth } from './RequireAuth';
 import { getUserAuthData } from '@/entities/User';
 
@@ -20,16 +24,16 @@ export function AppRouter() {
             <Route
                 key={path}
                 path={path}
-                element={general ? element : <RequireAuth>{element}</RequireAuth>}
+                element={
+                    general ? element : <RequireAuth>{element}</RequireAuth>
+                }
             />
         );
     };
 
     return (
         <Suspense fallback={<PageLoader />}>
-            <Routes>
-                {Object.values(routeConfig).map(wrapperRouter)}
-            </Routes>
+            <Routes>{Object.values(routeConfig).map(wrapperRouter)}</Routes>
         </Suspense>
     );
 }
