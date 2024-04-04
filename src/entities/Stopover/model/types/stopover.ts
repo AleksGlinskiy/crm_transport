@@ -6,6 +6,6 @@ export interface Stopover {
 
 export interface StopoverScheme {
     isLoading: boolean;
-    stopover: Stopover[];
-    errors: [];
+    data: Stopover[];
+    errors: string;
 }
