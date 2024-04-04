@@ -6,11 +6,16 @@
             "author": "typicode"
         }
     ],
-    "comments": [
+    "stopover": [
         {
             "id": 1,
-            "body": "some comment",
-            "postId": 1
+            "name": "Вакзал",
+            "coordinates": "53.300001, 28.647015"
+        },
+        {
+            "id": 2,
+            "name": "Дворец культуры железнодорожников",
+            "coordinates": "53.302255, 28.641482"
         }
     ],
     "users": [

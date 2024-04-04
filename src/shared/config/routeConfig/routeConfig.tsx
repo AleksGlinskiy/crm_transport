@@ -6,6 +6,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { RegistrationPage } from '@/pages/RegistrationPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { SupportPage } from '@/pages/SupportPage';
+import { StopoverPage } from '@/pages/StopoverPage';
 
 export enum AppRoutes {
     LOGIN = 'login',
@@ -97,7 +98,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.STOPOVER]: {
         path: RoutePath.stopover,
-        element: <AboutPage />,
+        element: <StopoverPage />,
     },
     [AppRoutes.CARS]: {
         path: RoutePath.cars,
