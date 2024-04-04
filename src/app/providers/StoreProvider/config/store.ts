@@ -1,7 +1,8 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { $api } from '@/shared/api/api';
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducer: ReducersMapObject<StateSchema> = {
@@ -10,10 +11,20 @@ export function createReduxStore(initialState?: StateSchema) {
 
     const reducerManager = createReducerManager(rootReducer);
 
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+    };
+
     const store = configureStore<StateSchema>({
         reducer: reducerManager.reduce,
         preloadedState: initialState,
-        devTools: true,
+        devTools: __IS_DEV__,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }),
     });
 
     // @ts-ignore
