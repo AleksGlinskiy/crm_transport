@@ -3,6 +3,8 @@ import axios from 'axios';
 import { userActions, User } from '@/entities/User';
 import { validateLoginForm } from '../validateLoginForm/validateLoginForm';
 import { LoginFormErrors } from '../../types/LoginSchema';
+import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
+import { USER_AUTH_DATA } from '@/shared/const/const';
 
 interface LoginByUsernameProps {
     username: string;
@@ -12,16 +14,18 @@ interface LoginByUsernameProps {
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsernameProps,
-    { rejectValue: LoginFormErrors[] }
+    ThunkConfig<LoginFormErrors[]>
 >('login/loginByUsername', async (authData, thunkAPI) => {
     const errors = validateLoginForm(authData);
 
+    const { dispatch, rejectWithValue, extra } = thunkAPI;
+
     if (errors.length) {
-        return thunkAPI.rejectWithValue(errors);
+        return rejectWithValue(errors);
     }
 
     try {
-        const response = await axios.post<User>(
+        const response = await extra.api.post<User>(
             'http://localhost:8000/login',
             authData,
         );
@@ -30,13 +34,13 @@ export const loginByUsername = createAsyncThunk<
             throw new Error();
         }
 
-        localStorage.setItem('user', JSON.stringify(response.data));
-        thunkAPI.dispatch(userActions.setAuthData(response.data));
+        localStorage.setItem(USER_AUTH_DATA, JSON.stringify(response.data));
+        dispatch(userActions.setAuthData(response.data));
 
         return response.data;
     } catch (e) {
         // eslint-disable-next-line no-console
         console.error(e);
-        return thunkAPI.rejectWithValue([LoginFormErrors.INCORRECT_DATA]);
+        return rejectWithValue([LoginFormErrors.INCORRECT_DATA]);
     }
 });
