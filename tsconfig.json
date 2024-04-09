@@ -6,7 +6,7 @@
         "target": "es2021",
         "jsx": "react-jsx",
         "allowJs": true,
-        "strict": false,
+        "strict": true,
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {

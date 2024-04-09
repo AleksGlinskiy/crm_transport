@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 import useTitle from '@/shared/hooks/useTitle';
-import useReducerManager from '@/shared/hooks/useReducerManager';
-import { stopoverPageReducer } from '../model/slices/stopoverPageSlices';
+import useReducerManager, {
+    ReducersList,
+} from '@/shared/hooks/useReducerManager';
+import { stopoverPageReducer } from '../../model/slices/stopoverPageSlices';
 import { Button } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { fetchDataStopover } from '@/entities/Stopover/model/services/fetchDataStopover/fetchDataStopover';
@@ -14,10 +16,16 @@ import {
     getStopoverLoading,
 } from '@/pages/StopoverPage/model/selectors/getStopoverData';
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';
+import { PageHeader } from '@/widgets/PageHeader';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+
+const initialReducers: ReducersList = {
+    stopover: stopoverPageReducer,
+};
 
 export default function StopoverPage() {
     useTitle('Остановочные пункты');
-    useReducerManager('stopover', stopoverPageReducer);
+    useReducerManager(initialReducers);
 
     const dispatch = useAppDispatch();
     const data = useSelector(getStopoverData);
@@ -32,37 +40,16 @@ export default function StopoverPage() {
 
     if (isLoading) {
         content = (
-            <Message variant={MessageVariants.WARNING}>Загрузка...</Message>
+            <div>
+                <Skeleton width='100%' height='30px' />
+                <Skeleton width='100%' height='30px' />
+                <Skeleton width='100%' height='30px' />
+            </div>
         );
     } else if (error) {
         content = <Message variant={MessageVariants.ERROR}>Ошибка!</Message>;
     } else if (data) {
-        content = data.map((item) => (
-            <Link
-                to={`/stopover/${item.id}`}
-                key={item.id}
-                style={{ display: 'block' }}
-            >
-                {item.name}
-            </Link>
-        ));
-    }
-
-    return (
-        <>
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                }}
-            >
-                <Text tag={TextTag.H1} style={TextStyle.H2}>
-                    Остановочные пункты
-                </Text>
-                <Button>Создать новый</Button>
-            </div>
-
+        content = (
             <div
                 style={{
                     display: 'flex',
@@ -80,9 +67,28 @@ export default function StopoverPage() {
                         padding: '30px',
                     }}
                 >
-                    {content}
+                    {data.map((item) => (
+                        <Link
+                            to={`/stopover/${item.id}`}
+                            key={item.id}
+                            style={{ display: 'block' }}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
                 </div>
             </div>
+        );
+    }
+
+    return (
+        <>
+            <PageHeader
+                title='Остановочные пункты'
+                actions={<Button>Создать новый</Button>}
+            />
+
+            {content}
         </>
     );
 }

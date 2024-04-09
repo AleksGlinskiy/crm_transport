@@ -1,6 +1,9 @@
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
+import useTitle from '@/shared/hooks/useTitle';
 
 export default function DashboardPage() {
+    useTitle('Панель');
+
     return (
         <>
             <Text tag={TextTag.H1} style={TextStyle.H2}>

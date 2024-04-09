@@ -2,24 +2,35 @@ import { useStore } from 'react-redux';
 import { useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { StateSchemaKey } from '@/app/providers/StoreProvider/config/StateSchema';
+import {
+    ReduxStoreWithManager,
+    StateSchemaKey,
+} from '@/app/providers/StoreProvider/config/StateSchema';
+
+export type ReducersList = {
+    [name in StateSchemaKey]?: Reducer;
+};
 
 export default function useReducerManager(
-    name: StateSchemaKey,
-    reducer: Reducer,
+    reducerList: ReducersList,
+    removeAfterUnmount = true,
 ) {
-    const store = useStore();
+    const store = useStore() as ReduxStoreWithManager;
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        // @ts-ignore
-        store.reducerManager.add(name, reducer);
-        dispatch({ type: `@INIT state ${name}` });
+        Object.entries(reducerList).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as StateSchemaKey, reducer);
+            dispatch({ type: `@INIT ${name} reducer` });
+        });
 
         return () => {
-            // @ts-ignore
-            store.reducerManager.remove(name);
-            dispatch({ type: `@DESTROY state ${name}` });
+            if (removeAfterUnmount) {
+                Object.entries(reducerList).forEach(([name, reducer]) => {
+                    store.reducerManager.remove(name as StateSchemaKey);
+                    dispatch({ type: `@DESTROY ${name} reducer` });
+                });
+            }
         };
 
         // eslint-disable-next-line

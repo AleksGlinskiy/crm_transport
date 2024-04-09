@@ -65,14 +65,23 @@ export function LoginForm(props: LoginFormProps) {
             event.preventDefault();
 
             dispatch(loginActions.setErrors([]));
+
             const res = await dispatch(loginByUsername({ username, password }));
 
-            if (res.meta.requestStatus === 'fulfilled') {
+            if (res && res.meta?.requestStatus === 'fulfilled') {
                 navigate(RoutePath.dashboard);
             }
         },
         [dispatch, username, password, navigate],
     );
+
+    const errorEmail = errors.includes(LoginFormErrors.INCORRECT_EMAIL)
+        ? 'Некорректный Логин или Email'
+        : '';
+
+    const errorPassword = errors.includes(LoginFormErrors.INCORRECT_PASSWORD)
+        ? 'Минимальный пароль 8 симвалов'
+        : '';
 
     return (
         <form
@@ -98,10 +107,7 @@ export function LoginForm(props: LoginFormProps) {
                 disabled={loading}
                 className={cls.LoginForm__input}
                 error={errors.includes(LoginFormErrors.INCORRECT_EMAIL)}
-                errorMessage={
-                    errors.includes(LoginFormErrors.INCORRECT_EMAIL) &&
-                    'Некорректный Логин или Email'
-                }
+                errorMessage={errorEmail}
             />
             <Input
                 type='password'
@@ -112,10 +118,7 @@ export function LoginForm(props: LoginFormProps) {
                 disabled={loading}
                 className={cls.LoginForm__input}
                 error={errors.includes(LoginFormErrors.INCORRECT_PASSWORD)}
-                errorMessage={
-                    errors.includes(LoginFormErrors.INCORRECT_PASSWORD) &&
-                    'Минимальный пароль 8 симвалов'
-                }
+                errorMessage={errorPassword}
             />
 
             {loading ? (

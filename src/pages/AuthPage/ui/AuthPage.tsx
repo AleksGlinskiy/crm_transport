@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { LoginForm, loginReducer } from '@/features/AuthByUsername';
-import useReducerManager from '@/shared/hooks/useReducerManager';
+import useReducerManager, {
+    ReducersList,
+} from '@/shared/hooks/useReducerManager';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 
 import bgImage from '@/shared/assets/images/bg_2.jpg';
@@ -9,9 +11,13 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import useTitle from '@/shared/hooks/useTitle';
 
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
+
 export default function AuthPage() {
     useTitle('Авторизация');
-    useReducerManager('loginForm', loginReducer);
+    useReducerManager(initialReducers);
 
     return (
         <div className={cls.AuthPage}>

@@ -3,8 +3,8 @@ import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string;
-    width?: number;
-    height?: number;
+    width?: string;
+    height?: string;
 }
 
 export function Skeleton(props: SkeletonProps) {

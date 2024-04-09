@@ -7,9 +7,9 @@ export const fetchDataStopover = createAsyncThunk<
     void,
     ThunkConfig<string>
 >('stopover/fetchDataStopover', async (_, thunkAPI) => {
-    const { dispatch, rejectWithValue, extra } = thunkAPI;
+    const { rejectWithValue, extra } = thunkAPI;
     try {
-        const response = await extra.api.get<Stopover[]>('/stopover');
+        const response = await extra.api.get<Stopover[]>('stopover');
 
         if (!response.data) {
             throw new Error();
@@ -19,6 +19,6 @@ export const fetchDataStopover = createAsyncThunk<
     } catch (e) {
         // eslint-disable-next-line no-console
         console.error(e);
-        return thunkAPI.rejectWithValue(e);
+        return rejectWithValue('error');
     }
 });
