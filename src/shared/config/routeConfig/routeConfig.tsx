@@ -20,6 +20,7 @@ export enum AppRoutes {
     ROUTE = 'route',
     TIMESHEET = 'timesheet',
     STOPOVER = 'stopover',
+    STOPOVER_DETAILS = 'stopover_details',
 
     CARS = 'cars',
     CAR_MONITORING = 'car_monitoring',
@@ -49,6 +50,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ROUTE]: '/route',
     [AppRoutes.TIMESHEET]: '/timesheet',
     [AppRoutes.STOPOVER]: '/stopover',
+    [AppRoutes.STOPOVER_DETAILS]: '/stopover_details/',
 
     [AppRoutes.CARS]: '/cars',
     [AppRoutes.CAR_MONITORING]: '/car_monitoring',
@@ -99,6 +101,10 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.STOPOVER]: {
         path: RoutePath.stopover,
         element: <StopoverPage />,
+    },
+    [AppRoutes.STOPOVER_DETAILS]: {
+        path: `${RoutePath.stopover_details}:id`,
+        element: <AboutPage />,
     },
     [AppRoutes.CARS]: {
         path: RoutePath.cars,

@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
+import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '@/shared/hooks/useTitle';
 import useReducerManager, {
     ReducersList,
 } from '@/shared/hooks/useReducerManager';
 import { stopoverPageReducer } from '../../model/slices/stopoverPageSlices';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { fetchDataStopover } from '@/entities/Stopover/model/services/fetchDataStopover/fetchDataStopover';
 import {
@@ -18,6 +17,10 @@ import {
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';
 import { PageHeader } from '@/widgets/PageHeader';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import {
+    routeConfig,
+    RoutePath,
+} from '@/shared/config/routeConfig/routeConfig';
 
 const initialReducers: ReducersList = {
     stopover: stopoverPageReducer,
@@ -31,6 +34,7 @@ export default function StopoverPage() {
     const data = useSelector(getStopoverData);
     const isLoading = useSelector(getStopoverLoading);
     const error = useSelector(getStopoverError);
+    const nav = useNavigate();
 
     useEffect(() => {
         dispatch(fetchDataStopover());
@@ -69,7 +73,7 @@ export default function StopoverPage() {
                 >
                     {data.map((item) => (
                         <Link
-                            to={`/stopover/${item.id}`}
+                            to={RoutePath.stopover_details + item.id}
                             key={item.id}
                             style={{ display: 'block' }}
                         >
