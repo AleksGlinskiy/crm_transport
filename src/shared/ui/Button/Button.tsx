@@ -7,6 +7,7 @@ export enum ButtonVariants {
     PRIMARY = 'primary',
     OUTLINE = 'outline',
     PROCESS = 'process',
+    TEXTED = 'texted',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
