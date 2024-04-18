@@ -12,6 +12,7 @@ import { fetchDataStopover } from '@/entities/Stopover/model/services/fetchDataS
 import {
     getStopoverData,
     getStopoverError,
+    getStopoverInitiated,
     getStopoverLoading,
 } from '@/pages/StopoverPage/model/selectors/getStopoverData';
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';
@@ -28,17 +29,19 @@ const initialReducers: ReducersList = {
 
 export default function StopoverPage() {
     useTitle('Остановочные пункты');
-    useReducerManager(initialReducers);
+    useReducerManager(initialReducers, false);
 
     const dispatch = useAppDispatch();
     const data = useSelector(getStopoverData);
     const isLoading = useSelector(getStopoverLoading);
     const error = useSelector(getStopoverError);
-    const nav = useNavigate();
+    const initiated = useSelector(getStopoverInitiated);
 
     useEffect(() => {
-        dispatch(fetchDataStopover());
-    }, [dispatch]);
+        if (!initiated) {
+            dispatch(fetchDataStopover());
+        }
+    }, [dispatch, initiated]);
 
     let content;
 

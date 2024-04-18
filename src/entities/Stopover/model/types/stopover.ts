@@ -8,4 +8,5 @@ export interface StopoverScheme {
     isLoading: boolean;
     data: Stopover[];
     errors: string;
+    _inited: boolean;
 }

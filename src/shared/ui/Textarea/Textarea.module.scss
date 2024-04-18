@@ -26,13 +26,16 @@
 
     &__wrapTag {
         position: relative;
+        height: 100%;
     }
 
     &__tag {
         display: block;
         width: 100%;
+        min-width: 100%;
         max-width: 100%;
         height: auto;
+        max-height: 100%;
         min-height: rem(56);
         padding: rem(20) rem(30);
         line-height: 1.2;

@@ -6,6 +6,7 @@ const initialState: StopoverScheme = {
     isLoading: false,
     data: [],
     errors: '',
+    _inited: false,
 };
 
 const stopoverPageSlices = createSlice({
@@ -21,6 +22,7 @@ const stopoverPageSlices = createSlice({
             .addCase(fetchDataStopover.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
+                state._inited = true;
             })
             .addCase(fetchDataStopover.rejected, (state, action) => {
                 state.isLoading = false;
