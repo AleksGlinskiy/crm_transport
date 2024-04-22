@@ -9,6 +9,7 @@ import {
 import { UserScheme } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { StopoverScheme } from '@/entities/Stopover';
+import { StopoverDetailsScheme } from '@/entities/Stopover/model/types/stopover';
 
 export interface StateSchema {
     user: UserScheme;
@@ -16,6 +17,7 @@ export interface StateSchema {
     // async reducers
     loginForm?: LoginSchema;
     stopover?: StopoverScheme;
+    stopoverDetails?: StopoverDetailsScheme;
 }
 
 export type StateSchemaKey = keyof StateSchema;
