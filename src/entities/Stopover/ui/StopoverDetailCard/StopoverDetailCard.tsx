@@ -102,7 +102,7 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
                                 center: crd,
                                 zoom: 16,
                             }}
-                            style={{ width: '100%', height: '600px' }}
+                            style={{ width: '100%', height: '400px' }}
                         >
                             <Placemark defaultGeometry={crd} />
                         </Map>

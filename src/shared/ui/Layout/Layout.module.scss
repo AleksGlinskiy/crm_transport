@@ -12,6 +12,7 @@
         flex: 1;
         flex-direction: column;
         background-color: var(--grey-color);
+        overflow: auto;
 
         h1 {
             margin-top: 0;
