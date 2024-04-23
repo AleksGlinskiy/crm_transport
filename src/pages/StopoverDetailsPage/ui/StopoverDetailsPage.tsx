@@ -1,11 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import useTitle from '@/shared/hooks/useTitle';
-import { PageHeader } from '@/widgets/PageHeader';
-import { Button } from '@/shared/ui/Button/Button';
 import cls from './StopoverDetailsPage.module.scss';
 import { StopoverDetailCard } from '@/entities/Stopover';
 import { Text, TextTag } from '@/shared/ui/Text/Text';
+import { EditableStopoverDetailCard } from '@/features/EditableStopoverDetailCard/ui/EditableStopoverDetailCard';
 
 export default function StopoverDetailsPage() {
     useTitle('Дворец культуры железнодорожников - Остановочный пункт');
@@ -22,7 +20,7 @@ export default function StopoverDetailsPage() {
 
     return (
         <div className={cls.StopoverDetailsPage}>
-            <StopoverDetailCard id={id} />
+            <EditableStopoverDetailCard id={id} />
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
-import { StopoverDetailsScheme, StopoverScheme } from '../types/stopover';
+import { StopoverDetailsScheme } from '../types/stopover';
 import { fetchStopoverById } from '@/entities/Stopover/model/services/fetchStopoverById/fetchStopoverById';
 
 const initialState: StopoverDetailsScheme = {
