@@ -5,15 +5,16 @@ interface SkeletonProps {
     className?: string;
     width?: string;
     height?: string;
+    border?: string;
 }
 
 export function Skeleton(props: SkeletonProps) {
-    const { className, width, height } = props;
+    const { className, width, height, border } = props;
 
     return (
         <div
             className={classNames(cls.Skeleton, className)}
-            style={{ width, height }}
+            style={{ width, height, borderRadius: border }}
         />
     );
 }
