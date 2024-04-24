@@ -56,10 +56,9 @@ export function Textarea(props: TextareaProps) {
                     className={cls.Textarea__tag}
                     onChange={onChangeHandler}
                     required={required}
+                    value={value}
                     {...otherProps}
-                >
-                    {value}
-                </textarea>
+                />
 
                 {error && (
                     <button

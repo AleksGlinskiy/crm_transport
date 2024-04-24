@@ -1,28 +1,18 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import classNames from 'classnames';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import cls from './StopoverDetailCard.module.scss';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { stopoverDetailReducer } from '@/entities/Stopover/model/slice/StopoverDetailSlice';
-import { fetchStopoverById } from '@/entities/Stopover/model/services/fetchStopoverById/fetchStopoverById';
-import useReducerManager from '@/shared/hooks/useReducerManager';
-import {
-    getStopoverDetailsData,
-    getStopoverDetailsError,
-    getStopoverDetailsIsLoading,
-} from '@/entities/Stopover/model/selectors/stopoverDetail';
-import { PageHeader } from '@/widgets/PageHeader';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextStyle } from '@/shared/ui/Text/Text';
 import { StopoverDetails } from '@/entities/Stopover/model/types/stopover';
 
 interface StopoverDetailCardProps {
     className?: string;
-    data?: StopoverDetails;
+    data?: StopoverDetails | undefined;
+    isLoading?: boolean;
+    error?: string;
 }
 
 export function StopoverDetailCardSkeleton() {
@@ -67,7 +57,15 @@ export function StopoverDetailCardError() {
 }
 
 export function StopoverDetailCard(props: StopoverDetailCardProps) {
-    const { data, className } = props;
+    const { data, isLoading, error, className } = props;
+
+    if (isLoading) {
+        return <StopoverDetailCardSkeleton />;
+    }
+
+    if (error) {
+        return <StopoverDetailCardError />;
+    }
 
     let crd;
     if (data?.coordinates) {
@@ -80,13 +78,12 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
                 <div className={cls.StopoverDetailCard__col}>
                     <Input
                         label='Название:'
-                        value={data?.name || ''}
+                        value={data?.name}
                         className={cls.StopoverDetailCard__input}
                     />
                     <div className={cls.StopoverDetailCard__wrapInput}>
                         <Input
                             label='Адрес:'
-                            value='Москва, Дворец культуры железнодорожников'
                             className={cls.StopoverDetailCard__input}
                         />
                         <Button
