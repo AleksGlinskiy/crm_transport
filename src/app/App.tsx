@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppRouter } from '@/app/providers/router';
 import { userActions, getUserInited, getUserAuthData } from '@/entities/User';
-import PageLoader from '@/shared/ui/PageLoader/PageLoader';
+import { PageLoader } from '@/shared/ui/PageLoader';
 import './styles/style.scss';
 import Layout from '@/shared/ui/Layout/Layout';
 

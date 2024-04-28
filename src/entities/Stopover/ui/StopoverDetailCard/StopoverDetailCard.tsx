@@ -10,7 +10,7 @@ import { StopoverDetails } from '@/entities/Stopover/model/types/stopover';
 
 interface StopoverDetailCardProps {
     className?: string;
-    data?: StopoverDetails | undefined;
+    data?: StopoverDetails;
     isLoading?: boolean;
     error?: string;
 }
@@ -18,18 +18,6 @@ interface StopoverDetailCardProps {
 export function StopoverDetailCardSkeleton() {
     return (
         <div>
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginBottom: '50px',
-                }}
-            >
-                <Skeleton width='50%' height='60px' border='20px' />
-                <Skeleton width='200px' height='60px' border='20px' />
-            </div>
-
             <Skeleton
                 className={cls.StopoverDetailCard__input}
                 width='100%'

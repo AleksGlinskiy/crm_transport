@@ -1,9 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import useTitle from '@/shared/hooks/useTitle';
 import cls from './StopoverDetailsPage.module.scss';
-import { StopoverDetailCard } from '@/entities/Stopover';
-import { Text, TextTag } from '@/shared/ui/Text/Text';
 import { EditableStopoverDetailCard } from '@/features/EditableStopoverDetailCard/ui/EditableStopoverDetailCard';
 import useReducerManager from '@/shared/hooks/useReducerManager';
 import { stopoverDetailReducer } from '@/entities/Stopover/model/slice/StopoverDetailSlice';
@@ -15,14 +13,21 @@ const Reducers = {
 };
 
 export default function StopoverDetailsPage() {
-    useReducerManager(Reducers);
     useTitle('Дворец культуры железнодорожников - Остановочный пункт');
+    useReducerManager(Reducers);
 
+    const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
+
+    useLayoutEffect(() => {
+        if (id) {
+            dispatch(fetchStopoverById(id));
+        }
+    }, [id, dispatch]);
 
     return (
         <div className={cls.StopoverDetailsPage}>
-            <EditableStopoverDetailCard id={id} />
+            <EditableStopoverDetailCard />
         </div>
     );
 }

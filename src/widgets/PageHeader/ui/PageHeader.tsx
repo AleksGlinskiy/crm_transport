@@ -5,7 +5,7 @@ import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 
 interface PageHeaderProps {
     className?: string;
-    title: string;
+    title?: string;
     text?: string;
     actions?: ReactNode;
 }

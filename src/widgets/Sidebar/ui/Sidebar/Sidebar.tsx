@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
-import { Logo } from '@/shared/ui/Logo/Logo';
+import { Logo } from '@/shared/ui/Logo';
 import { SidebarItem } from '@/widgets/Sidebar';
 import { SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
 import { SidebarItemDropdown } from '@/widgets/Sidebar/ui/SidebarItemDropdown/SidebarItemDropdown';

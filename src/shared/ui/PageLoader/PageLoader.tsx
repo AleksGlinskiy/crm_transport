@@ -1,7 +1,7 @@
 import cls from './PageLoader.module.scss';
-import Loader from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/Loader';
 
-export default function PageLoader() {
+export function PageLoader() {
     return (
         <div className={cls.PageLoader}>
             <Loader />

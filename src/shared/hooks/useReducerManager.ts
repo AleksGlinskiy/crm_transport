@@ -1,5 +1,5 @@
 import { useStore } from 'react-redux';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import {
@@ -18,7 +18,7 @@ export default function useReducerManager(
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const mountedReducers = store.reducerManager.getMountedReducers();
 
         Object.entries(reducerList).forEach(([name, reducer]) => {

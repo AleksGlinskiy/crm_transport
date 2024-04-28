@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import PageLoader from '@/shared/ui/PageLoader/PageLoader';
+import { PageLoader } from '@/shared/ui/PageLoader';
 import {
     AppRouteProps,
     routeConfig,
