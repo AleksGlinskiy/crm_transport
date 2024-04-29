@@ -8,7 +8,7 @@ import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { AppImage } from '@/shared/ui/AppImage';
 import useTitle from '@/shared/hooks/useTitle';
 
 const initialReducers: ReducersList = {

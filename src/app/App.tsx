@@ -4,7 +4,7 @@ import { AppRouter } from '@/app/providers/router';
 import { userActions, getUserInited, getUserAuthData } from '@/entities/User';
 import { PageLoader } from '@/shared/ui/PageLoader';
 import './styles/style.scss';
-import Layout from '@/shared/ui/Layout/Layout';
+import { Layout } from '@/shared/ui/Layout';
 
 export default function App() {
     const dispatch = useDispatch();

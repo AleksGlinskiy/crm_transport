@@ -6,6 +6,8 @@ import { Logo } from '@/shared/ui/Logo';
 import { SidebarItem } from '@/widgets/Sidebar';
 import { SidebarMenuScheme } from '@/widgets/Sidebar/model/types/sidebarList';
 import { SidebarItemDropdown } from '@/widgets/Sidebar/ui/SidebarItemDropdown/SidebarItemDropdown';
+import { AvatarButton } from '@/features/AvatarButton';
+
 import IconHome from '@/shared/assets/icons/home.svg';
 import IconRouting from '@/shared/assets/icons/routing.svg';
 import IconCar from '@/shared/assets/icons/car.svg';
@@ -13,7 +15,6 @@ import IconProfileUser from '@/shared/assets/icons/profile-user.svg';
 import IconSetting from '@/shared/assets/icons/setting.svg';
 import IconPeople from '@/shared/assets/icons/people.svg';
 import IconInfo from '@/shared/assets/icons/info-circle.svg';
-import { AvatarButton } from '@/features/AvatarButton';
 
 interface SidebarProps {
     className?: string;

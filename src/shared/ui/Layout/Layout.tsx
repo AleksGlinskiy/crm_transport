@@ -6,7 +6,7 @@ interface LayoutProps {
     children: ReactNode;
 }
 
-export default function Layout(props: LayoutProps) {
+export function Layout(props: LayoutProps) {
     const { children } = props;
 
     return (
