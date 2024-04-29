@@ -8,7 +8,8 @@ import {
 import { StopoverDetailCard } from '@/entities/Stopover';
 import { Button } from '@/shared/ui/Button/Button';
 import { PageHeader } from '@/widgets/PageHeader';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { EditableStopoverDetailCardSkeleton } from './EditableStopoverDetailCardSkeleton/EditableStopoverDetailCardSkeleton';
+import { EditableStopoverDetailCardError } from './EditableStopoverDetailCardError/EditableStopoverDetailCardError';
 
 interface EditableStopoverDetailCardProps {
     className?: string;
@@ -23,6 +24,14 @@ export function EditableStopoverDetailCard(
     const error = useSelector(getStopoverDetailsError);
     const stopover = useSelector(getStopoverDetailsData);
 
+    if (isLoading) {
+        return <EditableStopoverDetailCardSkeleton />;
+    }
+
+    if (error) {
+        return <EditableStopoverDetailCardError />;
+    }
+
     return (
         <div className={classNames(className)}>
             <PageHeader
@@ -30,11 +39,7 @@ export function EditableStopoverDetailCard(
                 actions={<Button>Редактировать</Button>}
             />
 
-            <StopoverDetailCard
-                data={stopover}
-                isLoading={isLoading}
-                error={error}
-            />
+            <StopoverDetailCard data={stopover} />
         </div>
     );
 }

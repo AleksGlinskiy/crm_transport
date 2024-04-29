@@ -4,56 +4,15 @@ import cls from './StopoverDetailCard.module.scss';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text, TextStyle } from '@/shared/ui/Text/Text';
 import { StopoverDetails } from '@/entities/Stopover/model/types/stopover';
 
 interface StopoverDetailCardProps {
     className?: string;
     data?: StopoverDetails;
-    isLoading?: boolean;
-    error?: string;
-}
-
-export function StopoverDetailCardSkeleton() {
-    return (
-        <div>
-            <Skeleton
-                className={cls.StopoverDetailCard__input}
-                width='100%'
-                height='60px'
-                border='20px'
-            />
-            <Skeleton
-                className={cls.StopoverDetailCard__input}
-                width='100%'
-                height='60px'
-                border='20px'
-            />
-            <Skeleton
-                className={cls.StopoverDetailCard__input}
-                width='100%'
-                height='300px'
-                border='20px'
-            />
-        </div>
-    );
-}
-
-export function StopoverDetailCardError() {
-    return <Text style={TextStyle.H2}>Ошибка</Text>;
 }
 
 export function StopoverDetailCard(props: StopoverDetailCardProps) {
-    const { data, isLoading, error, className } = props;
-
-    if (isLoading) {
-        return <StopoverDetailCardSkeleton />;
-    }
-
-    if (error) {
-        return <StopoverDetailCardError />;
-    }
+    const { data, className } = props;
 
     let crd;
     if (data?.coordinates) {
