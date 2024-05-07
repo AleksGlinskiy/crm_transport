@@ -14,6 +14,7 @@ interface TextareaProps extends HTMLTextareaProps {
     label?: string;
     error?: boolean;
     errorMessage?: string;
+    readonly?: boolean;
     onChange?: (value: string) => void;
 }
 
@@ -26,6 +27,7 @@ export function Textarea(props: TextareaProps) {
         onChange,
         error,
         errorMessage,
+        readonly,
         ...otherProps
     } = props;
 
@@ -37,14 +39,13 @@ export function Textarea(props: TextareaProps) {
         onChange?.('');
     };
 
+    const mods = {
+        [cls.Textarea_error]: error,
+        [cls.Textarea_readonly]: readonly,
+    };
+
     return (
-        <label
-            className={classNames(
-                cls.Textarea,
-                { [cls.Textarea_error]: error },
-                className,
-            )}
-        >
+        <label className={classNames(cls.Textarea, mods, className)}>
             {label && (
                 <span className={cls.Textarea__label}>
                     {label}
@@ -57,6 +58,7 @@ export function Textarea(props: TextareaProps) {
                     onChange={onChangeHandler}
                     required={required}
                     value={value}
+                    readOnly={readonly}
                     {...otherProps}
                 />
 

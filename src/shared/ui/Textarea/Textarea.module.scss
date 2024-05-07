@@ -128,4 +128,14 @@
             }
         }
     }
+
+    &_readonly {
+        .Textarea {
+            &__tag {
+                &:focus {
+                    border-color: #dadbdc;
+                }
+            }
+        }
+    }
 }

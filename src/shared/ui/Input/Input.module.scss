@@ -123,4 +123,14 @@
             }
         }
     }
+
+    &_readonly {
+        .Input {
+            &__tag {
+                &:focus {
+                    border-color: #dadbdc;
+                }
+            }
+        }
+    }
 }

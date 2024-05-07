@@ -14,6 +14,7 @@ interface InputProps extends HTMLInputProps {
     label?: string;
     error?: boolean;
     errorMessage?: string;
+    readonly?: boolean;
     onChange?: (value: string) => void;
 }
 
@@ -26,6 +27,7 @@ export function Input(props: InputProps) {
         onChange,
         error,
         errorMessage,
+        readonly,
         ...otherProps
     } = props;
 
@@ -37,14 +39,13 @@ export function Input(props: InputProps) {
         onChange?.('');
     };
 
+    const mods = {
+        [cls.Input_error]: error,
+        [cls.Input_readonly]: readonly,
+    };
+
     return (
-        <label
-            className={classNames(
-                cls.Input,
-                { [cls.Input_error]: error },
-                className,
-            )}
-        >
+        <label className={classNames(cls.Input, mods, className)}>
             {label && (
                 <span className={cls.Input__label}>
                     {label}
@@ -57,6 +58,7 @@ export function Input(props: InputProps) {
                     value={value}
                     onChange={onChangeHandler}
                     required={required}
+                    readOnly={readonly}
                     {...otherProps}
                 />
 
