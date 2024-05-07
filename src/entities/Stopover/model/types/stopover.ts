@@ -1,7 +1,7 @@
 export interface Stopover {
-    id: number;
-    name: string;
-    coordinates: string;
+    id?: number;
+    name?: string;
+    coordinates?: string;
 }
 
 export interface StopoverScheme {
@@ -21,4 +21,7 @@ export interface StopoverDetailsScheme {
     isLoading: boolean;
     data?: Stopover;
     errors?: string;
+    readonly?: boolean;
+    form?: Stopover;
+    formIsLoading: boolean;
 }

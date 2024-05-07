@@ -30,4 +30,10 @@
         margin-bottom: 20px;
         margin-left: 20px;
     }
+
+    &__map {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #dadbdc;
+    }
 }

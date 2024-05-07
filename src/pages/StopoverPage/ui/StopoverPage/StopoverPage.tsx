@@ -6,7 +6,7 @@ import useReducerManager, {
     ReducersList,
 } from '@/shared/hooks/useReducerManager';
 import { stopoverPageReducer } from '../../model/slices/stopoverPageSlices';
-import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
+import { Button, ButtonVariants } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { fetchDataStopover } from '@/entities/Stopover/model/services/fetchDataStopover/fetchDataStopover';
 import {

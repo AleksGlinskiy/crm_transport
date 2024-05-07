@@ -1,0 +1,17 @@
+.Skeleton {
+    position: relative;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        gap: 40px;
+    }
+
+    &__form {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+}

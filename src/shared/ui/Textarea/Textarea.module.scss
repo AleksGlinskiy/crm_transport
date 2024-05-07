@@ -132,6 +132,8 @@
     &_readonly {
         .Textarea {
             &__tag {
+                cursor: default;
+                
                 &:focus {
                     border-color: #dadbdc;
                 }

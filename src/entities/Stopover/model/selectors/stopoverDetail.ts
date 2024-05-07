@@ -8,3 +8,12 @@ export const getStopoverDetailsError = (state: StateSchema) =>
 
 export const getStopoverDetailsIsLoading = (state: StateSchema) =>
     state.stopoverDetails?.isLoading || false;
+
+export const getStopoverDetailsReadonly = (state: StateSchema) =>
+    state.stopoverDetails?.readonly || false;
+
+export const getStopoverDetailsForm = (state: StateSchema) =>
+    state.stopoverDetails?.form;
+
+export const getStopoverDetailsFormIsLoading = (state: StateSchema) =>
+    state.stopoverDetails?.formIsLoading;

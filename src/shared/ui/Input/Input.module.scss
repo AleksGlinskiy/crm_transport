@@ -127,6 +127,8 @@
     &_readonly {
         .Input {
             &__tag {
+                cursor: default;
+                
                 &:focus {
                     border-color: #dadbdc;
                 }
