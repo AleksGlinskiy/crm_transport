@@ -30,62 +30,62 @@ const menuItemList: SidebarMenuScheme[] = [
         name: 'Маршрут',
         Icon: IconRouting,
         list: [
-            {
-                name: 'Направления',
-                path: RoutePath.route,
-            },
-            {
-                name: 'Расписание',
-                path: RoutePath.timesheet,
-            },
+            // {
+            //     name: 'Направления',
+            //     path: RoutePath.route,
+            // },
+            // {
+            //     name: 'Расписание',
+            //     path: RoutePath.timesheet,
+            // },
             {
                 name: 'Остановки',
                 path: RoutePath.stopover,
             },
         ],
     },
-    {
-        name: 'Автопарк',
-        Icon: IconCar,
-        list: [
-            {
-                name: 'Автомобили',
-                path: RoutePath.cars,
-            },
-            {
-                name: 'Мониторинг',
-                path: RoutePath.car_monitoring,
-            },
-        ],
-    },
-    {
-        name: 'Персонал',
-        Icon: IconProfileUser,
-        list: [
-            {
-                name: 'Пользователи',
-                path: RoutePath.users,
-            },
-            {
-                name: 'Водители',
-                path: RoutePath.drivers,
-            },
-            {
-                name: 'Роли',
-                path: RoutePath.roles,
-            },
-        ],
-    },
+    // {
+    //     name: 'Автопарк',
+    //     Icon: IconCar,
+    //     list: [
+    //         {
+    //             name: 'Автомобили',
+    //             path: RoutePath.cars,
+    //         },
+    //         {
+    //             name: 'Мониторинг',
+    //             path: RoutePath.car_monitoring,
+    //         },
+    //     ],
+    // },
+    // {
+    //     name: 'Персонал',
+    //     Icon: IconProfileUser,
+    //     list: [
+    //         {
+    //             name: 'Пользователи',
+    //             path: RoutePath.users,
+    //         },
+    //         {
+    //             name: 'Водители',
+    //             path: RoutePath.drivers,
+    //         },
+    //         {
+    //             name: 'Роли',
+    //             path: RoutePath.roles,
+    //         },
+    //     ],
+    // },
     // {
     //     name: 'Рейсы',
     //     Icon: IconCalendar,
     //     path: RoutePath.dashboard,
     // },
-    {
-        name: 'Клиенты',
-        Icon: IconPeople,
-        path: RoutePath.clientele,
-    },
+    // {
+    //     name: 'Клиенты',
+    //     Icon: IconPeople,
+    //     path: RoutePath.clientele,
+    // },
 ];
 
 export function Sidebar(props: SidebarProps) {

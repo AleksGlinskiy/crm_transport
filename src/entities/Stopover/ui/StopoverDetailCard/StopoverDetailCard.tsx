@@ -4,17 +4,30 @@ import cls from './StopoverDetailCard.module.scss';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import { Stopover } from '@/entities/Stopover/model/types/stopover';
+import iconMap from '@/shared/assets/icon-map.png';
+import { Stopover } from '../../model/types/stopover';
+import { StopoverDetailCardSkeleton } from '../StopoverDetailCardSkeleton/StopoverDetailCardSkeleton';
+import { StopoverDetailCardError } from '../StopoverDetailCardError/StopoverDetailCardError';
 
 interface StopoverDetailCardProps {
     className?: string;
     data?: Stopover;
     readonly?: boolean;
+    isLoading?: boolean;
+    error?: string;
     onChangeName?: (value?: string) => void;
 }
 
 export function StopoverDetailCard(props: StopoverDetailCardProps) {
-    const { data, readonly, className, onChangeName } = props;
+    const { data, readonly, className, isLoading, error, onChangeName } = props;
+
+    if (isLoading) {
+        return <StopoverDetailCardSkeleton />;
+    }
+
+    if (error) {
+        return <StopoverDetailCardError />;
+    }
 
     let crd;
     if (data?.coordinates) {
@@ -70,6 +83,10 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
                         <Placemark
                             options={{
                                 iconColor: '#5755ff',
+                                iconLayout: 'default#image',
+                                iconImageHref: iconMap,
+                                iconImageSize: [50, 65],
+                                iconImageOffset: [-25, -65],
                             }}
                             defaultGeometry={crd}
                         />

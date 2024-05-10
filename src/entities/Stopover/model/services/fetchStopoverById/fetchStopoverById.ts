@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { StopoverDetails } from '../../types/stopover';
+import { Stopover } from '../../types/stopover';
 import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
 
 export const fetchStopoverById = createAsyncThunk<
-    StopoverDetails,
+    Stopover,
     string,
     ThunkConfig<string>
 >('stopover/fetchStopoverById', async (stopoverId, thunkAPI) => {
     const { rejectWithValue, extra } = thunkAPI;
     try {
-        const response = await extra.api.get<StopoverDetails>(
+        const response = await extra.api.get<Stopover>(
             `stopover/${stopoverId}`,
         );
 

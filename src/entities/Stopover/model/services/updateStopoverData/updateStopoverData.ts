@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Stopover } from '../../types/stopover';
 import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
+import { Stopover } from '../../types/stopover';
 import { getStopoverDetailsForm } from '../../selectors/stopoverDetail';
 
 export const updateStopoverData = createAsyncThunk<

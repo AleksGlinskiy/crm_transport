@@ -29,7 +29,7 @@ const initialReducers: ReducersList = {
 
 export default function StopoverPage() {
     useTitle('Остановочные пункты');
-    useReducerManager(initialReducers, false);
+    useReducerManager(initialReducers);
 
     const dispatch = useAppDispatch();
     const data = useSelector(getStopoverData);

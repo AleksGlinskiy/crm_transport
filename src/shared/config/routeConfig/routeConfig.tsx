@@ -8,6 +8,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { SupportPage } from '@/pages/SupportPage';
 import { StopoverPage } from '@/pages/StopoverPage';
 import { StopoverDetailsPage } from '@/pages/StopoverDetailsPage';
+import { StopoverEditPage } from '@/pages/StopoverEditPage';
 
 export enum AppRoutes {
     LOGIN = 'login',
@@ -18,19 +19,20 @@ export enum AppRoutes {
     SETTINGS = 'settings',
     SUPPORT = 'support',
 
-    ROUTE = 'route',
-    TIMESHEET = 'timesheet',
+    // ROUTE = 'route',
+    // TIMESHEET = 'timesheet',
     STOPOVER = 'stopover',
     STOPOVER_DETAILS = 'stopover_details',
+    STOPOVER_EDIT = 'stopover_edit',
 
-    CARS = 'cars',
-    CAR_MONITORING = 'car_monitoring',
+    // CARS = 'cars',
+    // CAR_MONITORING = 'car_monitoring',
 
-    USERS = 'users',
-    DRIVERS = 'drivers',
-    ROLES = 'roles',
+    // USERS = 'users',
+    // DRIVERS = 'drivers',
+    // ROLES = 'roles',
 
-    CLIENTELE = 'clientele',
+    // CLIENTELE = 'clientele',
 
     NOT_FOUND = 'not_found',
 }
@@ -48,18 +50,19 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.SETTINGS]: 'settings',
     [AppRoutes.SUPPORT]: 'support',
 
-    [AppRoutes.ROUTE]: '/route',
-    [AppRoutes.TIMESHEET]: '/timesheet',
-    [AppRoutes.STOPOVER]: '/stopover',
-    [AppRoutes.STOPOVER_DETAILS]: '/stopover_details/',
+    // [AppRoutes.ROUTE]: '/route',
+    // [AppRoutes.TIMESHEET]: '/timesheet',
+    [AppRoutes.STOPOVER]: '/stopover/',
+    [AppRoutes.STOPOVER_DETAILS]: '/stopover/',
+    [AppRoutes.STOPOVER_EDIT]: '/stopover/',
 
-    [AppRoutes.CARS]: '/cars',
-    [AppRoutes.CAR_MONITORING]: '/car_monitoring',
+    // [AppRoutes.CARS]: '/cars',
+    // [AppRoutes.CAR_MONITORING]: '/car_monitoring',
 
-    [AppRoutes.USERS]: '/users',
-    [AppRoutes.DRIVERS]: '/drivers',
-    [AppRoutes.ROLES]: '/roles',
-    [AppRoutes.CLIENTELE]: '/clientele',
+    // [AppRoutes.USERS]: '/users',
+    // [AppRoutes.DRIVERS]: '/drivers',
+    // [AppRoutes.ROLES]: '/roles',
+    // [AppRoutes.CLIENTELE]: '/clientele',
 
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -91,14 +94,14 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: RoutePath.support,
         element: <SupportPage />,
     },
-    [AppRoutes.ROUTE]: {
-        path: RoutePath.route,
-        element: <AboutPage />,
-    },
-    [AppRoutes.TIMESHEET]: {
-        path: RoutePath.timesheet,
-        element: <AboutPage />,
-    },
+    // [AppRoutes.ROUTE]: {
+    //     path: RoutePath.route,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.TIMESHEET]: {
+    //     path: RoutePath.timesheet,
+    //     element: <AboutPage />,
+    // },
     [AppRoutes.STOPOVER]: {
         path: RoutePath.stopover,
         element: <StopoverPage />,
@@ -107,30 +110,34 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: `${RoutePath.stopover_details}:id`,
         element: <StopoverDetailsPage />,
     },
-    [AppRoutes.CARS]: {
-        path: RoutePath.cars,
-        element: <AboutPage />,
+    [AppRoutes.STOPOVER_EDIT]: {
+        path: `${RoutePath.stopover_edit}:id/edit`,
+        element: <StopoverDetailsPage />,
     },
-    [AppRoutes.CAR_MONITORING]: {
-        path: RoutePath.car_monitoring,
-        element: <AboutPage />,
-    },
-    [AppRoutes.USERS]: {
-        path: RoutePath.users,
-        element: <AboutPage />,
-    },
-    [AppRoutes.DRIVERS]: {
-        path: RoutePath.drivers,
-        element: <AboutPage />,
-    },
-    [AppRoutes.ROLES]: {
-        path: RoutePath.roles,
-        element: <AboutPage />,
-    },
-    [AppRoutes.CLIENTELE]: {
-        path: RoutePath.clientele,
-        element: <AboutPage />,
-    },
+    // [AppRoutes.CARS]: {
+    //     path: RoutePath.cars,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.CAR_MONITORING]: {
+    //     path: RoutePath.car_monitoring,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.USERS]: {
+    //     path: RoutePath.users,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.DRIVERS]: {
+    //     path: RoutePath.drivers,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.ROLES]: {
+    //     path: RoutePath.roles,
+    //     element: <AboutPage />,
+    // },
+    // [AppRoutes.CLIENTELE]: {
+    //     path: RoutePath.clientele,
+    //     element: <AboutPage />,
+    // },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
         element: <NotFoundPage />,

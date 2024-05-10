@@ -11,12 +11,6 @@ export interface StopoverScheme {
     _inited: boolean;
 }
 
-export interface StopoverDetails {
-    id: number;
-    name: string;
-    coordinates: string;
-}
-
 export interface StopoverDetailsScheme {
     isLoading: boolean;
     data?: Stopover;

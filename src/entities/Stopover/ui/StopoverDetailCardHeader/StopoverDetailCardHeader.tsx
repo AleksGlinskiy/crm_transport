@@ -1,43 +1,60 @@
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import { ButtonVariants, Button } from '@/shared/ui/Button';
-import {
-    getStopoverDetailsReadonly,
-    getStopoverDetailsData,
-    getStopoverDetailsFormIsLoading,
-} from '@/entities/Stopover/model/selectors/stopoverDetail';
-import { stopoverDetailActions } from '@/entities/Stopover/model/slice/StopoverDetailSlice';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { PageHeader } from '@/widgets/PageHeader';
+import {
+    getStopoverDetailsData,
+    getStopoverDetailsFormIsLoading,
+} from '../../model/selectors/stopoverDetail';
+import { stopoverDetailActions } from '../../model/slice/StopoverDetailSlice';
+import { updateStopoverData } from '../../model/services/updateStopoverData/updateStopoverData';
 import cls from './StopoverDetailCardHeader.module.scss';
-import { updateStopoverData } from '@/entities/Stopover/model/services/updateStopoverData/updateStopoverData';
 
 interface StopoverDetailCardHeaderProps {
     className?: string;
     title?: string;
+    isLoading?: boolean;
+    error?: string;
+    readonly?: boolean;
 }
 
 export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
-    const { className, title } = props;
+    const { className, title, isLoading, error, readonly } = props;
 
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const stopover = useSelector(getStopoverDetailsData);
-    const readonly = useSelector(getStopoverDetailsReadonly);
     const formIsLoading = useSelector(getStopoverDetailsFormIsLoading);
 
     const onEdit = () => {
         dispatch(stopoverDetailActions.setReadonly(false));
+        navigate(`${RoutePath.stopover_edit}${String(stopover?.id)}/edit/`);
     };
 
-    const onCancelEdit = () => {
+    const onBack = () => {
         dispatch(stopoverDetailActions.cancelEdit());
+        navigate(`${RoutePath.stopover_details}${String(stopover?.id)}`);
     };
 
     const onSave = () => {
         if (stopover?.id) {
             dispatch(updateStopoverData(String(stopover?.id)));
         }
+        navigate(`${RoutePath.stopover_details}${String(stopover?.id)}`);
     };
+
+    if (isLoading) {
+        return (
+            <div className={cls.StopoverDetailCardHeader__skeleton}>
+                <Skeleton width='45%' height='60px' border='20px' />
+                <Skeleton width='180px' height='60px' border='20px' />
+            </div>
+        );
+    }
 
     let actions;
     if (readonly) {
@@ -50,8 +67,8 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
         actions = (
             <div className={cls.StopoverDetailCardHeader__btns}>
                 <Button onClick={onSave}>Сохранить</Button>
-                <Button variant={ButtonVariants.OUTLINE} onClick={onCancelEdit}>
-                    Отменить
+                <Button onClick={onBack} variant={ButtonVariants.OUTLINE}>
+                    Вернуться назад
                 </Button>
             </div>
         );
