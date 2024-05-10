@@ -1,13 +1,12 @@
-import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import classNames from 'classnames';
 import cls from './StopoverDetailCard.module.scss';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import iconMap from '@/shared/assets/icon-map.png';
 import { Stopover } from '../../model/types/stopover';
 import { StopoverDetailCardSkeleton } from '../StopoverDetailCardSkeleton/StopoverDetailCardSkeleton';
 import { StopoverDetailCardError } from '../StopoverDetailCardError/StopoverDetailCardError';
+import { AppMap } from '@/shared/ui/AppMap';
 
 interface StopoverDetailCardProps {
     className?: string;
@@ -29,10 +28,10 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
         return <StopoverDetailCardError />;
     }
 
-    let crd;
-    if (data?.coordinates) {
-        crd = data.coordinates.split(', ').map(Number);
-    }
+    const defaultStateMap = {
+        center: data?.coordinates,
+        zoom: 16,
+    };
 
     return (
         <div className={classNames(cls.StopoverDetailCard, className)}>
@@ -70,28 +69,12 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
                     />
                 </div>
             </div>
-            {crd && (
-                <YMaps>
-                    <Map
-                        className={cls.StopoverDetailCard__map}
-                        defaultState={{
-                            center: crd,
-                            zoom: 16,
-                        }}
-                        style={{ width: '100%', height: '400px' }}
-                    >
-                        <Placemark
-                            options={{
-                                iconColor: '#5755ff',
-                                iconLayout: 'default#image',
-                                iconImageHref: iconMap,
-                                iconImageSize: [50, 65],
-                                iconImageOffset: [-25, -65],
-                            }}
-                            defaultGeometry={crd}
-                        />
-                    </Map>
-                </YMaps>
+            {data?.coordinates && (
+                <AppMap
+                    className={cls.StopoverDetailCard__map}
+                    defaultState={defaultStateMap}
+                    geometry={data?.coordinates}
+                />
             )}
         </div>
     );

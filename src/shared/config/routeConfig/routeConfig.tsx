@@ -8,7 +8,6 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { SupportPage } from '@/pages/SupportPage';
 import { StopoverPage } from '@/pages/StopoverPage';
 import { StopoverDetailsPage } from '@/pages/StopoverDetailsPage';
-import { StopoverEditPage } from '@/pages/StopoverEditPage';
 
 export enum AppRoutes {
     LOGIN = 'login',

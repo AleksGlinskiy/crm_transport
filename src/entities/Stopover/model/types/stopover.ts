@@ -1,7 +1,7 @@
 export interface Stopover {
     id?: number;
     name?: string;
-    coordinates?: string;
+    coordinates?: number[];
 }
 
 export interface StopoverScheme {
