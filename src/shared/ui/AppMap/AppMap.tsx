@@ -20,6 +20,8 @@ interface AppMapProps {
 export function AppMap(props: AppMapProps) {
     const { className, defaultState, geometry } = props;
 
+    console.log(geometry);
+
     return (
         <YMaps>
             <Map
@@ -29,6 +31,7 @@ export function AppMap(props: AppMapProps) {
                 {geometry && (
                     <Placemark
                         options={placemarkOptions}
+                        geometry={geometry}
                         defaultGeometry={geometry}
                     />
                 )}

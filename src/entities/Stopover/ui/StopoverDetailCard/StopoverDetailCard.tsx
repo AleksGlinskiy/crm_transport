@@ -15,10 +15,21 @@ interface StopoverDetailCardProps {
     isLoading?: boolean;
     error?: string;
     onChangeName?: (value?: string) => void;
+    onChangeCoordinates?: (value?: string) => void;
+    onChangeDescription?: (value?: string) => void;
 }
 
 export function StopoverDetailCard(props: StopoverDetailCardProps) {
-    const { data, readonly, className, isLoading, error, onChangeName } = props;
+    const {
+        data,
+        readonly,
+        className,
+        isLoading,
+        error,
+        onChangeName,
+        onChangeCoordinates,
+        onChangeDescription,
+    } = props;
 
     if (isLoading) {
         return <StopoverDetailCardSkeleton />;
@@ -46,26 +57,22 @@ export function StopoverDetailCard(props: StopoverDetailCardProps) {
                     />
                     <div className={cls.StopoverDetailCard__wrapInput}>
                         <Input
-                            label='Адрес:'
+                            label='Координаты:'
+                            value={String(data?.coordinates)}
                             className={cls.StopoverDetailCard__input}
                             readonly={readonly}
+                            onChange={onChangeCoordinates}
                         />
-                        <Button
-                            variant={ButtonVariants.OUTLINE}
-                            className={cls.StopoverDetailCard__btn}
-                            disabled={readonly}
-                        >
-                            Найти
-                        </Button>
                     </div>
                 </div>
                 <div className={cls.StopoverDetailCard__col}>
                     <Textarea
                         label='Описание:'
-                        value='Москва, Дворец культуры железнодорожников'
+                        value={data?.description}
                         rows={7}
                         className={cls.StopoverDetailCard__textarea}
                         readonly={readonly}
+                        onChange={onChangeDescription}
                     />
                 </div>
             </div>

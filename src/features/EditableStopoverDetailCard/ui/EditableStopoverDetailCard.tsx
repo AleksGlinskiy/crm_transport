@@ -60,6 +60,25 @@ export function EditableStopoverDetailCard(
         );
     };
 
+    const onChangeCoordinates = (value?: string) => {
+        if (value) {
+            const coordinates = value.split(',').map(parseFloat);
+            dispatch(
+                stopoverDetailActions.updateStopoverData({
+                    coordinates: coordinates || [0, 0],
+                }),
+            );
+        }
+    };
+
+    const onChangeDescription = (value?: string) => {
+        dispatch(
+            stopoverDetailActions.updateStopoverData({
+                description: value || '',
+            }),
+        );
+    };
+
     return (
         <div className={classNames(className)}>
             <StopoverDetailCardHeader
@@ -74,6 +93,8 @@ export function EditableStopoverDetailCard(
                 isLoading={isLoading}
                 error={error}
                 onChangeName={onChangeName}
+                onChangeCoordinates={onChangeCoordinates}
+                onChangeDescription={onChangeDescription}
                 readonly={readonly}
             />
         </div>
