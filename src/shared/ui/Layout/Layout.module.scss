@@ -11,7 +11,7 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        background-color: var(--grey-color);
+        background-color: var(--accent-secondary-color);
         overflow: auto;
 
         h1 {
@@ -27,6 +27,6 @@
     &__footer {
         padding: 20px;
         text-align: center;
-        border-top: 1px solid #eee;
+        border-top: 1px solid var(--border-color);
     }
 }

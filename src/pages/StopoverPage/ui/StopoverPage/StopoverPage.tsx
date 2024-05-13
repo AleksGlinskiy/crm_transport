@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import useTitle from '@/shared/hooks/useTitle';
+import useTitle from '@/shared/lib/hooks/useTitle';
 import useReducerManager, {
     ReducersList,
-} from '@/shared/hooks/useReducerManager';
+} from '@/shared/lib/hooks/useReducerManager';
 import { stopoverPageReducer } from '../../model/slices/stopoverPageSlices';
 import { Button, ButtonVariants } from '@/shared/ui/Button';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { fetchDataStopover } from '@/entities/Stopover/model/services/fetchDataStopover/fetchDataStopover';
 import {
     getStopoverData,
@@ -18,10 +18,7 @@ import {
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';
 import { PageHeader } from '@/widgets/PageHeader';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import {
-    routeConfig,
-    RoutePath,
-} from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 const initialReducers: ReducersList = {
     stopover: stopoverPageReducer,
@@ -36,6 +33,7 @@ export default function StopoverPage() {
     const isLoading = useSelector(getStopoverLoading);
     const error = useSelector(getStopoverError);
     const initiated = useSelector(getStopoverInitiated);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!initiated) {
@@ -68,7 +66,7 @@ export default function StopoverPage() {
                 <div
                     style={{
                         width: '100%',
-                        background: '#fff',
+                        background: 'var(--accent-color)',
                         height: '300px',
                         borderRadius: '30px',
                         padding: '30px',

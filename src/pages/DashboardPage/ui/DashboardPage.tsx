@@ -1,5 +1,5 @@
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
-import useTitle from '@/shared/hooks/useTitle';
+import useTitle from '@/shared/lib/hooks/useTitle';
 
 export default function DashboardPage() {
     useTitle('Панель');
@@ -21,7 +21,7 @@ export default function DashboardPage() {
                 <div
                     style={{
                         width: '49%',
-                        background: '#fff',
+                        background: 'var(--accent-color)',
                         height: '300px',
                         borderRadius: '30px',
                     }}
@@ -29,7 +29,7 @@ export default function DashboardPage() {
                 <div
                     style={{
                         width: '49%',
-                        background: '#fff',
+                        background: 'var(--accent-color)',
                         height: '300px',
                         borderRadius: '30px',
                     }}
@@ -37,7 +37,7 @@ export default function DashboardPage() {
                 <div
                     style={{
                         width: '100%',
-                        background: '#fff',
+                        background: 'var(--accent-color)',
                         height: '300px',
                         borderRadius: '30px',
                     }}

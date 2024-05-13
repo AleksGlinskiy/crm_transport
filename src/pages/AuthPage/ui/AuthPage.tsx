@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import { LoginForm, loginReducer } from '@/features/AuthByUsername';
 import useReducerManager, {
     ReducersList,
-} from '@/shared/hooks/useReducerManager';
+} from '@/shared/lib/hooks/useReducerManager';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 
 import bgImage from '@/shared/assets/images/bg_2.jpg';
 import cls from './AuthPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppImage } from '@/shared/ui/AppImage';
-import useTitle from '@/shared/hooks/useTitle';
+import useTitle from '@/shared/lib/hooks/useTitle';
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,

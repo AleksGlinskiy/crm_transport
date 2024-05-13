@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ButtonVariants, Button } from '@/shared/ui/Button';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { PageHeader } from '@/widgets/PageHeader';
 import {
     getStopoverDetailsData,
@@ -40,6 +40,10 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
         navigate(`${RoutePath.stopover_details}${String(stopover?.id)}`);
     };
 
+    const onBackPage = () => {
+        navigate(RoutePath.stopover);
+    };
+
     const onSave = () => {
         if (stopover?.id) {
             dispatch(updateStopoverData(String(stopover?.id)));
@@ -61,15 +65,20 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
         actions = formIsLoading ? (
             <Button variant={ButtonVariants.PROCESS}>Сохранение</Button>
         ) : (
-            <Button onClick={onEdit}>Редактировать</Button>
+            <div className={cls.StopoverDetailCardHeader__btns}>
+                <Button onClick={onBackPage} variant={ButtonVariants.OUTLINE}>
+                    Назад
+                </Button>
+                <Button onClick={onEdit}>Редактировать</Button>
+            </div>
         );
     } else {
         actions = (
             <div className={cls.StopoverDetailCardHeader__btns}>
-                <Button onClick={onSave}>Сохранить</Button>
                 <Button onClick={onBack} variant={ButtonVariants.OUTLINE}>
-                    Вернуться назад
+                    Отменить Редактирование
                 </Button>
+                <Button onClick={onSave}>Сохранить</Button>
             </div>
         );
     }

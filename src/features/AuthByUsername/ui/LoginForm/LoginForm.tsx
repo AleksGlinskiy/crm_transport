@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { type SyntheticEvent, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Message, MessageVariants } from '@/shared/ui/Message/Message';

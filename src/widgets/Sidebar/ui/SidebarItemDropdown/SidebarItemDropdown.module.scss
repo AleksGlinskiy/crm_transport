@@ -20,6 +20,7 @@
         height: auto;
         margin-left: 8px;
         transition: transform 0.5s;
+        color: var(--font-grey-color);
 
         path {
             stroke-width: 2px;
@@ -44,7 +45,7 @@
         display: inline-block;
         margin-top: 15px;
         text-decoration: none;
-        color: #7d8ca0;
+        color: var(--font-grey-color);
 
         &_active {
             color: var(--primary-color);

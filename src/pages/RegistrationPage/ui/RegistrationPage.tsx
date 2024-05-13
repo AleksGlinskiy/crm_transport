@@ -3,7 +3,7 @@ import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
 import cls from './RegistrationPage.module.scss';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import bgImage from '@/shared/assets/images/bg_3.jpg';
-import useTitle from '@/shared/hooks/useTitle';
+import useTitle from '@/shared/lib/hooks/useTitle';
 import { RegistrationForm } from '@/features/Registration';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 

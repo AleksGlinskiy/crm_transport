@@ -14,8 +14,8 @@ import {
     stopoverDetailActions,
     stopoverDetailReducer,
 } from '@/entities/Stopover';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import useReducerManager from '@/shared/hooks/useReducerManager';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import useReducerManager from '@/shared/lib/hooks/useReducerManager';
 
 interface EditableStopoverDetailCardProps {
     className?: string;

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 36px 12px;
-    background: #fff;
+    background: var(--accent-color);
 
     &__top {
         display: flex;
@@ -20,7 +20,7 @@
     }
 
     &__navBottom {
-        border-top: 1px solid #eee;
+        border-top: 1px solid var(--border-color);
         margin-top: 20px;
         padding-top: 20px;
     }

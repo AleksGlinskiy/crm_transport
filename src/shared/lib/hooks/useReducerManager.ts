@@ -1,7 +1,7 @@
 import { useStore } from 'react-redux';
 import { useLayoutEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
     ReduxStoreWithManager,
     StateSchemaKey,

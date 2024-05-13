@@ -4,17 +4,49 @@
     --font-family: "Gilroy", sans-serif;
 
     // colors
-    --font-color: #0e0d35;
+    --font-color: #141417;
+    --font-grey-color: #54626d;
+
     --primary-color: #5755ff;
     --primary-color-hover: #f4f3ff;
     --primary-color-pressed: #d5d2ff;
     --primary-color-pressed-dark: #2826c1;
+
     --secondary-color: #ff8f6b;
     --success-color: #44c98f;
     --error-color: #f55;
-    --grey-color: #f8f8f9;
+
+    --accent-color: #fff;
+    --accent-secondary-color: #f5f6fa;
+
+    --border-color: #eee;
+
+    --input-bg-color: #fff;
+    --input-border-color: #dadbdc;
+
+    --skeleton-bg-color: #f4f4ff;
 
     @include media-big-desktop {
         font-size: big(16);
+    }
+
+    .dark {
+        --font-color: #fefefe;
+        --font-grey-color: #dcdcdd;
+
+        --primary-color: #426ecf;
+        --primary-color-hover: #426ecf;
+        --primary-color-pressed: #426ecf;
+        --primary-color-pressed-dark: #426ecf;
+
+        --accent-color: #1f2029;
+        --accent-secondary-color: #17181f;
+
+        --border-color: #292a32;
+
+        --input-bg-color: #1f2029;
+        --input-border-color: #2c2d37;
+
+        --skeleton-bg-color: #2c2d37;
     }
 }
