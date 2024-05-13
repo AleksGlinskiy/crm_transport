@@ -1,23 +1,29 @@
 :root {
-    // fonts
-    --font-size: rem(16);
-    --font-family: "Gilroy", sans-serif;
-
-    // colors
-    --font-color: #141417;
-    --font-grey-color: #54626d;
-
+    // Global colors
     --primary-color: #5755ff;
-    --primary-color-hover: #f4f3ff;
-    --primary-color-pressed: #d5d2ff;
-    --primary-color-pressed-dark: #2826c1;
-
-    --secondary-color: #ff8f6b;
+    --warning-color: #ff8f6b;
     --success-color: #44c98f;
     --error-color: #f55;
 
-    --accent-color: #fff;
-    --accent-secondary-color: #f5f6fa;
+    // Fonts
+    --font-size: #{rem(16)};
+    --font-family: "Gilroy", sans-serif;
+    --font-color: #141417;
+    --font-grey-color: #54626d;
+
+    // Buttons
+    --btn-border-radius: #{rem(16)};
+    --btn-color: #fff;
+    --btn-bg-color: var(--primary-color, #5755ff);
+    --btn-bg-color_hover: #7a78ff;
+    --btn-bg-color_pressed: #2826c1;
+    --btn-bg-color_disabled: #dddedf;
+    --btn-bg-color_light: #f4f3ff;
+    --btn-bg-color_light-pressed: #d5d2ff;
+
+    // Background colors
+    --accent-bg-color: #f5f6fa;
+    --accent-bg-color_light: #fff;
 
     --border-color: #eee;
 
@@ -27,7 +33,7 @@
     --skeleton-bg-color: #f4f4ff;
 
     @include media-big-desktop {
-        font-size: big(16);
+        font-size: #{big(16)};
     }
 
     .dark {
@@ -35,12 +41,14 @@
         --font-grey-color: #dcdcdd;
 
         --primary-color: #426ecf;
-        --primary-color-hover: #426ecf;
+        --primary-color-hover: #214fb5;
         --primary-color-pressed: #426ecf;
         --primary-color-pressed-dark: #426ecf;
+        --primary-color-disabled: #dddedf;
 
-        --accent-color: #1f2029;
-        --accent-secondary-color: #17181f;
+        // Background colors
+        --accent-bg-color: #17181f;
+        --accent-bg-color_light: #1f2029;
 
         --border-color: #292a32;
 

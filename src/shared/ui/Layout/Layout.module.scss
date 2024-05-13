@@ -2,6 +2,8 @@
     position: relative;
     display: flex;
     height: 100%;
+    color: var(--font-color);
+    background-color: var(--accent-bg-color);
 
     &__sidebar {
         width: 17%;
@@ -11,7 +13,6 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        background-color: var(--accent-secondary-color);
         overflow: auto;
 
         h1 {

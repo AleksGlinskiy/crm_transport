@@ -10,7 +10,6 @@ body,
 body {
     height: 100%;
     font-family: var(--font-family);
-    color: var(--font-color);
     font-weight: 500;
 
     @include media-big-desktop {
