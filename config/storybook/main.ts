@@ -9,7 +9,7 @@ const config: StorybookConfig = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-styling-webpack',
-        '@storybook/addon-themes',
+        'storybook-dark-mode',
     ],
 
     framework: {
@@ -33,7 +33,7 @@ const config: StorybookConfig = {
 
     previewHead: (head) => `
         ${head}
-        ${'<style>#storybook-root {height: 100%; padding: 30px;}</style>'}
+        ${'<style>#storybook-root {height: 100%;}</style>'}
     `,
 };
 export default config;

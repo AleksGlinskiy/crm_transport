@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/shared/const/theme';
 
@@ -13,6 +14,12 @@ const preview: Preview = {
             },
         },
         layout: 'fullscreen',
+        backgrounds: { disable: true },
+        darkMode: {
+            dark: { ...themes.dark },
+            light: { ...themes.normal },
+            stylePreview: true,
+        },
     },
     decorators: [ThemeDecorator(Theme.LIGHT)],
 };
