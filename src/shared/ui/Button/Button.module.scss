@@ -29,28 +29,31 @@
         line-height: rem(44);
         border-radius: rem(12);
     }
-}
-
-.primary {
-    color: #fff;
-    background-color: var(--primary-color);
-
-    &:hover {
-        background-color: var(--primary-color-hover);
-    }
-
-    &:active {
-        background-color: var(--primary-color-pressed);
-    }
 
     &:focus-visible {
-        outline: 3px solid rgb(122 120 255 / 50%);
+        outline: 3px solid var(--btn-color-outline);
     }
 
     &:disabled {
-        color: #7c7f90;
         cursor: default;
-        background-color: var(--primary-color-disabled);
+    }
+}
+
+.primary {
+    color: var(--btn-color);
+    background-color: var(--btn-bg-color);
+
+    &:hover {
+        background-color: var(--btn-bg-color_hover);
+    }
+
+    &:active {
+        background-color: var(--btn-bg-color_pressed);
+    }
+
+    &:disabled {
+        color: var(--btn-color_disabled);
+        background-color: var(--btn-bg-color_disabled);
     }
 }
 
@@ -61,31 +64,43 @@
 
     &:hover {
         color: var(--primary-color);
-        background-color: var(--primary-color-hover);
+        background-color: var(--btn-bg-color_light);
     }
 
     &:active {
-        color: var(--primary-color-pressed-dark);
-        border-color: var(--primary-color-pressed-dark);
-        background-color: var(--primary-color-pressed);
-    }
-
-    &:focus-visible {
-        outline: 3px solid rgba(var(--primary-color), 0.4);
+        color: var(--btn-color_pressed);
+        border-color: var(--btn-bg-color_pressed);
+        background-color: var(--btn-bg-color_light-pressed);
     }
 
     &:disabled {
-        color: #7c7f90;
-        border-color: #7c7f90;
-        cursor: default;
+        color: var(--btn-color_disabled);
+        border-color: var(--btn-color_disabled);
         background-color: transparent;
     }
 }
 
-.process {
-    color: #fff;
-    background-color: var(--primary-color);
+.texted {
+    color: var(--primary-color);
+    border: 0;
+    background-color: transparent;
 
+    &:hover {
+        background-color: var(--btn-bg-color_light);
+    }
+
+    &:active {
+        color: var(--btn-color);
+        background-color: var(--btn-bg-color_pressed);
+    }
+
+    &:disabled {
+        color: var(--btn-color_disabled);
+        background-color: transparent;
+    }
+}
+
+.loading {
     svg {
         width: rem(19);
         height: rem(19);
@@ -102,49 +117,6 @@
             width: rem(15);
             height: rem(15);
         }
-    }
-
-    &:hover {
-        background-color: #7a78ff;
-    }
-
-    &:active {
-        background-color: #2826c1;
-    }
-
-    &:focus-visible {
-        outline: 3px solid rgb(122 120 255 / 50%);
-    }
-
-    &:disabled {
-        color: #7c7f90;
-        cursor: default;
-        background-color: #dddedf;
-    }
-}
-
-.texted {
-    color: var(--primary-color);
-    border: 0;
-    background-color: transparent;
-
-    &:hover {
-        background-color: var(--primary-color-hover);
-    }
-
-    &:active {
-        color: var(--primary-color-pressed-dark);
-        background-color: var(--primary-color-pressed);
-    }
-
-    &:focus-visible {
-        outline: 3px solid rgb(122 120 255 / 50%);
-    }
-
-    &:disabled {
-        color: #7c7f90;
-        cursor: default;
-        background-color: transparent;
     }
 }
 

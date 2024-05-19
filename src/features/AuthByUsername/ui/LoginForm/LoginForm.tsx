@@ -124,7 +124,7 @@ export function LoginForm(props: LoginFormProps) {
             {loading ? (
                 <Button
                     className={cls.LoginForm__btn}
-                    variant={ButtonVariants.PROCESS}
+                    loading
                 >
                     Загрузка...
                 </Button>

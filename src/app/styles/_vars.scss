@@ -14,21 +14,27 @@
     // Buttons
     --btn-border-radius: #{rem(16)};
     --btn-color: #fff;
+    --btn-color_disabled: #7c7f90;
+    --btn-color_pressed: #2826c1;
     --btn-bg-color: var(--primary-color, #5755ff);
     --btn-bg-color_hover: #7a78ff;
     --btn-bg-color_pressed: #2826c1;
     --btn-bg-color_disabled: #dddedf;
     --btn-bg-color_light: #f4f3ff;
     --btn-bg-color_light-pressed: #d5d2ff;
+    --btn-color-outline: #7a78ff80;
+
+    // Input colors
+    --input-color: #141417;
+    --input-bg-color: #fff;
+    --input-bg-color_disabled: #f1f1f1;
+    --input-border-color: #dadbdc;
 
     // Background colors
     --accent-bg-color: #f5f6fa;
     --accent-bg-color_light: #fff;
 
     --border-color: #eee;
-
-    --input-bg-color: #fff;
-    --input-border-color: #dadbdc;
 
     --skeleton-bg-color: #f4f4ff;
 

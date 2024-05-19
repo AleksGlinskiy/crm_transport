@@ -1,40 +1,46 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "json-server1112",
-            "author": "typicode"
-        }
-    ],
-    "stopover": [
-        {
-            "id": 1,
-            "name": "Вокзал",
-            "coordinates": [53.300001, 28.647015],
-            "description": "Описание"
-        },
-        {
-            "id": 2,
-            "name": "Дворец культурыa",
-            "coordinates": [53.302255, 28.642222],
-            "description": "Описаниеdsd"
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "admin",
-            "password": "12345678",
-            "avatar": "https://sun23-2.userapi.com/s/v1/ig2/nf1stb3ONkhUNBt16Hbqd4J4fwlppJq-tv6fIrRKILgm7if4VMCySBWvw2Crn8YjESuXrMfiPK_CnIYhVDfx3vwS.jpg?size=200x200&quality=96&crop=198,0,960,960&ava=1"
-        }
-    ],
-    "profile": [
-        {
-            "id": 1,
-            "username": "admin",
-            "firstname": "Aleks",
-            "lastname": "Glinskiy",
-            "avatar": "https://sun23-2.userapi.com/s/v1/ig2/nf1stb3ONkhUNBt16Hbqd4J4fwlppJq-tv6fIrRKILgm7if4VMCySBWvw2Crn8YjESuXrMfiPK_CnIYhVDfx3vwS.jpg?size=200x200&quality=96&crop=198,0,960,960&ava=1"
-        }
-    ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server1112",
+      "author": "typicode"
+    }
+  ],
+  "stopover": [
+    {
+      "id": 1,
+      "name": "Вокзал",
+      "coordinates": [
+        53.300001,
+        28.647015
+      ],
+      "description": "Описание"
+    },
+    {
+      "id": 2,
+      "name": "Дворец культуры",
+      "coordinates": [
+        53.302255,
+        28.642222
+      ],
+      "description": "Описание"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "12345678",
+      "avatar": "https://sun23-2.userapi.com/s/v1/ig2/nf1stb3ONkhUNBt16Hbqd4J4fwlppJq-tv6fIrRKILgm7if4VMCySBWvw2Crn8YjESuXrMfiPK_CnIYhVDfx3vwS.jpg?size=200x200&quality=96&crop=198,0,960,960&ava=1"
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "username": "admin",
+      "firstname": "Aleks",
+      "lastname": "Glinskiy",
+      "avatar": "https://sun23-2.userapi.com/s/v1/ig2/nf1stb3ONkhUNBt16Hbqd4J4fwlppJq-tv6fIrRKILgm7if4VMCySBWvw2Crn8YjESuXrMfiPK_CnIYhVDfx3vwS.jpg?size=200x200&quality=96&crop=198,0,960,960&ava=1"
+    }
+  ]
 }

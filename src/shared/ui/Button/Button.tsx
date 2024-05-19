@@ -6,7 +6,6 @@ import IconLoader from '@/shared/assets/icons/loading.svg';
 export enum ButtonVariants {
     PRIMARY = 'primary',
     OUTLINE = 'outline',
-    PROCESS = 'process',
     TEXTED = 'texted',
 }
 
@@ -14,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     variant?: ButtonVariants;
     className?: string;
+    loading?: boolean;
 }
 
 export function Button(props: ButtonProps) {
@@ -21,11 +21,13 @@ export function Button(props: ButtonProps) {
         children,
         className,
         variant = ButtonVariants.PRIMARY,
+        loading,
         ...otherProps
     } = props;
 
     const mods = {
         [cls[variant]]: true,
+        [cls.loading]: loading,
     };
 
     return (
@@ -34,7 +36,7 @@ export function Button(props: ButtonProps) {
             type='button'
             {...otherProps}
         >
-            {variant === ButtonVariants.PROCESS && (
+            {loading && (
                 <IconLoader width={19} height={19} />
             )}
             <span>{children}</span>

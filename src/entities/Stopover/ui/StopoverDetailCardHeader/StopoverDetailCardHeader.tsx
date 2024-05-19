@@ -63,7 +63,7 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
     let actions;
     if (readonly) {
         actions = formIsLoading ? (
-            <Button variant={ButtonVariants.PROCESS}>Сохранение</Button>
+            <Button loading>Сохранение</Button>
         ) : (
             <div className={cls.StopoverDetailCardHeader__btns}>
                 <Button onClick={onBackPage} variant={ButtonVariants.OUTLINE}>

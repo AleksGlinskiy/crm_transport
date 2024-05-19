@@ -7,11 +7,12 @@ import { Button } from '../Button';
 import { Theme } from '@/shared/const/theme';
 
 interface LayoutProps {
+    className?: string;
     children: ReactNode;
 }
 
 export function Layout(props: LayoutProps) {
-    const { children } = props;
+    const { className, children } = props;
 
     const { theme, themeToggle } = useTheme();
 
@@ -27,10 +28,8 @@ export function Layout(props: LayoutProps) {
         themeToggle(Theme.SYSTEM);
     };
 
-    console.log(theme);
-
     return (
-        <div className={classNames(cls.Layout, theme)}>
+        <div className={classNames(cls.Layout, className)}>
             <Sidebar className={cls.Layout__sidebar} />
 
             <div className={cls.Layout__page}>

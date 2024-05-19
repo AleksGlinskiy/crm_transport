@@ -31,12 +31,16 @@ export function Input(props: InputProps) {
         ...otherProps
     } = props;
 
+    const [val, setVal] = useState(value || '');
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setVal(e.target.value);
         onChange?.(e.target.value);
     };
 
     const onClearHandler = () => {
         onChange?.('');
+        setVal('');
     };
 
     const mods = {
@@ -55,7 +59,7 @@ export function Input(props: InputProps) {
             <span className={cls.Input__wrapTag}>
                 <input
                     className={cls.Input__tag}
-                    value={value}
+                    value={val}
                     onChange={onChangeHandler}
                     required={required}
                     readOnly={readonly}

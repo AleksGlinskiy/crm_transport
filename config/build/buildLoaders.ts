@@ -1,7 +1,7 @@
 import type webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
 import { type BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
@@ -10,29 +10,7 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
         exclude: /node_modules/,
     };
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:5]'
-                            : '[hash:base64:8]',
-                    },
-                },
-            },
-            {
-                loader: 'sass-loader',
-                // options: {
-                //     additionalData: '@use "app/styles/_mixins.scss" as *;',
-                // },
-            },
-        ],
-    };
+    const cssLoader = buildCssLoader(isDev);
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
@@ -43,26 +21,7 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
         ],
     };
 
-    const svgLoader = {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: [{
-            loader: '@svgr/webpack',
-            options: {
-                icon: true,
-                svgoConfig: {
-                    plugins: [
-                        {
-                            name: 'convertColors',
-                            params: {
-                                currentColor: true,
-                            },
-                        },
-                    ],
-                },
-            },
-        }],
-    };
+    const svgLoader = buildSvgLoader();
 
     const fontLoader = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
