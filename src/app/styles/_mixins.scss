@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @mixin media-big-desktop {
     @media screen and (min-width: #{rem(2561)}) {

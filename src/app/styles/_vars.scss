@@ -7,32 +7,33 @@
 
     // Fonts
     --font-size: #{rem(16)};
-    --font-family: "Gilroy", sans-serif;
+    --font-family: 'Gilroy', sans-serif;
     --font-color: #141417;
     --font-grey-color: #54626d;
 
     // Buttons
     --btn-border-radius: #{rem(16)};
     --btn-color: #fff;
-    --btn-color_disabled: #7c7f90;
-    --btn-color_pressed: #2826c1;
+    --btn-color-disabled: #7c7f90;
+    --btn-color-pressed: #2826c1;
     --btn-bg-color: var(--primary-color, #5755ff);
-    --btn-bg-color_hover: #7a78ff;
-    --btn-bg-color_pressed: #2826c1;
-    --btn-bg-color_disabled: #dddedf;
-    --btn-bg-color_light: #f4f3ff;
-    --btn-bg-color_light-pressed: #d5d2ff;
+    --btn-bg-color-hover: #7a78ff;
+    --btn-bg-color-pressed: #2826c1;
+    --btn-bg-color-disabled: #dddedf;
+    --btn-bg-color-light: #f4f3ff;
+    --btn-bg-color-light-pressed: #d5d2ff;
     --btn-color-outline: #7a78ff80;
 
     // Input colors
     --input-color: #141417;
+    --input-color-disabled: #7c7f90;
     --input-bg-color: #fff;
-    --input-bg-color_disabled: #f1f1f1;
+    --input-bg-color-disabled: #f1f1f1;
     --input-border-color: #dadbdc;
 
     // Background colors
     --accent-bg-color: #f5f6fa;
-    --accent-bg-color_light: #fff;
+    --accent-bg-color-light: #fff;
 
     --border-color: #eee;
 
@@ -46,20 +47,30 @@
         --font-color: #fefefe;
         --font-grey-color: #dcdcdd;
 
-        --primary-color: #426ecf;
-        --primary-color-hover: #214fb5;
-        --primary-color-pressed: #426ecf;
-        --primary-color-pressed-dark: #426ecf;
-        --primary-color-disabled: #dddedf;
+        // Buttons
+        --btn-color: #fff;
+        --btn-color-disabled: #7c7f90;
+        --btn-color-pressed: #2826c1;
+        --btn-bg-color: var(--primary-color, #5755ff);
+        --btn-bg-color-hover: #7a78ff;
+        --btn-bg-color-pressed: #2826c1;
+        --btn-bg-color-disabled: #24252f;
+        --btn-bg-color-light: #1e2239;
+        --btn-bg-color-light-pressed: #101427;
+        --btn-color-outline: #7a78ff80;
+
+        // Input colors
+        --input-color: #fff;
+        --input-color-disabled: #7c7f90;
+        --input-bg-color: #1f2029;
+        --input-bg-color-disabled: #1f2029;
+        --input-border-color: #2c2d37;
 
         // Background colors
         --accent-bg-color: #17181f;
-        --accent-bg-color_light: #1f2029;
+        --accent-bg-color-light: #1f2029;
 
         --border-color: #292a32;
-
-        --input-bg-color: #1f2029;
-        --input-border-color: #2c2d37;
 
         --skeleton-bg-color: #2c2d37;
     }

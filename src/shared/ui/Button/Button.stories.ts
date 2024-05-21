@@ -7,8 +7,12 @@ const meta: Meta<typeof Button> = {
     component: Button,
     argTypes: {
         variant: {
-            options: [ButtonVariants.PRIMARY, ButtonVariants.OUTLINE, ButtonVariants.TEXTED],
-            control: { 
+            options: [
+                ButtonVariants.PRIMARY,
+                ButtonVariants.OUTLINE,
+                ButtonVariants.TEXTED,
+            ],
+            control: {
                 type: 'inline-radio',
                 labels: {
                     [ButtonVariants.PRIMARY]: 'Primary',
@@ -20,12 +24,12 @@ const meta: Meta<typeof Button> = {
         loading: {
             control: {
                 type: 'boolean',
-            }
-        }
+            },
+        },
     },
     args: {
         loading: false,
-        disabled: false
+        disabled: false,
     },
 };
 
@@ -43,7 +47,7 @@ export const ButtonDefaultDisabled: Story = {
     args: {
         variant: ButtonVariants.PRIMARY,
         children: 'Button Default',
-        disabled: true
+        disabled: true,
     },
 };
 
@@ -58,7 +62,7 @@ export const ButtonOutlineDisabled: Story = {
     args: {
         variant: ButtonVariants.OUTLINE,
         children: 'Button Outline',
-        disabled: true
+        disabled: true,
     },
 };
 
@@ -73,6 +77,6 @@ export const ButtonTextedDisabled: Story = {
     args: {
         variant: ButtonVariants.TEXTED,
         children: 'Button Texted',
-        disabled: true
+        disabled: true,
     },
 };

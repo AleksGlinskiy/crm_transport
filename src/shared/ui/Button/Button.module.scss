@@ -1,4 +1,4 @@
-@use "app/styles/_mixins.scss" as *;
+@use 'app/styles/_mixins.scss' as *;
 
 .Button {
     display: inline-flex;
@@ -12,7 +12,10 @@
     cursor: pointer;
     border: 0;
     border-radius: var(--btn-border-radius);
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        border-color 0.3s;
 
     @include media-big-desktop {
         height: big(56);
@@ -44,16 +47,16 @@
     background-color: var(--btn-bg-color);
 
     &:hover {
-        background-color: var(--btn-bg-color_hover);
+        background-color: var(--btn-bg-color-hover);
     }
 
     &:active {
-        background-color: var(--btn-bg-color_pressed);
+        background-color: var(--btn-bg-color-pressed);
     }
 
     &:disabled {
-        color: var(--btn-color_disabled);
-        background-color: var(--btn-bg-color_disabled);
+        color: var(--btn-color-disabled);
+        background-color: var(--btn-bg-color-disabled);
     }
 }
 
@@ -64,18 +67,18 @@
 
     &:hover {
         color: var(--primary-color);
-        background-color: var(--btn-bg-color_light);
+        background-color: var(--btn-bg-color-light);
     }
 
     &:active {
-        color: var(--btn-color_pressed);
-        border-color: var(--btn-bg-color_pressed);
-        background-color: var(--btn-bg-color_light-pressed);
+        color: var(--btn-color-pressed);
+        border-color: var(--btn-bg-color-pressed);
+        background-color: var(--btn-bg-color-light-pressed);
     }
 
     &:disabled {
-        color: var(--btn-color_disabled);
-        border-color: var(--btn-color_disabled);
+        color: var(--btn-color-disabled);
+        border-color: var(--btn-color-disabled);
         background-color: transparent;
     }
 }
@@ -86,16 +89,16 @@
     background-color: transparent;
 
     &:hover {
-        background-color: var(--btn-bg-color_light);
+        background-color: var(--btn-bg-color-light);
     }
 
     &:active {
         color: var(--btn-color);
-        background-color: var(--btn-bg-color_pressed);
+        background-color: var(--btn-bg-color-pressed);
     }
 
     &:disabled {
-        color: var(--btn-color_disabled);
+        color: var(--btn-color-disabled);
         background-color: transparent;
     }
 }

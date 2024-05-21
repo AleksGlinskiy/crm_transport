@@ -39,8 +39,6 @@ export function createReduxStore(
     // @ts-ignore
     store.reducerManager = reducerManager;
 
-    console.log('Store Render');
-
     return store;
 }
 
