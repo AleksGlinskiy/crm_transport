@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes, useState } from 'react';
 import classNames from 'classnames';
 import cls from './Textarea.module.scss';
 import IconClear from '@/shared/assets/icons/close.svg';
@@ -31,12 +31,16 @@ export function Textarea(props: TextareaProps) {
         ...otherProps
     } = props;
 
+    const [val, setVal] = useState(value || '');
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setVal(e.target.value);
         onChange?.(e.target.value);
     };
 
     const onClearHandler = () => {
         onChange?.('');
+        setVal('');
     };
 
     const mods = {
@@ -57,7 +61,7 @@ export function Textarea(props: TextareaProps) {
                     className={cls.Textarea__tag}
                     onChange={onChangeHandler}
                     required={required}
-                    value={value}
+                    value={val}
                     readOnly={readonly}
                     {...otherProps}
                 />

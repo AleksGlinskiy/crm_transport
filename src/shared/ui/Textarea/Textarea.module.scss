@@ -119,7 +119,7 @@
     }
 
     &_error {
-        .Input {
+        .Textarea {
             &__tag {
                 border-color: var(--error-color);
                 padding-right: rem(40);

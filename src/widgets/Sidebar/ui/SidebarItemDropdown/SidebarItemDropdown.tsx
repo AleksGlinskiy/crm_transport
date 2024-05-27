@@ -26,9 +26,12 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
                 })}
                 onClick={() => setIsActiveList(!isActiveList)}
             >
-                <SidebarItem Icon={Icon} name={name} isActive={isActiveList} />
+                <div className={cls.SidebarItemDropdown__wrap}>
+                    <Icon className={cls.SidebarItemDropdown__icon} />
+                    <span className={cls.SidebarItemDropdown__name}>{name}</span>
+                </div>
 
-                {list && list.length && (
+                {list?.length && (
                     <IconArrow
                         className={classNames(cls.SidebarItemDropdown__arrow, {
                             [cls.SidebarItemDropdown__arrow_active]:
@@ -40,24 +43,22 @@ export function SidebarItemDropdown(props: SidebarItemDropdownProps) {
 
             {isActiveList && (
                 <div className={cls.SidebarItemDropdown__list}>
-                    {list &&
-                        list.length &&
-                        list.map((item) => (
-                            <NavLink
-                                key={item.name}
-                                to={item.path}
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? classNames(
-                                              cls.SidebarItemDropdown__listItem,
-                                              cls.SidebarItemDropdown__listItem_active,
-                                          )
-                                        : cls.SidebarItemDropdown__listItem
-                                }
-                            >
-                                {item.name}
-                            </NavLink>
-                        ))}
+                    {list?.length && list.map((item) => (
+                        <NavLink
+                            key={item.name}
+                            to={item.path}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? classNames(
+                                            cls.SidebarItemDropdown__listItem,
+                                            cls.SidebarItemDropdown__listItem_active,
+                                        )
+                                    : cls.SidebarItemDropdown__listItem
+                            }
+                        >
+                            {item.name}
+                        </NavLink>
+                    ))}
                 </div>
             )}
         </div>

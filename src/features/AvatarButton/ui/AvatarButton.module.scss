@@ -30,7 +30,7 @@
         color: #7c7f90;
     }
 
-    &__btn {
+    &__logout {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -41,6 +41,7 @@
         cursor: pointer;
         margin-left: auto;
         transition: color 0.3s;
+        color: var(--font-color);
 
         &:hover {
             color: var(--primary-color);

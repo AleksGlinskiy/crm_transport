@@ -54,7 +54,7 @@ export function AvatarButton(props: AvatarButtonProps) {
             <button
                 type='button'
                 aria-label='logout'
-                className={cls.AvatarButton__btn}
+                className={cls.AvatarButton__logout}
                 onClick={() => handleLogout()}
                 title='Выйти'
             >

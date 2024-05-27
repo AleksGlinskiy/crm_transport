@@ -16,7 +16,7 @@
     --btn-color: #fff;
     --btn-color-disabled: #7c7f90;
     --btn-color-pressed: #2826c1;
-    --btn-bg-color: var(--primary-color, #5755ff);
+    --btn-bg-color: #5755ff;
     --btn-bg-color-hover: #7a78ff;
     --btn-bg-color-pressed: #2826c1;
     --btn-bg-color-disabled: #dddedf;
@@ -35,6 +35,9 @@
     --accent-bg-color: #f5f6fa;
     --accent-bg-color-light: #fff;
 
+    // Sidebar
+    --bg-menu-item: #f4f3ff;
+
     --border-color: #eee;
 
     --skeleton-bg-color: #f4f4ff;
@@ -51,7 +54,7 @@
         --btn-color: #fff;
         --btn-color-disabled: #7c7f90;
         --btn-color-pressed: #2826c1;
-        --btn-bg-color: var(--primary-color, #5755ff);
+        --btn-bg-color: #5755ff;
         --btn-bg-color-hover: #7a78ff;
         --btn-bg-color-pressed: #2826c1;
         --btn-bg-color-disabled: #24252f;
@@ -69,6 +72,9 @@
         // Background colors
         --accent-bg-color: #17181f;
         --accent-bg-color-light: #1f2029;
+
+        // Sidebar
+        --bg-menu-item: #26283d;
 
         --border-color: #292a32;
 
