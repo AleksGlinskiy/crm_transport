@@ -13,21 +13,21 @@ const justifyClasses: Record<FlexJustify, string> = {
     end: cls.justify_end,
     between: cls.justify_between,
     around: cls.justify_around,
-}
+};
 
 const alignClasses: Record<FlexAlign, string> = {
     center: cls.align_center,
     start: cls.align_start,
     end: cls.align_end,
     stretch: cls.align_stretch,
-}
+};
 
 const directionClasses: Record<FlexDirection, string> = {
     column: cls.direction_column,
     row: cls.direction_row,
     columnReverse: cls.direction_columnReverse,
     rowReverse: cls.direction_rowReverse,
-}
+};
 
 const gapClasses: Record<FlexGap, string> = {
     4: cls.gap_4,
@@ -37,9 +37,12 @@ const gapClasses: Record<FlexGap, string> = {
     24: cls.gap_24,
     32: cls.gap_32,
     40: cls.gap_40,
-}
+};
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
 interface FlexProps extends DivProps {
     children: ReactNode;
@@ -57,7 +60,7 @@ export function Flex(props: FlexProps) {
         justify = 'start',
         align = 'stretch',
         direction = 'row',
-        gap
+        gap,
     } = props;
 
     const classes = [
@@ -65,12 +68,8 @@ export function Flex(props: FlexProps) {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
-        gap && gapClasses[gap]
-    ]
+        gap && gapClasses[gap],
+    ];
 
-    return (
-        <div className={classNames(cls.Flex, classes)}>
-            {children}
-        </div>
-    );
+    return <div className={classNames(cls.Flex, classes)}>{children}</div>;
 }

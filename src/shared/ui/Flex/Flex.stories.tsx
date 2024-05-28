@@ -10,35 +10,44 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
-const Col = () => (<div style={{
-    backgroundColor: 'var(--btn-color-outline)', 
-    padding: '15px',
-    borderRadius: '2px'
-
-}}>Element</div>)
+const Col = () => (
+    <div
+        style={{
+            backgroundColor: 'var(--btn-color-outline)',
+            padding: '15px',
+            borderRadius: '2px',
+        }}
+    >
+        Element
+    </div>
+);
 
 export const FlexDefault: Story = {
     args: {
-        children: <>
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-        </>,
+        children: (
+            <>
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+            </>
+        ),
         gap: '12',
     },
 };
 
 export const FlexJustifyCenter: Story = {
     args: {
-        children: <>
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-        </>,
+        children: (
+            <>
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+            </>
+        ),
         gap: '12',
         justify: 'center',
     },
@@ -46,15 +55,16 @@ export const FlexJustifyCenter: Story = {
 
 export const FlexDirection: Story = {
     args: {
-        children: <>
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-            <Col />
-        </>,
+        children: (
+            <>
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+                <Col />
+            </>
+        ),
         gap: '12',
         direction: 'column',
     },
 };
-
