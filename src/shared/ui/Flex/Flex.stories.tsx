@@ -5,19 +5,56 @@ import { Flex } from './Flex';
 const meta: Meta<typeof Flex> = {
     title: 'Components/Flex',
     component: Flex,
-    argTypes: {
-    },
 };
 
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
+const Col = () => (<div style={{
+    backgroundColor: 'var(--btn-color-outline)', 
+    padding: '15px',
+    borderRadius: '2px'
+
+}}>Element</div>)
+
 export const FlexDefault: Story = {
     args: {
         children: <>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
+            <Col />
+            <Col />
+            <Col />
+            <Col />
+            <Col />
         </>,
+        gap: '12',
     },
 };
+
+export const FlexJustifyCenter: Story = {
+    args: {
+        children: <>
+            <Col />
+            <Col />
+            <Col />
+            <Col />
+            <Col />
+        </>,
+        gap: '12',
+        justify: 'center',
+    },
+};
+
+export const FlexDirection: Story = {
+    args: {
+        children: <>
+            <Col />
+            <Col />
+            <Col />
+            <Col />
+            <Col />
+        </>,
+        gap: '12',
+        direction: 'column',
+    },
+};
+
