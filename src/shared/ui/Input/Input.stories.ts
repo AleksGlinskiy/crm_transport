@@ -9,7 +9,7 @@ const meta: Meta<typeof Input> = {
         placeholder: 'Input placeholder',
         error: false,
         readonly: false,
-        disabled: false
+        disabled: false,
     },
 };
 
@@ -27,14 +27,13 @@ export const InputDisabled: Story = {
 export const InputLabel: Story = {
     args: {
         label: 'label',
-        value: 'ds'
     },
 };
 
 export const InputError: Story = {
     args: {
         label: 'label',
-        error: true
+        error: true,
     },
 };
 

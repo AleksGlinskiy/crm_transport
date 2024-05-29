@@ -9,7 +9,7 @@ const meta: Meta<typeof Textarea> = {
         placeholder: 'Textarea placeholder',
         error: false,
         readonly: false,
-        disabled: false
+        disabled: false,
     },
 };
 
@@ -27,14 +27,13 @@ export const TextareaDisabled: Story = {
 export const TextareaLabel: Story = {
     args: {
         label: 'label',
-        value: 'ds'
     },
 };
 
 export const TextareaError: Story = {
     args: {
         label: 'label',
-        error: true
+        error: true,
     },
 };
 

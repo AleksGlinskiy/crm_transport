@@ -4,7 +4,7 @@ import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -18,7 +18,6 @@ export default ({ config }: {config: webpack.Configuration}) => {
         '@': paths.src,
     };
 
-    // eslint-disable-next-line no-param-reassign
     // @ts-ignore
     config!.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
@@ -31,11 +30,11 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config!.module!.rules.push(buildSvgLoader());
     config!.module!.rules.push(buildCssLoader(true));
 
-    config!.plugins!.push(new DefinePlugin({
-        __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('https://testapi.ru'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config!.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+        }),
+    );
 
     return config;
 };

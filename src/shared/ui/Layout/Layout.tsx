@@ -1,10 +1,7 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Sidebar } from '@/widgets/Sidebar';
 import cls from './Layout.module.scss';
-import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Button } from '../Button';
-import { Theme } from '@/shared/const/theme';
 
 interface LayoutProps {
     className?: string;
@@ -20,7 +17,6 @@ export function Layout(props: LayoutProps) {
 
             <div className={cls.Layout__page}>
                 <div className={cls.Layout__content}>{children}</div>
-
 
                 <footer className={cls.Layout__footer}>Footer</footer>
             </div>

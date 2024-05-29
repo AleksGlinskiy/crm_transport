@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button, ButtonVariants } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -36,14 +35,22 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const ButtonDefault: Story = {
+export const ButtonPrimary: Story = {
     args: {
         variant: ButtonVariants.PRIMARY,
         children: 'Button Default',
     },
 };
 
-export const ButtonDefaultDisabled: Story = {
+export const ButtonPrimaryLoading: Story = {
+    args: {
+        variant: ButtonVariants.PRIMARY,
+        children: 'Button Default',
+        loading: true,
+    },
+};
+
+export const ButtonPrimaryDisabled: Story = {
     args: {
         variant: ButtonVariants.PRIMARY,
         children: 'Button Default',
@@ -55,6 +62,14 @@ export const ButtonOutline: Story = {
     args: {
         variant: ButtonVariants.OUTLINE,
         children: 'Button Outline',
+    },
+};
+
+export const ButtonOutlineLoading: Story = {
+    args: {
+        variant: ButtonVariants.OUTLINE,
+        children: 'Button Outline',
+        loading: true,
     },
 };
 
@@ -70,6 +85,14 @@ export const ButtonTexted: Story = {
     args: {
         variant: ButtonVariants.TEXTED,
         children: 'Button Texted',
+    },
+};
+
+export const ButtonTextedLoading: Story = {
+    args: {
+        variant: ButtonVariants.TEXTED,
+        children: 'Button Texted',
+        loading: true,
     },
 };
 
