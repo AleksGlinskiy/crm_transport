@@ -44,7 +44,7 @@ type DivProps = DetailedHTMLProps<
     HTMLDivElement
 >;
 
-interface FlexProps extends DivProps {
+export interface FlexProps extends DivProps {
     children: ReactNode;
     className?: string;
     justify?: FlexJustify;
