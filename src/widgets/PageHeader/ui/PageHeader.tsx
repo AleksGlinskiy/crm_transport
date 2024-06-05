@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 import cls from './PageHeader.module.scss';
 import { Text, TextStyle, TextTag } from '@/shared/ui/Text/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 interface PageHeaderProps {
     className?: string;
@@ -14,17 +15,23 @@ export function PageHeader(props: PageHeaderProps) {
     const { className, title, text, actions } = props;
 
     return (
-        <div className={classNames(cls.PageHeader, className)}>
-            <div className={cls.PageHeader__content}>
+        <HStack
+            justify='between'
+            align='center'
+            className={classNames(cls.PageHeader, className)}
+        >
+            <VStack gap='8'>
                 <Text tag={TextTag.H1} style={TextStyle.H2}>
                     {title}
                 </Text>
                 {text && <Text>{text}</Text>}
-            </div>
+            </VStack>
 
             {actions && (
-                <div className={cls.PageHeader__actions}>{actions}</div>
+                <HStack justify='between' align='center'>
+                    {actions}
+                </HStack>
             )}
-        </div>
+        </HStack>
     );
 }

@@ -1,15 +1,5 @@
 .PageHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     &__content {
         margin-right: 30px;
-    }
-
-    &__actions {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
     }
 }

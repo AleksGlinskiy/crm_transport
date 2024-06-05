@@ -13,6 +13,7 @@ import {
 import { stopoverDetailActions } from '../../model/slice/StopoverDetailSlice';
 import { updateStopoverData } from '../../model/services/updateStopoverData/updateStopoverData';
 import cls from './StopoverDetailCardHeader.module.scss';
+import { HStack } from '@/shared/ui/Stack';
 
 interface StopoverDetailCardHeaderProps {
     className?: string;
@@ -53,10 +54,10 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
 
     if (isLoading) {
         return (
-            <div className={cls.StopoverDetailCardHeader__skeleton}>
+            <HStack gap='16' justify='between'>
                 <Skeleton width='45%' height='60px' border='20px' />
                 <Skeleton width='180px' height='60px' border='20px' />
-            </div>
+            </HStack>
         );
     }
 
@@ -65,21 +66,21 @@ export function StopoverDetailCardHeader(props: StopoverDetailCardHeaderProps) {
         actions = formIsLoading ? (
             <Button loading>Сохранение</Button>
         ) : (
-            <div className={cls.StopoverDetailCardHeader__btns}>
+            <HStack gap='16'>
                 <Button onClick={onBackPage} variant={ButtonVariants.OUTLINE}>
                     Назад
                 </Button>
                 <Button onClick={onEdit}>Редактировать</Button>
-            </div>
+            </HStack>
         );
     } else {
         actions = (
-            <div className={cls.StopoverDetailCardHeader__btns}>
+            <HStack gap='16'>
                 <Button onClick={onBack} variant={ButtonVariants.OUTLINE}>
                     Отменить Редактирование
                 </Button>
                 <Button onClick={onSave}>Сохранить</Button>
-            </div>
+            </HStack>
         );
     }
 

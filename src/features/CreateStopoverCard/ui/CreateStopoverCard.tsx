@@ -1,24 +1,21 @@
-import { useEffect, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     StopoverDetailCard,
-    StopoverDetailCardHeader,
-    fetchStopoverById,
-    getStopoverDetailsData,
-    getStopoverDetailsError,
     getStopoverDetailsForm,
-    getStopoverDetailsIsLoading,
-    getStopoverDetailsReadonly,
     stopoverDetailActions,
     stopoverDetailReducer,
 } from '@/entities/Stopover';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import useReducerManager from '@/shared/lib/hooks/useReducerManager';
-import { VStack } from '@/shared/ui/Stack';
+import { Button, ButtonVariants } from '@/shared/ui/Button';
+import { createStopoverData } from '@/entities/Stopover/model/services/createStopoverData/createStopoverData';
+import { PageHeader } from '@/widgets/PageHeader';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
-interface EditableStopoverDetailCardProps {
+interface CreateStopoverCardProps {
     className?: string;
 }
 
@@ -26,34 +23,15 @@ const Reducers = {
     stopoverDetails: stopoverDetailReducer,
 };
 
-export function EditableStopoverDetailCard(
-    props: EditableStopoverDetailCardProps,
-) {
+export function CreateStopoverCard(props: CreateStopoverCardProps) {
     useReducerManager(Reducers);
 
     const { className } = props;
 
     const dispatch = useAppDispatch();
-    const location = useLocation();
-    const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
 
-    const isLoading = useSelector(getStopoverDetailsIsLoading);
-    const error = useSelector(getStopoverDetailsError);
-    const stopover = useSelector(getStopoverDetailsData);
     const stopoverForm = useSelector(getStopoverDetailsForm);
-    const readonly = useSelector(getStopoverDetailsReadonly);
-
-    useEffect(() => {
-        if (id) {
-            dispatch(fetchStopoverById(id));
-        }
-    }, [id, dispatch]);
-
-    useEffect(() => {
-        if (location.pathname.includes('edit')) {
-            dispatch(stopoverDetailActions.setReadonly(false));
-        }
-    }, [dispatch, location.pathname]);
 
     const onChangeName = (value?: string) => {
         dispatch(
@@ -80,23 +58,37 @@ export function EditableStopoverDetailCard(
         );
     };
 
+    const onSave = () => {
+        dispatch(createStopoverData());
+        navigate(RoutePath.stopover);
+    };
+
+    const onBack = () => {
+        navigate(RoutePath.stopover);
+    };
+
     return (
         <VStack className={classNames(className)} gap='32'>
-            <StopoverDetailCardHeader
-                title={stopover?.name}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
+            <PageHeader
+                title='Новый остановочный пункт'
+                actions={
+                    <HStack gap='16'>
+                        <Button
+                            onClick={onBack}
+                            variant={ButtonVariants.OUTLINE}
+                        >
+                            Назад
+                        </Button>
+                        <Button onClick={onSave}>Сохранить</Button>
+                    </HStack>
+                }
             />
 
             <StopoverDetailCard
                 data={stopoverForm}
-                isLoading={isLoading}
-                error={error}
                 onChangeName={onChangeName}
                 onChangeCoordinates={onChangeCoordinates}
                 onChangeDescription={onChangeDescription}
-                readonly={readonly}
             />
         </VStack>
     );

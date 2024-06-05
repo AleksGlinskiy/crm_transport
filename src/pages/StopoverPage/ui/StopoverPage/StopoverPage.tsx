@@ -19,6 +19,7 @@ import { Message, MessageVariants } from '@/shared/ui/Message/Message';
 import { PageHeader } from '@/widgets/PageHeader';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 const initialReducers: ReducersList = {
     stopover: stopoverPageReducer,
@@ -34,6 +35,10 @@ export default function StopoverPage() {
     const error = useSelector(getStopoverError);
     const initiated = useSelector(getStopoverInitiated);
     const navigate = useNavigate();
+
+    const onCreate = () => {
+        navigate(RoutePath.stopover_create);
+    };
 
     useEffect(() => {
         if (!initiated) {
@@ -55,45 +60,28 @@ export default function StopoverPage() {
         content = <Message variant={MessageVariants.ERROR}>Ошибка!</Message>;
     } else if (data) {
         content = (
-            <div
-                style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '30px',
-                    marginTop: '40px',
-                }}
-            >
-                <div
-                    style={{
-                        width: '100%',
-                        background: 'var(--accent-color)',
-                        height: '300px',
-                        borderRadius: '30px',
-                        padding: '30px',
-                    }}
-                >
-                    {data.map((item) => (
-                        <Link
-                            to={RoutePath.stopover_details + item.id}
-                            key={item.id}
-                            style={{ display: 'block' }}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
-            </div>
+            <VStack gap='12'>
+                {data.map((item) => (
+                    <Link
+                        to={RoutePath.stopover_details + item.id}
+                        key={item.id}
+                        style={{ display: 'block' }}
+                    >
+                        {item.name}
+                    </Link>
+                ))}
+            </VStack>
         );
     }
 
     return (
-        <>
+        <VStack gap='32'>
             <PageHeader
                 title='Остановочные пункты'
-                actions={<Button>Создать новый</Button>}
+                actions={<Button onClick={onCreate}>Создать новый</Button>}
             />
 
             {content}
-        </>
+        </VStack>
     );
 }

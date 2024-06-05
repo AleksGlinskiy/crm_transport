@@ -1,17 +1,3 @@
 .StopoverDetailCardHeader {
-    margin-bottom: 40px;
-
-    &__skeleton {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 40px;
-    }
-
-    &__btns {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 20px;
-    }
+    position: relative;
 }

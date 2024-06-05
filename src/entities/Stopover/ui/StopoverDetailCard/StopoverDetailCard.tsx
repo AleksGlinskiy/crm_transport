@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import cls from './StopoverDetailCard.module.scss';
-import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Textarea } from '@/shared/ui/Textarea/Textarea';
 import { Stopover } from '../../model/types/stopover';

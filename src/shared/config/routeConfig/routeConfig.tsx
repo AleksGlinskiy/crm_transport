@@ -8,6 +8,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { SupportPage } from '@/pages/SupportPage';
 import { StopoverPage } from '@/pages/StopoverPage';
 import { StopoverDetailsPage } from '@/pages/StopoverDetailsPage';
+import { StopoverCreatePage } from '@/pages/StopoverCreatePage';
 
 export enum AppRoutes {
     LOGIN = 'login',
@@ -23,6 +24,7 @@ export enum AppRoutes {
     STOPOVER = 'stopover',
     STOPOVER_DETAILS = 'stopover_details',
     STOPOVER_EDIT = 'stopover_edit',
+    STOPOVER_CREATE = 'stopover_create',
 
     // CARS = 'cars',
     // CAR_MONITORING = 'car_monitoring',
@@ -54,6 +56,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.STOPOVER]: '/stopover/',
     [AppRoutes.STOPOVER_DETAILS]: '/stopover/',
     [AppRoutes.STOPOVER_EDIT]: '/stopover/',
+    [AppRoutes.STOPOVER_CREATE]: '/stopover/create/',
 
     // [AppRoutes.CARS]: '/cars',
     // [AppRoutes.CAR_MONITORING]: '/car_monitoring',
@@ -112,6 +115,10 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.STOPOVER_EDIT]: {
         path: `${RoutePath.stopover_edit}:id/edit`,
         element: <StopoverDetailsPage />,
+    },
+    [AppRoutes.STOPOVER_CREATE]: {
+        path: RoutePath.stopover_create,
+        element: <StopoverCreatePage />,
     },
     // [AppRoutes.CARS]: {
     //     path: RoutePath.cars,
