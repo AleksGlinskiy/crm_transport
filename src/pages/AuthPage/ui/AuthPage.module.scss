@@ -44,14 +44,6 @@
         }
     }
 
-    &__content_title {
-        margin-bottom: rem(15);
-
-        @include media-big-desktop {
-            margin-bottom: big(15);
-        }
-    }
-
     &__content_desc {
         a {
             margin-left: rem(5);
@@ -62,14 +54,6 @@
             @include media-big-desktop {
                 margin-left: big(5);
             }
-        }
-    }
-
-    &__form {
-        margin-top: rem(30);
-
-        @include media-big-desktop {
-            margin-top: big(30);
         }
     }
 

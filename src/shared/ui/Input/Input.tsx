@@ -1,4 +1,4 @@
-import React, { type InputHTMLAttributes, useState } from 'react';
+import React, { type InputHTMLAttributes, useState, forwardRef } from 'react';
 import classNames from 'classnames';
 import cls from './Input.module.scss';
 import IconClear from '@/shared/assets/icons/close.svg';
@@ -18,7 +18,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export function Input(props: InputProps) {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
         className,
         value,
@@ -31,16 +31,12 @@ export function Input(props: InputProps) {
         ...otherProps
     } = props;
 
-    const [val, setVal] = useState(value || '');
-
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setVal(e.target.value);
         onChange?.(e.target.value);
     };
 
     const onClearHandler = () => {
         onChange?.('');
-        setVal('');
     };
 
     const mods = {
@@ -58,8 +54,9 @@ export function Input(props: InputProps) {
             )}
             <span className={cls.Input__wrapTag}>
                 <input
+                    ref={ref}
                     className={cls.Input__tag}
-                    value={val}
+                    value={value}
                     onChange={onChangeHandler}
                     required={required}
                     readOnly={readonly}
@@ -82,4 +79,4 @@ export function Input(props: InputProps) {
             )}
         </label>
     );
-}
+});

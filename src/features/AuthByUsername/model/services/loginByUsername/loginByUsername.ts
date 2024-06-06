@@ -16,13 +16,7 @@ export const loginByUsername = createAsyncThunk<
     LoginByUsernameProps,
     ThunkConfig<LoginFormErrors[]>
 >('login/loginByUsername', async (authData, thunkAPI) => {
-    const errors = validateLoginForm(authData);
-
     const { dispatch, rejectWithValue, extra } = thunkAPI;
-
-    if (errors.length) {
-        return rejectWithValue(errors);
-    }
 
     try {
         const response = await extra.api.post<User>('login', authData);

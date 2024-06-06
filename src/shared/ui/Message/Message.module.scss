@@ -27,11 +27,16 @@
 }
 
 .success {
-    color: rgb(52 153 0);
-    background-color: rgb(143 230 107 / 75%);
+    color: var(--success-color);
+    background-color: var(--alert-success-bg-color);
 }
 
 .error {
     color: var(--error-color);
-    background-color: #fee;
+    background-color: var(--alert-error-bg-color);
+}
+
+.warning {
+    color: var(--warning-color);
+    background-color: var(--alert-warning-bg-color);
 }
